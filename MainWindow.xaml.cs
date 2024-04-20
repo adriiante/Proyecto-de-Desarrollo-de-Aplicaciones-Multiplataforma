@@ -6,6 +6,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,10 +24,12 @@ namespace InfoRace
         {
             InitializeComponent();
             listFormula.Visibility = Visibility.Collapsed;
+            listSportsCars.Visibility = Visibility.Collapsed;
         }
 
         private void btFormula_Click(object sender, RoutedEventArgs e)
         {
+            listSportsCars.Visibility = Visibility.Collapsed;
             if (listFormula.Visibility == Visibility.Visible)
             {
                 listFormula.Visibility = Visibility.Collapsed;
@@ -37,21 +40,17 @@ namespace InfoRace
             }
 
         }
-        private void listFormula_MouseEnter(object sender, MouseEventArgs e)
-        {
-            // Cuando el mouse entra en la lista, mantenla visible
-            listFormula.Visibility = Visibility.Visible;
-        }
-
-        private void listFormula_MouseLeave(object sender, MouseEventArgs e)
-        {
-            // Cuando el mouse sale de la lista, oculta la lista
-            listFormula.Visibility = Visibility.Collapsed;
-        }
-
         private void btSportsCars_Click(object sender, RoutedEventArgs e)
         {
-
+            listFormula.Visibility = Visibility.Collapsed;
+            if (listSportsCars.Visibility == Visibility.Visible)
+            {
+                listSportsCars.Visibility = Visibility.Collapsed;
+            } 
+            else 
+            { 
+                listSportsCars.Visibility = Visibility.Visible;
+            }
         }
     }
 }
