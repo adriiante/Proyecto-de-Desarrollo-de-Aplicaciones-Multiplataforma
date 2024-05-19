@@ -4,14 +4,17 @@ body {
   margin: 0;
   padding: 0;
   color: #114177;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: "logo.png";
 }
 
 /* Estilos del encabezado */
 #top {
   text-align: center;
-  margin: auto;
   font-size: 24px;
-  height: 20%;
+  background-color: #001022;
 }
 
 #logo {
@@ -28,15 +31,23 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  background-color: #001022;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .option {
-  display: inline;
   transition: background-color 0.3s, border-radius 0.3s, color 0.3s;
   padding: 0;
-  margin: 0;
+  margin: 0 10px;
+}
+
+.option-left{
+  margin-right: 150px;
+}
+
+.option-right{
+  margin-left: 150px;
 }
 
 .option:hover {
@@ -57,57 +68,60 @@ body {
 
 /* Estilos del contenido principal */
 #mid {
-  height: 60%;
-  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centra los cuadrados verticalmente */
+  padding: 20px;
 }
 
-.registration-title {
-  text-align: center;
-  margin-bottom: 20px;
+.welcome {
+  background-color: #0f3968;
+  color: white;
+  margin: 20px 0; /* Ajuste del espacio entre los cuadrados */
+  padding: 30px; /* Ajuste de la altura del cuadrado */
+  width: 85%;
+  border-radius: 10px;
+  height: 250px; /* Ajuste de la altura */
+  transition: transform 0.3s, background-color 0.3s; /* Transición suave */
 }
 
-.registration-form {
-  width: 50%;
-  height: 500px;
-  margin: 0 auto;
+.welcome:first-child {
+  width: 80%;
+  height: 200px; /* Ajuste de la altura del primer cuadrado */
 }
 
-.form-group {
-  line-height: 30px;
-}
-
-.form-input {
-  width: calc(100% - 40px);
-  vertical-align: middle;
-}
-
-input[type="checkbox"] {
-  margin-left: 20px;
-  vertical-align: middle;
+/* Efectos al pasar el ratón sobre los cuadrados */
+.welcome:hover {
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+  background-color: #093a5e; /* Cambia el color de fondo */
 }
 
 /* Estilos del pie de página */
 #bottom {
   text-align: center;
-  margin-top: 10px;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  font-size: 24px;
-  height: 5%;
+  background-color: #001022;
+  padding: 10px 0;
+  position: sticky;
+  bottom: 0;
 }
 
 #bottom ul {
-  background-color: #001022;
-  height: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
 
 #bottom li {
-  display: inline;
   transition: background-color 0.3s, border-radius 0.3s, color 0.3s;
-  padding: 0;
+  padding: 0 10px;
   text-align: center;
-  margin: auto;
 }
 
 #bottom li:hover {
@@ -137,3 +151,5 @@ button {
 button:hover {
   background-color: #0f3968; /* Cambia el color al pasar el ratón sobre el botón */
 }
+
+
