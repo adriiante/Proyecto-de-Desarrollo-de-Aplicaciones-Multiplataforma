@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="src\**" />
+    <EmbeddedResource Remove="src\**" />
+    <None Remove="src\**" />
+    <Page Remove="src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\formula.png" />
+    <None Remove="Images\InfoRace.png" />
+    <None Remove="Images\infoRaceazul.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\profile.png" />
+    <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\formula.png" />
+    <Resource Include="Images\InfoRace.png" />
+    <Resource Include="Images\infoRaceazul.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\profile.png" />
+    <Resource Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+  </ItemGroup>
+
+</Project>

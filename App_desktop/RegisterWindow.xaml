@@ -109,8 +109,7 @@
         <Rectangle Grid.Row="1" Fill="White"/>
         <Rectangle Grid.Row="2" Fill="#04101e"/>
         <!--Logo-->
-        <Image Source="C:\Users\adrian\Desktop\WEB\test.png" Height="70"
-               Grid.Row="0" Width="450"/>
+        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" Grid.Row="0" Width="450"/>
         <!--Mid-->
         <TextBlock Text="Correo electronico" Margin="0,0,0,500"/>
         <TextBox Name="tbCorreo" Margin="0,0,0,430"/>
@@ -124,10 +123,10 @@
         <TextBox Name="tbUsuario" Margin="0,130,0,0"/>
         <CheckBox Name="cbCondiciones" Margin="0,200,0,0" 
                   Content="Acepto las Condiciones del servicio y Politica de privacidad"/>
-        <CheckBox Name="cbOfertas" Margin="0,250,0,0" 
+        <CheckBox Name="cbOfertas" Margin="0,250,0,0" IsChecked="True"
                   Content="Acepto recibir Información y ofertas"/>
         <Button Name="btCrearCuenta" Content="Crear Cuenta" Margin="0,340,0,0" 
-                Height="40" Width="150" Grid.Row="1"/>
+                Height="40" Width="150" Grid.Row="1" Click="btCrearCuenta_Click"/>
         <TextBlock Text="¿Ya tienes una cuenta?" Margin="0,430,200,0" FontWeight="Normal"
                    Width="170" FontSize="17"/>
         <TextBlock Name="tbIniciarSesion" Text="Iniciar sesión" Margin="80,430,0,0" 

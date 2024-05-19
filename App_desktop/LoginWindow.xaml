@@ -72,9 +72,25 @@
             </Setter>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="400"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -88,21 +104,19 @@
         <Rectangle Grid.Row="1" Fill="White" Name="row2"/>
         <Rectangle Grid.Row="2" Fill="#04101e" Name="row3"/>
         <!--Logo-->
-        <Image Source="C:\Users\adrian\Desktop\WEB\test.png" Height="70"
-               Grid.Row="0" Width="450"/>
+        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" Grid.Row="0" Width="450"/>
         <!--Mid-->
-        <TextBlock Text="Usuario o correo electronico" Width="400" Height="35" Margin="0,0,0,400" Grid.Row="1" />
-        <TextBox Name="tbCorreo" Width="400" Height="35" Margin="0,0,0,300" Grid.Row="1"
-                 Padding="5" FontSize="15"/>
-        <TextBlock Text="Contraseña" Width="400" Height="35" Margin="0,0,0,150" Grid.Row="1"/>
-        <PasswordBox Name="pbContraseña" Width="400" Height="35" Margin="0,0,0,50" Grid.Row="1"
-                     Padding="5" FontSize="15"/>
-        <Button Name="btInicio" Content="Iniciar sesión" 
-                Margin="0,100,0,0" Height="40" Width="150" Grid.Row="1"/>
-        <TextBlock Text="¿No tienes todavia una cuenta?" Width="280" Height="35" Margin="0,220,100,0" 
-                   Grid.Row="1" FontSize="20" FontWeight="Normal"/>
-        <TextBlock Name="tbCrearCuenta" Text="Crear cuenta" Width="120" Height="35" Margin="310,220,0,0" 
-                   Grid.Row="1" FontSize="20" FontWeight="Normal" TextDecorations="Underline"
-                   Foreground="Blue" Cursor="Hand" MouseDown="tbCrearCuenta_MouseDown"/>
+        <TextBlock Text="Usuario o correo electronico" Margin="0,0,0,300"/>
+        <TextBox Name="tbCorreo" Margin="0,0,0,220"/>
+        <TextBlock Text="Contraseña" Margin="0,0,0,150"/>
+        <PasswordBox Name="pbContraseña" Margin="0,0,0,80"/>
+        <Button Name="btInicio" Content="Iniciar sesión" Click="btInicio_Click"
+                Margin="0,20,0,0" Height="40" Width="150" Grid.Row="1"/>
+        <TextBlock Text="¿Todavia no tienes una cuenta?" Margin="0,110,150,0" 
+                   FontWeight="Normal" Width="240" FontSize="17"/>
+        <TextBlock Name="tbCrearCuenta" Text="Crear cuenta" Margin="210,110,0,0" 
+                   FontWeight="Normal" TextDecorations="Underline" Foreground="Blue" 
+                   Cursor="Hand" MouseDown="tbCrearCuenta_MouseDown" Width="120"
+                   FontSize="17"/>
     </Grid>
 </Window>
