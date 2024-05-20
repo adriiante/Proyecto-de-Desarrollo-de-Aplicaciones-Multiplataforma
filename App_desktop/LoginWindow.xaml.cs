@@ -86,6 +86,7 @@ namespace InfoRace
                 {
                     if (password == Security.Decrypt(data.Password))
                     {
+                        SessionManager.Login(data); // Establece la sesión
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
                         this.Close();

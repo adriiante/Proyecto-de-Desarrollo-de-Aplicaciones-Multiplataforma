@@ -128,9 +128,19 @@ namespace InfoRace
             if (canCreateAccount == true)
             {
                 var db = FirestoreHelper.Database;
+                if (CheckEmailAlreadyExist())
+                {
+                    MessageBox.Show("El email ya existe");
+                    return;
+                }
                 if (CheckUserAlreadyExist())
                 {
                     MessageBox.Show("El usuario ya existe");
+                    return;
+                }
+                if (CheckPhoneAlreadyExist())
+                {
+                    MessageBox.Show("El teléfono ya existe");
                     return;
                 }
                 var data = GetWriteData();
@@ -158,7 +168,7 @@ namespace InfoRace
             };
         }
 
-        private bool CheckUserAlreadyExist()
+        private bool CheckEmailAlreadyExist()
         {
             string email = tbCorreo.Text.Trim();
 
@@ -172,5 +182,26 @@ namespace InfoRace
             }
             return false;
         }
+
+        private bool CheckUserAlreadyExist()
+        {
+            string username = tbUsuario.Text.Trim();
+            var db = FirestoreHelper.Database;
+            var query = db.Collection("UserData").WhereEqualTo("Username", username).Limit(1);
+            var snapshot = query.GetSnapshotAsync().Result;
+
+            return snapshot.Documents.Count > 0;
+        }
+
+        private bool CheckPhoneAlreadyExist()
+        {
+            string phone = tbTelefono.Text.Trim();
+            var db = FirestoreHelper.Database;
+            var query = db.Collection("UserData").WhereEqualTo("Phone", phone).Limit(1);
+            var snapshot = query.GetSnapshotAsync().Result;
+
+            return snapshot.Documents.Count > 0;
+        }
+
     }
 }

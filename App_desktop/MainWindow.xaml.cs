@@ -26,6 +26,13 @@ namespace InfoRace
         {
             InitializeComponent();
             httpClient = new HttpClient();
+            if (!SessionManager.IsLoggedIn)
+            {
+                MessageBox.Show("Debe iniciar sesión primero");
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
             listFormula.Visibility = Visibility.Collapsed;
             listSportsCars.Visibility = Visibility.Collapsed;
         }
@@ -165,20 +172,6 @@ namespace InfoRace
             return htmlOutput;
         }
 
-        private void btInicio_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-            this.Close();
-        }
-
-        private void btRegistro_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterWindow registerWindow = new RegisterWindow();
-            registerWindow.Show();
-            this.Close();
-        }
-
         private void btTwitter_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -271,11 +264,10 @@ namespace InfoRace
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí puedes agregar la lógica para cerrar sesión
-            // Por ejemplo, cerrar la ventana actual y abrir la ventana de inicio de sesión
+            SessionManager.Logout();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
-            Close(); // Cierra la ventana actual
+            this.Close();
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -292,5 +284,14 @@ namespace InfoRace
             }
         }
 
+        private void formula1Notifications_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void formula1Notifications_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
