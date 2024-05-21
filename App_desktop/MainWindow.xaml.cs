@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Google.Rpc;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Windows;
@@ -33,41 +34,13 @@ namespace InfoRace
                 loginWindow.Show();
                 this.Close();
             }
-            listFormula.Visibility = Visibility.Collapsed;
-            listSportsCars.Visibility = Visibility.Collapsed;
-        }
-
-        private void btFormula_Click(object sender, RoutedEventArgs e)
-        {
-            listSportsCars.Visibility = Visibility.Collapsed;
-            if (listFormula.Visibility == Visibility.Visible)
-            {
-                listFormula.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                listFormula.Visibility = Visibility.Visible;
-            }
-
-        }
-        private void btSportsCars_Click(object sender, RoutedEventArgs e)
-        {
-            listFormula.Visibility = Visibility.Collapsed;
-            if (listSportsCars.Visibility == Visibility.Visible)
-            {
-                listSportsCars.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                listSportsCars.Visibility = Visibility.Visible;
-            }
         }
 
         private async void btFormula1_Click(object sender, RoutedEventArgs e)
         {
             spInicio.Visibility = Visibility.Collapsed;
             spFormula1.Visibility = Visibility.Visible;
-            listFormula.Visibility = Visibility.Collapsed;
+            popupFormula.IsOpen = !popupFormula.IsOpen;
 
             try
             {
@@ -272,7 +245,7 @@ namespace InfoRace
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-              //Mostrar el menú contextual en la posición del ratón
+            //Mostrar el menú contextual en la posición del ratón
             if (sender is Image image)
             {
                 if (image.ContextMenu != null)
@@ -292,6 +265,92 @@ namespace InfoRace
         private void formula1Notifications_Unchecked(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnLeft_Click(object sender, RoutedEventArgs e)
+        {
+            // Calculamos el ancho total del contenido en el canvas
+            double totalWidth = canvasContainer.Children.Cast<UIElement>().Max(element => Canvas.GetLeft(element) + element.RenderSize.Width);
+
+            // Calculamos el ancho visible del ScrollViewer
+            double visibleWidth = scrollViewer.ActualWidth;
+
+            // Calculamos el margen izquierdo actual del canvas
+            double currentLeftMargin = canvasContainer.Margin.Left;
+
+            // Calculamos el nuevo margen izquierdo considerando los límites
+            double newLeftMargin = Math.Min(currentLeftMargin + 50, 0);
+
+            // Aplicamos los límites teniendo en cuenta el ancho total del contenido y el ancho visible del ScrollViewer
+            if (totalWidth - Math.Abs(newLeftMargin) < visibleWidth)
+            {
+                newLeftMargin = -(totalWidth - visibleWidth);
+            }
+
+            // Aplicamos el nuevo margen izquierdo al canvas
+            canvasContainer.Margin = new Thickness(newLeftMargin, 0, 0, 0);
+        }
+
+        private void btnRight_Click(object sender, RoutedEventArgs e)
+        {
+            // Calculamos el ancho total del contenido en el canvas
+            double totalWidth = canvasContainer.Children.Cast<UIElement>().Max(element => Canvas.GetLeft(element) + element.RenderSize.Width);
+
+            // Calculamos el ancho visible del ScrollViewer
+            double visibleWidth = scrollViewer.ActualWidth;
+
+            // Calculamos el margen derecho actual del canvas
+            double currentRightMargin = canvasContainer.Margin.Right;
+
+            // Calculamos el nuevo margen derecho considerando los límites
+            double newRightMargin = Math.Max(currentRightMargin + 50, 0);
+
+            // Calculamos el margen izquierdo actual del canvas
+            double currentLeftMargin = canvasContainer.Margin.Left;
+
+            // Calculamos el nuevo margen izquierdo considerando los límites
+            double newLeftMargin = Math.Max(currentLeftMargin - 50, -(totalWidth - visibleWidth + 50));
+
+            // Aplicamos los nuevos márgenes al canvas
+            canvasContainer.Margin = new Thickness(newLeftMargin, 0, newRightMargin, 0);
+        }
+
+        private void btFormula_Click(object sender, RoutedEventArgs e)
+        {
+            popupFormula.IsOpen = !popupFormula.IsOpen;
+        }
+        private void btSportsCars_Click(object sender, RoutedEventArgs e)
+        {
+            popupSportsCars.IsOpen = !popupSportsCars.IsOpen;
+        }
+        private void btMoto_Click(object sender, RoutedEventArgs e)
+        {
+            popupMotos.IsOpen = !popupMotos.IsOpen;
+        }
+
+        private void btRally_Click(object sender, RoutedEventArgs e)
+        {
+            popupRally.IsOpen = !popupRally.IsOpen;
+        }
+
+        private void btCamiones_Click(object sender, RoutedEventArgs e)
+        {
+            popupCamiones.IsOpen = !popupCamiones.IsOpen;
+        }
+
+        private void btDrifting_Click(object sender, RoutedEventArgs e)
+        {
+            popupDrifting.IsOpen = !popupDrifting.IsOpen;
+        }
+
+        private void btKarting_Click(object sender, RoutedEventArgs e)
+        {
+            popupKarting.IsOpen = !popupKarting.IsOpen;
+        }
+
+        private void btResistencia_Click(object sender, RoutedEventArgs e)
+        {
+            popupResistencia.IsOpen = !popupResistencia.IsOpen;
         }
     }
 }

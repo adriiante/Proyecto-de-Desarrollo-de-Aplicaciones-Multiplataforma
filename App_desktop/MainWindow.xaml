@@ -141,9 +141,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="25"/>
         </Style>
-        <Style TargetType="WebBrowser">
-            <Setter Property="Grid.Row" Value="2"/>
-        </Style>
+
         <Style TargetType="StackPanel">
             <Setter Property="Grid.Row" Value="2"/>
             <Setter Property="Width" Value="1100"/>
@@ -201,12 +199,10 @@
         </StackPanel>
         <StackPanel Name="spFormula1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center"
-                           Margin="0,0,500,0">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0">
                      <WebBrowser Name="Pilotos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="370" Width="440"/>
                 </TextBlock>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center"
-                           Margin="550,0,0,50">
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50">
                     <WebBrowser Name="Constructores" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="310" Width="330"/>
                 </TextBlock>
             </Grid>
@@ -229,39 +225,94 @@
                 <TextBlock Text="·No, con la misma cuenta puedes acceder tanto a la aplicación de escritorio como la de móvil, además de iniciar sesión en la web." Padding="4"/>
             </TextBlock>
         </StackPanel>
-        <!--Menu top-->
-        <Button Name="btFormula" Content="Formula" Click="btFormula_Click" 
-                Margin="0,0,200,0" Height="40" Width="100" Grid.Row="1">
-        </Button>
-        <ListView Name="listFormula" Grid.Row="1" Width="130" Height="180" 
-                  Margin="0,0,160,290" Grid.RowSpan="2">
-            <Button Name="btFormula1" Content="Formula 1" Click="btFormula1_Click"
-                    Width="110"/>
-            <Button Name="btFormula2" Content="Formula 2" Width="110"/>
-            <Button Name="btFormula3" Content="Formula 3" Width="110"/>
-            <Button Name="btFormulaE" Content="Formula E" Width="110"/>
-            <Button Name="btFormulaRG" Content="Formula RG" Width="110"/>
-        </ListView>
-        <Button Name="btSportsCars" Content="Sports Cars" Click="btSportsCars_Click" 
-                Margin="200,0,0,0" Height="40" Width="100" Grid.Row="1" />
-        <ListView Name="listSportsCars" Grid.Row="1" Width="130" Height="120" 
-                  Margin="250,0,0,350" Grid.RowSpan="2">
-            <Button Name="btGT3" Content="GT3" Width="110"/>
-            <Button Name="btGT4" Content="GT4" Width="110"/>
-            <Button Name="btNascar" Content="Nascar" Width="110"/>
-        </ListView>
         <!--Footer-->
-        <Button Name="btTwitter" Content="Twitter" Margin="0,0,800,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btTwitter_Click"/>
-        <Button Name="btInstagram" Content="Instagram" Margin="0,0,500,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btInstagram_Click"/>
-        <Button Name="btFacebook" Content="Facebook" Margin="0,0,200,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btFacebook_Click"/>
-        <Button Name="btAboutUs" Content="Sobre nosotros" Margin="200,0,0,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btAboutUs_Click"/>
-        <Button Name="btHelp" Content="Ayuda" Margin="500,0,0,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btHelp_Click"/>
-        <Button Name="btWeb" Content="Web" Margin="800,0,0,0" Height="40" Width="120" 
-                Grid.Row="3" Click="btWeb_Click"/>
+        <Button Name="btTwitter" Content="Twitter" Margin="0,0,800,0" Height="40" Width="120" Grid.Row="3" Click="btTwitter_Click"/>
+        <Button Name="btInstagram" Content="Instagram" Margin="0,0,500,0" Height="40" Width="120" Grid.Row="3" Click="btInstagram_Click"/>
+        <Button Name="btFacebook" Content="Facebook" Margin="0,0,200,0" Height="40" Width="120" Grid.Row="3" Click="btFacebook_Click"/>
+        <Button Name="btAboutUs" Content="Sobre nosotros" Margin="200,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btAboutUs_Click"/>
+        <Button Name="btHelp" Content="Ayuda" Margin="500,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btHelp_Click"/>
+        <Button Name="btWeb" Content="Web" Margin="800,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btWeb_Click"/>
+
+
+        <!--Menu top-->
+        <Grid Grid.Row="1" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <!-- Columna para el botón izquierdo -->
+                <ColumnDefinition Width="*"/>
+                <!-- Columna para el contenedor desplazable -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Columna para el botón derecho -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Botón de navegación izquierda -->
+            <Button Name="btnLeft" Content="←" Click="btnLeft_Click" Width="40" HorizontalAlignment="Center" Grid.Column="0"/>
+
+            <!-- Contenedor desplazable -->
+            <ScrollViewer Name="scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Column="1">
+                <Canvas Name="canvasContainer">
+                    <!-- Botones -->
+                    <Button Name="btFormula" Content="Formula" Click="btFormula_Click" Height="30" Width="130" Canvas.Left="50" Canvas.Top="0"/>
+                    <Popup Name="popupFormula" Placement="Bottom" PlacementTarget="{Binding ElementName=btFormula}" StaysOpen="False">
+                        <StackPanel Width="120" Height="150" Background="#04101e">
+                            <Button Name="btFormula1" Content="Formula 1" Click="btFormula1_Click" Width="110" Margin="3"/>
+                            <Button Name="btFormula2" Content="Formula 2" Width="110" Margin="3"/>
+                            <Button Name="btFormula3" Content="Formula 3" Width="110" Margin="3"/>
+                            <Button Name="btFormulaE" Content="Formula E" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btSportsCars" Content="Sports Cars" Click="btSportsCars_Click" Height="30" Width="130" Canvas.Left="250" Canvas.Top="0"/>
+                    <Popup Name="popupSportsCars" Placement="Bottom" PlacementTarget="{Binding ElementName=btSportsCars}" StaysOpen="False">
+                        <StackPanel Width="120" Height="80" Background="#04101e">
+                            <Button Name="btGT3" Content="GT3" Width="110" Margin="3"/>
+                            <Button Name="btNascar" Content="Nascar" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btMotos" Content="Motos" Click="btMoto_Click" Height="30" Width="130" Canvas.Left="450" Canvas.Top="0"/>
+                    <Popup Name="popupMotos" Placement="Bottom" PlacementTarget="{Binding ElementName=btMotos}" StaysOpen="False">
+                        <StackPanel Width="120" Height="110" Background="#04101e">
+                            <Button Name="btMotoGP" Content="MotoGP" Width="110" Margin="3"/>
+                            <Button Name="btMoto2" Content="Moto2" Width="110" Margin="3"/>
+                            <Button Name="btMoto3" Content="Moto3" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btRally" Content="Rally" Click="btRally_Click" Height="30" Width="130" Canvas.Left="650" Canvas.Top="0"/>
+                    <Popup Name="popupRally" Placement="Bottom" PlacementTarget="{Binding ElementName=btRally}" StaysOpen="False">
+                        <StackPanel Width="120" Height="40" Background="#04101e">
+                            <Button Name="btWRC" Content="WRC" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btResistencia" Content="Resistencia" Click="btResistencia_Click" Height="30" Width="130" Canvas.Left="850" Canvas.Top="0"/>
+                    <Popup Name="popupResistencia" Placement="Bottom" PlacementTarget="{Binding ElementName=btResistencia}" StaysOpen="False">
+                        <StackPanel Width="120" Height="80" Background="#04101e">
+                            <Button Name="btWEC" Content="WEC" Width="110" Margin="3"/>
+                            <Button Name="btIMSA" Content="IMSA" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btKarting" Content="Karting" Click="btKarting_Click" Height="30" Width="130" Canvas.Left="1050" Canvas.Top="0"/>
+                    <Popup Name="popupKarting" Placement="Bottom" PlacementTarget="{Binding ElementName=btKarting}" StaysOpen="False">
+                        <StackPanel Width="120" Height="40" Background="#04101e">
+                            <Button Name="btKWC" Content="KWC" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btCamiones" Content="Camiones" Click="btCamiones_Click" Height="30" Width="130" Canvas.Left="1250" Canvas.Top="0"/>
+                    <Popup Name="popupCamiones" Placement="Bottom" PlacementTarget="{Binding ElementName=btCamiones}" StaysOpen="False">
+                        <StackPanel Width="120" Height="40" Background="#04101e">
+                            <Button Name="btETRC" Content="ETRC" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+                    <Button Name="btDrifting" Content="Drifting" Click="btDrifting_Click" Height="30" Width="130" Canvas.Left="1450" Canvas.Right="50" Canvas.Top="0"/>
+                    <Popup Name="popupDrifting" Placement="Bottom" PlacementTarget="{Binding ElementName=btDrifting}" StaysOpen="False">
+                        <StackPanel Width="120" Height="80" Background="#04101e">
+                            <Button Name="btFormulaDrift" Content="Formula Drift" Width="110" Margin="3"/>
+                            <Button Name="btD1GP" Content="D1 GP" Width="110" Margin="3"/>
+                        </StackPanel>
+                    </Popup>
+
+                </Canvas>
+            </ScrollViewer>
+            <!-- Botón de navegación derecha -->
+            <Button Name="btnRight" Content="→" Click="btnRight_Click" Width="40" HorizontalAlignment="Center" Grid.Column="2"/>
+        </Grid>
     </Grid>
 </Window>
