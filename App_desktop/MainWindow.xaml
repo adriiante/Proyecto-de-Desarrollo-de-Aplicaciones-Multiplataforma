@@ -197,16 +197,6 @@
                 <TextBlock Text="Dentro de la App dispones de un menú horizontal en el que puedes seleccionar la categoría que desees y posteriormente selccionar la serie correspondiente que deseas. Una vez dentro podrás activar las notificaciones de esa serie si lo deseas. Tambíen dispones de los enlaces a nuestras redes, ayuda si lo necesitas y el enlace a la página web de Inforace."/>
             </TextBlock>
         </StackPanel>
-        <StackPanel Name="spFormula1" Visibility="Collapsed">
-            <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0">
-                     <WebBrowser Name="Pilotos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="370" Width="440"/>
-                </TextBlock>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50">
-                    <WebBrowser Name="Constructores" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="310" Width="330"/>
-                </TextBlock>
-            </Grid>
-        </StackPanel>
         <StackPanel Name="spHelp" Visibility="Collapsed">
             <TextBlock Height="400" Width="900" Margin="0,25,0,0">
                 <Run Text="Preguntas frecuentes"/>
@@ -225,6 +215,29 @@
                 <TextBlock Text="·No, con la misma cuenta puedes acceder tanto a la aplicación de escritorio como la de móvil, además de iniciar sesión en la web." Padding="4"/>
             </TextBlock>
         </StackPanel>
+        <StackPanel Name="spFormula1Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0">
+                     <WebBrowser Name="Pilotos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="370" Width="440"/>
+                </TextBlock>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50">
+                    <WebBrowser Name="Constructores" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="310" Width="330"/>
+                </TextBlock>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula1Page2" Click="btFormula1Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormula1Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Circuitos" Width="800" Height="500" TextAlignment="Center">
+                    <WebBrowser Name="Circuitos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="360" Width="740"/>
+                </TextBlock>
+                <Button Name="btFormula1Page1" Click="btFormula1Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
         <!--Footer-->
         <Button Name="btTwitter" Content="Twitter" Margin="0,0,800,0" Height="40" Width="120" Grid.Row="3" Click="btTwitter_Click"/>
         <Button Name="btInstagram" Content="Instagram" Margin="0,0,500,0" Height="40" Width="120" Grid.Row="3" Click="btInstagram_Click"/>
@@ -232,8 +245,6 @@
         <Button Name="btAboutUs" Content="Sobre nosotros" Margin="200,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btAboutUs_Click"/>
         <Button Name="btHelp" Content="Ayuda" Margin="500,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btHelp_Click"/>
         <Button Name="btWeb" Content="Web" Margin="800,0,0,0" Height="40" Width="120" Grid.Row="3" Click="btWeb_Click"/>
-
-
         <!--Menu top-->
         <Grid Grid.Row="1" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -244,14 +255,11 @@
                 <ColumnDefinition Width="Auto"/>
                 <!-- Columna para el botón derecho -->
             </Grid.ColumnDefinitions>
-
             <!-- Botón de navegación izquierda -->
             <Button Name="btnLeft" Content="←" Click="btnLeft_Click" Width="40" HorizontalAlignment="Center" Grid.Column="0"/>
-
             <!-- Contenedor desplazable -->
             <ScrollViewer Name="scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Column="1">
                 <Canvas Name="canvasContainer">
-                    <!-- Botones -->
                     <Button Name="btFormula" Content="Formula" Click="btFormula_Click" Height="30" Width="130" Canvas.Left="50" Canvas.Top="0"/>
                     <Popup Name="popupFormula" Placement="Bottom" PlacementTarget="{Binding ElementName=btFormula}" StaysOpen="False">
                         <StackPanel Width="120" Height="150" Background="#04101e">
@@ -308,7 +316,6 @@
                             <Button Name="btD1GP" Content="D1 GP" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
-
                 </Canvas>
             </ScrollViewer>
             <!-- Botón de navegación derecha -->

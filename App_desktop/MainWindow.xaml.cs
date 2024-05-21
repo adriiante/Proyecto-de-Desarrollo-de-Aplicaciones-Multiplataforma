@@ -1,5 +1,6 @@
 ﻿using Google.Rpc;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Windows;
@@ -34,14 +35,11 @@ namespace InfoRace
                 loginWindow.Show();
                 this.Close();
             }
+            formula1Apis();
         }
 
-        private async void btFormula1_Click(object sender, RoutedEventArgs e)
+        private async void formula1Apis()
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spFormula1.Visibility = Visibility.Visible;
-            popupFormula.IsOpen = !popupFormula.IsOpen;
-
             try
             {
                 HttpResponseMessage responseDrivers = await httpClient.GetAsync("http://ergast.com/api/f1/current/driverStandings");
@@ -63,6 +61,17 @@ namespace InfoRace
 
                 // Asigna el HTML formateado al control WebBrowser
                 Constructores.NavigateToString(formattedDataConstructor);
+
+                // Fetch the circuit data
+                HttpResponseMessage responseCircuits = await httpClient.GetAsync("http://ergast.com/api/f1/current");
+                responseCircuits.EnsureSuccessStatusCode();
+                string responseBodyCircuits = await responseCircuits.Content.ReadAsStringAsync();
+
+                // Parse and format the circuit data
+                string formattedDataCircuits = ParseXMLCircuits(responseBodyCircuits);
+
+                // Assign the formatted HTML to the WebBrowser control
+                Circuitos.NavigateToString(formattedDataCircuits);
             }
             catch (HttpRequestException ex)
             {
@@ -145,6 +154,52 @@ namespace InfoRace
             return htmlOutput;
         }
 
+        public string ParseXMLCircuits(string xmlContent)
+        {
+            // Create an XDocument from the provided XML content
+            XDocument doc = XDocument.Parse(xmlContent);
+
+            // Get the default namespace from the XML (xmlns="...")
+            XElement root = doc.Root;
+            XNamespace ns = root.GetDefaultNamespace();
+
+            // Get a list of Race elements
+            IEnumerable<XElement> races = doc.Descendants(ns + "Race");
+
+            // Build the HTML output
+            string htmlOutput = "<html><head><meta charset='UTF-8'></head><body><table border='1'><tr><th>Ronda</th><th>Nombre</th><th>Fecha</th><th>Hora</th><th>Localización</th></tr>";
+
+            // Iterate over each Race element and build the HTML table
+            foreach (var race in races)
+            {
+                // Get the relevant elements and attributes
+                string round = race.Attribute("round")?.Value;
+                string raceName = race.Element(ns + "RaceName")?.Value;
+                string date = race.Element(ns + "Date")?.Value;
+                string time = race.Element(ns + "Time")?.Value;
+
+                // Convert the time to Spain time (CET/CEST)
+                DateTime raceDateTimeUtc = DateTime.ParseExact(date + "T" + time, "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
+                TimeZoneInfo spainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+                DateTime raceDateTimeSpain = TimeZoneInfo.ConvertTimeFromUtc(raceDateTimeUtc, spainTimeZone);
+
+                // Format the date and time for display
+                string dateSpain = raceDateTimeSpain.ToString("yyyy-MM-dd");
+                string timeSpain = raceDateTimeSpain.ToString("HH:mm");
+
+                XElement circuit = race.Element(ns + "Circuit");
+                string circuitName = circuit.Element(ns + "CircuitName")?.Value;
+                string location = $"{circuit?.Element(ns + "Location")?.Element(ns + "Locality")?.Value}, {circuit?.Element(ns + "Location")?.Element(ns + "Country")?.Value}";
+
+                // Build an HTML row for each Race
+                htmlOutput += $"<tr><td>{round}</td><td>{raceName}</td><td>{dateSpain}</td><td>{timeSpain}</td><td>{circuitName} ({location})</td></tr>";
+            }
+
+            htmlOutput += "</table></body></html>";
+
+            return htmlOutput;
+        }
+
         private void btTwitter_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -198,14 +253,14 @@ namespace InfoRace
 
         private void btAboutUs_Click(object sender, RoutedEventArgs e)
         {
-            spFormula1.Visibility = Visibility.Collapsed;
+            spFormula1Page1.Visibility = Visibility.Collapsed;
             spHelp.Visibility = Visibility.Collapsed;
             spInicio.Visibility = Visibility.Visible;
         }
 
         private void btHelp_Click(object sender, RoutedEventArgs e)
         {
-            spFormula1.Visibility = Visibility.Collapsed;
+            spFormula1Page1.Visibility = Visibility.Collapsed;
             spInicio.Visibility = Visibility.Collapsed;
             spHelp.Visibility = Visibility.Visible;
         }
@@ -351,6 +406,24 @@ namespace InfoRace
         private void btResistencia_Click(object sender, RoutedEventArgs e)
         {
             popupResistencia.IsOpen = !popupResistencia.IsOpen;
+        }
+        private void btFormula1_Click(object sender, RoutedEventArgs e)
+        {
+            spInicio.Visibility = Visibility.Collapsed;
+            spFormula1Page1.Visibility = Visibility.Visible;
+            popupFormula.IsOpen = !popupFormula.IsOpen;
+        }
+
+        private void btFormula1Page1_Click(object sender, RoutedEventArgs e)
+        {
+            spFormula1Page1.Visibility = Visibility.Visible;
+            spFormula1Page2.Visibility = Visibility.Collapsed;
+        }
+
+        private void btFormula1Page2_Click(object sender, RoutedEventArgs e)
+        {
+            spFormula1Page2.Visibility=Visibility.Visible;
+            spFormula1Page1.Visibility=Visibility.Collapsed;
         }
     }
 }
