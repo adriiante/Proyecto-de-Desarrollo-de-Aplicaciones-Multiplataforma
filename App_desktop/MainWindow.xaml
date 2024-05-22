@@ -147,8 +147,143 @@
             <Setter Property="Width" Value="1100"/>
             <Setter Property="Height" Value="450"/>
         </Style>
-        <ImageBrush x:Key="BlurredBackground" ImageSource="pack://application:,,,/InfoRace;component/Images/formula.png"
-                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox" TileMode="None">
+        <ImageBrush x:Key="Formula1" ImageSource="pack://application:,,,/InfoRace;component/Images/F1.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="Formula2" ImageSource="pack://application:,,,/InfoRace;component/Images/F2.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="Formula3" ImageSource="pack://application:,,,/InfoRace;component/Images/F3.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="FormulaE" ImageSource="pack://application:,,,/InfoRace;component/Images/FE.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="GT3" ImageSource="pack://application:,,,/InfoRace;component/Images/GT3.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="NASCAR" ImageSource="pack://application:,,,/InfoRace;component/Images/NASCAR.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="MotoGP" ImageSource="pack://application:,,,/InfoRace;component/Images/MotoGP.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="Moto2" ImageSource="pack://application:,,,/InfoRace;component/Images/Moto2.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="Moto3" ImageSource="pack://application:,,,/InfoRace;component/Images/Moto3.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="WRC" ImageSource="pack://application:,,,/InfoRace;component/Images/WRC.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="WEC" ImageSource="pack://application:,,,/InfoRace;component/Images/WEC.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="IMSA" ImageSource="pack://application:,,,/InfoRace;component/Images/IMSA.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="KWC" ImageSource="pack://application:,,,/InfoRace;component/Images/KWC.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="ETRC" ImageSource="pack://application:,,,/InfoRace;component/Images/ETRC.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="FormulaDrift" ImageSource="pack://application:,,,/InfoRace;component/Images/FormulaDrift.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="D1GP" ImageSource="pack://application:,,,/InfoRace;component/Images/D1GP.png"
+                    Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
             <ImageBrush.RelativeTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1" ScaleY="2" />
@@ -167,9 +302,84 @@
         <!--Backgrounds-->
         <Rectangle Grid.Row="0" Fill="#04101e" Name="row0"/>
         <Rectangle Grid.Row="1" Fill="#114177" Name="row1"/>
-        <Rectangle Grid.Row="2" Fill="{StaticResource BlurredBackground}" Name="row2">
+        <Rectangle Grid.Row="2" Fill="{StaticResource Formula1}" Visibility="Collapsed" Name="recFormula1">
             <Rectangle.Effect>
-                <BlurEffect Radius="15"/>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Formula2}" Visibility="Collapsed" Name="recFormula2">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Formula3}" Visibility="Collapsed" Name="recFormula3">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource FormulaE}" Visibility="Collapsed" Name="recFormulaE">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource GT3}" Visibility="Collapsed" Name="recGT3">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource NASCAR}" Visibility="Collapsed" Name="recNASCAR">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource MotoGP}" Visibility="Collapsed" Name="recMotoGP">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Moto2}" Visibility="Collapsed" Name="recMoto2">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Moto3}" Visibility="Collapsed" Name="recMoto3">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource WRC}" Visibility="Collapsed" Name="recWRC">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource WEC}" Visibility="Collapsed" Name="recWEC">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource IMSA}" Visibility="Collapsed" Name="recIMSA">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource KWC}" Visibility="Collapsed" Name="recKWC">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource ETRC}" Visibility="Collapsed" Name="recETRC">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource FormulaDrift}" Visibility="Collapsed" Name="recFormulaDrift">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource D1GP}" Visibility="Collapsed" Name="recD1GP">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
             </Rectangle.Effect>
         </Rectangle>
         <Rectangle Grid.Row="3" Fill="#04101e" Name="row3"/>

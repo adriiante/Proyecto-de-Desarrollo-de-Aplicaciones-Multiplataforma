@@ -391,6 +391,23 @@ namespace InfoRace
             spFormulaDriftPage2.Visibility = Visibility.Collapsed;
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
+
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
             spInicio.Visibility = Visibility.Visible;
         }
 
@@ -429,6 +446,23 @@ namespace InfoRace
             spFormulaDriftPage2.Visibility = Visibility.Collapsed;
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
+
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
             spHelp.Visibility = Visibility.Visible;
         }
 
@@ -468,6 +502,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupFormula.IsOpen = !popupFormula.IsOpen;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recFormula1.Visibility = Visibility.Visible;
             spFormula1Page1.Visibility = Visibility.Visible;
         }
 
@@ -507,6 +557,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupFormula.IsOpen = !popupFormula.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Visible;
             spFormula2Page1.Visibility = Visibility.Visible;
         }
 
@@ -546,6 +612,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupFormula.IsOpen = !popupFormula.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Visible;
             spFormula3Page1.Visibility = Visibility.Visible;
         }
 
@@ -585,6 +667,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupFormula.IsOpen = !popupFormula.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Visible;
             spFormulaEPage1.Visibility = Visibility.Visible;
         }
 
@@ -624,6 +722,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupSportsCars.IsOpen = !popupSportsCars.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Visible;
             spGT3Page1.Visibility = Visibility.Visible;
         }
 
@@ -663,6 +777,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupSportsCars.IsOpen = !popupSportsCars.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Visible;
             spNascarPage1.Visibility = Visibility.Visible;
         }
 
@@ -702,6 +832,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupMotos.IsOpen = !popupMotos.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Visible;
             spMotoGPPage1.Visibility = Visibility.Visible;
         }
 
@@ -741,6 +887,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupMotos.IsOpen = !popupMotos.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Visible;
             spMoto2Page1.Visibility = Visibility.Visible;
         }
 
@@ -780,6 +942,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupMotos.IsOpen = !popupMotos.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Visible;
             spMoto3Page1.Visibility = Visibility.Visible;
         }
 
@@ -819,6 +997,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupRally.IsOpen = !popupRally.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Visible;
             spWRCPage1.Visibility = Visibility.Visible;
         }
 
@@ -858,6 +1052,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupResistencia.IsOpen = !popupResistencia.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Visible;
             spWECPage1.Visibility = Visibility.Visible;
         }
 
@@ -897,6 +1107,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupResistencia.IsOpen = !popupResistencia.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Visible;
             spIMSAPage1.Visibility = Visibility.Visible;
         }
 
@@ -936,6 +1162,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupKarting.IsOpen = !popupKarting.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Visible;
             spKWCPage1.Visibility = Visibility.Visible;
         }
 
@@ -975,6 +1217,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupCamiones.IsOpen = !popupCamiones.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Visible;
             spETRCPage1.Visibility = Visibility.Visible;
         }
 
@@ -1014,6 +1272,22 @@ namespace InfoRace
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupDrifting.IsOpen = !popupDrifting.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Visible;
             spFormulaDriftPage1.Visibility = Visibility.Visible;
         }
 
@@ -1053,6 +1327,22 @@ namespace InfoRace
             spFormulaDriftPage2.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
             popupDrifting.IsOpen = !popupDrifting.IsOpen;
+            recFormula1.Visibility = Visibility.Collapsed;
+            recFormula2.Visibility = Visibility.Collapsed;
+            recFormula3.Visibility = Visibility.Collapsed;
+            recFormulaE.Visibility = Visibility.Collapsed;
+            recGT3.Visibility = Visibility.Collapsed;
+            recNASCAR.Visibility = Visibility.Collapsed;
+            recMotoGP.Visibility = Visibility.Collapsed;
+            recMoto2.Visibility = Visibility.Collapsed;
+            recMoto3.Visibility = Visibility.Collapsed;
+            recWRC.Visibility = Visibility.Collapsed;
+            recWEC.Visibility = Visibility.Collapsed;
+            recIMSA.Visibility = Visibility.Collapsed;
+            recKWC.Visibility = Visibility.Collapsed;
+            recETRC.Visibility = Visibility.Collapsed;
+            recFormulaDrift.Visibility = Visibility.Collapsed;
+            recD1GP.Visibility = Visibility.Visible;
             spD1GPPage1.Visibility = Visibility.Visible;
         }
 

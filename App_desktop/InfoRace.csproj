@@ -23,11 +23,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\D1GP.png" />
+    <None Remove="Images\ETRC.png" />
+    <None Remove="Images\F1.png" />
+    <None Remove="Images\F2.png" />
+    <None Remove="Images\F3.png" />
+    <None Remove="Images\FE.png" />
     <None Remove="Images\formula.png" />
+    <None Remove="Images\FormulaDrift.png" />
+    <None Remove="Images\GT3.png" />
+    <None Remove="Images\IMSA.png" />
     <None Remove="Images\InfoRace.png" />
     <None Remove="Images\infoRaceazul.png" />
+    <None Remove="Images\KWC.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\Moto2.png" />
+    <None Remove="Images\Moto3.png" />
+    <None Remove="Images\MotoGP.png" />
+    <None Remove="Images\NASCAR.png" />
     <None Remove="Images\profile.png" />
+    <None Remove="Images\WEC.png" />
+    <None Remove="Images\WRC.png" />
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
 
@@ -37,11 +53,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\D1GP.png" />
+    <Resource Include="Images\ETRC.png" />
+    <Resource Include="Images\F1.png" />
+    <Resource Include="Images\F2.png" />
+    <Resource Include="Images\F3.png" />
+    <Resource Include="Images\FE.png" />
     <Resource Include="Images\formula.png" />
+    <Resource Include="Images\FormulaDrift.png" />
+    <Resource Include="Images\GT3.png" />
+    <Resource Include="Images\IMSA.png" />
     <Resource Include="Images\InfoRace.png" />
     <Resource Include="Images\infoRaceazul.png" />
+    <Resource Include="Images\KWC.png" />
     <Resource Include="Images\logo.png" />
+    <Resource Include="Images\Moto2.png" />
+    <Resource Include="Images\Moto3.png" />
+    <Resource Include="Images\MotoGP.png" />
+    <Resource Include="Images\NASCAR.png" />
     <Resource Include="Images\profile.png" />
+    <Resource Include="Images\WEC.png" />
+    <Resource Include="Images\WRC.png" />
     <Resource Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
 
