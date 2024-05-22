@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
 	<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+	<Platforms>AnyCPU;ARM32</Platforms>
   </PropertyGroup>
   
   <ItemGroup>

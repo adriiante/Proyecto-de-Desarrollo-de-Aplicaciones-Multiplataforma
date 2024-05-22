@@ -238,6 +238,276 @@
                 <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
+        <StackPanel Name="spFormula2Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula2Page2" Click="btFormula2Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormula2Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btFormula2Page1" Click="btFormula2Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormula3Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula3Page2" Click="btFormula3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormula3Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btFormula3Page1" Click="btFormula3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormulaEPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormulaEPage2" Click="btFormulaEPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormulaEPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btFormulaEPage1" Click="btFormulaEPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spGT3Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btGT3Page2" Click="btGT3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spGT3Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btGT3Page1" Click="btGT3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spNascarPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btNascarPage2" Click="btNascarPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spNascarPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btNascarPage1" Click="btNascarPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMotoGPPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMotoGPPage2" Click="btMotoGPPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMotoGPPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btMotoGPPage1" Click="btMotoGPPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMoto2Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto2Page2" Click="btMoto2Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMoto2Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btMoto2Page1" Click="btMoto2Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMoto3Page1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto3Page2" Click="btMoto3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spMoto3Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btMoto3Page1" Click="btMoto3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spWRCPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btWRCPage2" Click="btWRCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spWRCPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btWRCPage1" Click="btWRCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spWECPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btWECPage2" Click="btWECPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spWECPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btWECPage1" Click="btWECPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spIMSAPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btIMSAPage2" Click="btIMSAPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spIMSAPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btIMSAPage1" Click="btIMSAPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spKWCPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btKWCPage2" Click="btKWCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spKWCPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btKWCPage1" Click="btKWCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spETRCPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btETRCPage2" Click="btETRCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spETRCPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btETRCPage1" Click="btETRCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormulaDriftPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormulaDriftPage2" Click="btFormulaDriftPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormulaDriftPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btFormulaDriftPage1" Click="btFormulaDriftPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spD1GPPage1" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btD1GPPage2" Click="btD1GPPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spD1GPPage2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
+                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
+                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
+                <Button Name="btD1GPPage1" Click="btD1GPPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
         <!--Footer-->
         <Button Name="btTwitter" Content="Twitter" Margin="0,0,800,0" Height="40" Width="120" Grid.Row="3" Click="btTwitter_Click"/>
         <Button Name="btInstagram" Content="Instagram" Margin="0,0,500,0" Height="40" Width="120" Grid.Row="3" Click="btInstagram_Click"/>
@@ -264,56 +534,56 @@
                     <Popup Name="popupFormula" Placement="Bottom" PlacementTarget="{Binding ElementName=btFormula}" StaysOpen="False">
                         <StackPanel Width="120" Height="150" Background="#04101e">
                             <Button Name="btFormula1" Content="Formula 1" Click="btFormula1_Click" Width="110" Margin="3"/>
-                            <Button Name="btFormula2" Content="Formula 2" Width="110" Margin="3"/>
-                            <Button Name="btFormula3" Content="Formula 3" Width="110" Margin="3"/>
-                            <Button Name="btFormulaE" Content="Formula E" Width="110" Margin="3"/>
+                            <Button Name="btFormula2" Content="Formula 2" Click="btFormula2_Click" Width="110" Margin="3"/>
+                            <Button Name="btFormula3" Content="Formula 3" Click="btFormula3_Click" Width="110" Margin="3"/>
+                            <Button Name="btFormulaE" Content="Formula E" Click="btFormulaE_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btSportsCars" Content="Sports Cars" Click="btSportsCars_Click" Height="30" Width="130" Canvas.Left="250" Canvas.Top="0"/>
                     <Popup Name="popupSportsCars" Placement="Bottom" PlacementTarget="{Binding ElementName=btSportsCars}" StaysOpen="False">
                         <StackPanel Width="120" Height="80" Background="#04101e">
-                            <Button Name="btGT3" Content="GT3" Width="110" Margin="3"/>
-                            <Button Name="btNascar" Content="Nascar" Width="110" Margin="3"/>
+                            <Button Name="btGT3" Content="GT3" Click="btGT3_Click" Width="110" Margin="3"/>
+                            <Button Name="btNascar" Content="Nascar" Click="btNascar_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btMotos" Content="Motos" Click="btMoto_Click" Height="30" Width="130" Canvas.Left="450" Canvas.Top="0"/>
                     <Popup Name="popupMotos" Placement="Bottom" PlacementTarget="{Binding ElementName=btMotos}" StaysOpen="False">
                         <StackPanel Width="120" Height="110" Background="#04101e">
-                            <Button Name="btMotoGP" Content="MotoGP" Width="110" Margin="3"/>
-                            <Button Name="btMoto2" Content="Moto2" Width="110" Margin="3"/>
-                            <Button Name="btMoto3" Content="Moto3" Width="110" Margin="3"/>
+                            <Button Name="btMotoGP" Content="MotoGP" Click="btMotoGP_Click" Width="110" Margin="3"/>
+                            <Button Name="btMoto2" Content="Moto2" Click="btMoto2_Click" Width="110" Margin="3"/>
+                            <Button Name="btMoto3" Content="Moto3" Click="btMoto3_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btRally" Content="Rally" Click="btRally_Click" Height="30" Width="130" Canvas.Left="650" Canvas.Top="0"/>
                     <Popup Name="popupRally" Placement="Bottom" PlacementTarget="{Binding ElementName=btRally}" StaysOpen="False">
                         <StackPanel Width="120" Height="40" Background="#04101e">
-                            <Button Name="btWRC" Content="WRC" Width="110" Margin="3"/>
+                            <Button Name="btWRC" Content="WRC" Click="btWRC_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btResistencia" Content="Resistencia" Click="btResistencia_Click" Height="30" Width="130" Canvas.Left="850" Canvas.Top="0"/>
                     <Popup Name="popupResistencia" Placement="Bottom" PlacementTarget="{Binding ElementName=btResistencia}" StaysOpen="False">
                         <StackPanel Width="120" Height="80" Background="#04101e">
-                            <Button Name="btWEC" Content="WEC" Width="110" Margin="3"/>
-                            <Button Name="btIMSA" Content="IMSA" Width="110" Margin="3"/>
+                            <Button Name="btWEC" Content="WEC" Click="btWEC_Click" Width="110" Margin="3"/>
+                            <Button Name="btIMSA" Content="IMSA" Click="btIMSA_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btKarting" Content="Karting" Click="btKarting_Click" Height="30" Width="130" Canvas.Left="1050" Canvas.Top="0"/>
                     <Popup Name="popupKarting" Placement="Bottom" PlacementTarget="{Binding ElementName=btKarting}" StaysOpen="False">
                         <StackPanel Width="120" Height="40" Background="#04101e">
-                            <Button Name="btKWC" Content="KWC" Width="110" Margin="3"/>
+                            <Button Name="btKWC" Content="KWC" Click="btKWC_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btCamiones" Content="Camiones" Click="btCamiones_Click" Height="30" Width="130" Canvas.Left="1250" Canvas.Top="0"/>
                     <Popup Name="popupCamiones" Placement="Bottom" PlacementTarget="{Binding ElementName=btCamiones}" StaysOpen="False">
                         <StackPanel Width="120" Height="40" Background="#04101e">
-                            <Button Name="btETRC" Content="ETRC" Width="110" Margin="3"/>
+                            <Button Name="btETRC" Content="ETRC" Click="btETRC_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btDrifting" Content="Drifting" Click="btDrifting_Click" Height="30" Width="130" Canvas.Left="1450" Canvas.Right="50" Canvas.Top="0"/>
                     <Popup Name="popupDrifting" Placement="Bottom" PlacementTarget="{Binding ElementName=btDrifting}" StaysOpen="False">
                         <StackPanel Width="120" Height="80" Background="#04101e">
-                            <Button Name="btFormulaDrift" Content="Formula Drift" Width="110" Margin="3"/>
-                            <Button Name="btD1GP" Content="D1 GP" Width="110" Margin="3"/>
+                            <Button Name="btFormulaDrift" Content="Formula Drift" Click="btFormulaDrift_Click" Width="110" Margin="3"/>
+                            <Button Name="btD1GP" Content="D1 GP" Click="btD1GP_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                 </Canvas>
