@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:id="@+id/f1_a"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/f1_a" />
+
+    <!-- ScrollView para el contenido desplazable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <!-- Contenedor de LinearLayout para el contenido vertical -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Texto y WebView para los pilotos de F1 -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:shadowColor="#000000"
+                android:shadowRadius="1"
+                android:text="Datos F1 - Pilotos"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <WebView
+                android:id="@+id/pilotsApiResponseWebView"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                tools:ignore="WebViewLayout"
+                android:alpha="0.7" />
+
+            <!-- Texto y WebView para los constructores de F1 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Datos F1 - Constructores"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"/>
+
+            <WebView
+                android:id="@+id/constructorsApiResponseWebView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                tools:ignore="WebViewLayout"
+                android:background="@color/azul_p"
+                android:alpha="0.7" />
+
+            <!-- Texto y WebView para el horario de carreras de F1 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Datos F1 - Horario de Carreras"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+
+            <WebView
+                android:id="@+id/scheduleApiResponseWebView"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                tools:ignore="WebViewLayout"
+                android:alpha="0.7" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

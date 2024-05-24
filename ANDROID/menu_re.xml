@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/wec"
+        android:title="WEC" />
+
+    <item
+        android:id="@+id/imsa"
+        android:title="IMSA" />
+
+</menu>
