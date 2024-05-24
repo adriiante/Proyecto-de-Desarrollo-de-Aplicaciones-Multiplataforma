@@ -71,12 +71,22 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ImageBrush x:Key="Registro" ImageSource="pack://application:,,,/InfoRace;component/Images/Registro.png"
+            Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
         <Style TargetType="TextBlock">
             <Setter Property="Grid.Row" Value="1"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Height" Value="25"/>
             <Setter Property="Width" Value="400"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Grid.Row" Value="1"/>
@@ -94,8 +104,10 @@
         </Style>
         <Style TargetType="CheckBox">
             <Setter Property="Grid.Row" Value="1"/>
-            <Setter Property="Width" Value="400"/>
+            <Setter Property="Width" Value="408"/>
             <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -106,12 +118,17 @@
         </Grid.RowDefinitions>
         <!--Backgrounds-->
         <Rectangle Grid.Row="0" Fill="#04101e"/>
-        <Rectangle Grid.Row="1" Fill="White"/>
+        <Rectangle Grid.Row="1" Fill="{StaticResource Registro}" Visibility="Visible" Name="recInicio">
+            <Rectangle.Effect>
+                <BlurEffect Radius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
         <Rectangle Grid.Row="2" Fill="#04101e"/>
         <!--Logo-->
-        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" Grid.Row="0" Width="450"/>
+        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" Grid.Row="0" 
+               Width="450"/>
         <!--Mid-->
-        <TextBlock Text="Correo electronico" Margin="0,0,0,500"/>
+        <TextBlock Text="Correo electrónico" Margin="0,0,0,500"/>
         <TextBox Name="tbCorreo" Margin="0,0,0,430"/>
         <TextBlock Text="Contraseña" Margin="0,0,0,360"/>
         <PasswordBox Name="pbContraseña" Margin="0,0,0,290"/>
@@ -121,17 +138,14 @@
         <TextBox Name="tbTelefono" Margin="0,0,0,10"/>
         <TextBlock Text="Usuario" Margin="0,60,0,0"/>
         <TextBox Name="tbUsuario" Margin="0,130,0,0"/>
-        <CheckBox Name="cbCondiciones" Margin="0,200,0,0" 
-                  Content="Acepto las Condiciones del servicio y Politica de privacidad"/>
-        <CheckBox Name="cbOfertas" Margin="0,250,0,0" IsChecked="True"
-                  Content="Acepto recibir Información y ofertas"/>
-        <Button Name="btCrearCuenta" Content="Crear Cuenta" Margin="0,340,0,0" 
-                Height="40" Width="150" Grid.Row="1" Click="btCrearCuenta_Click"/>
-        <TextBlock Text="¿Ya tienes una cuenta?" Margin="0,430,200,0" FontWeight="Normal"
-                   Width="170" FontSize="17"/>
-        <TextBlock Name="tbIniciarSesion" Text="Iniciar sesión" Margin="80,430,0,0" 
-                   FontWeight="Normal" TextDecorations="Underline" Foreground="Blue" 
-                   Cursor="Hand" MouseDown="tbIniciarSesion_MouseDown" Width="100"
+        <CheckBox Name="cbCondiciones" Margin="0,200,0,0" Content="Acepto las Condiciones del servicio y Politica de privacidad"/>
+        <CheckBox Name="cbOfertas" Margin="0,250,0,0" IsChecked="True" Content="Acepto recibir Información y ofertas"/>
+        <Button Name="btCrearCuenta" Content="Crear Cuenta" Margin="0,340,0,0" Height="40" Width="150" 
+                Grid.Row="1" Click="btCrearCuenta_Click"/>
+        <TextBlock Text="¿Ya tienes una cuenta?" Margin="0,430,200,0" FontWeight="Normal" Width="170" 
                    FontSize="17"/>
+        <TextBlock Name="tbIniciarSesion" Text="Iniciar sesión" Margin="80,430,0,0" FontWeight="Normal" 
+                   TextDecorations="Underline" Cursor="Hand" MouseDown="tbIniciarSesion_MouseDown" 
+                   Width="100" FontSize="17"/>
     </Grid>
 </Window>

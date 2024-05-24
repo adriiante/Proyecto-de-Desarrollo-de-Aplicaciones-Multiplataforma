@@ -16,16 +16,12 @@ namespace InfoRace
         {
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
-
             this.Close();
         }
 
         private void btCrearCuenta_Click(object sender, RoutedEventArgs e)
         {
-            // Variable para controlar si se puede continuar con el proceso de creación de cuenta
             bool canCreateAccount = true;
-
-            // Validar el campo de correo electrónico
             if (string.IsNullOrWhiteSpace(tbCorreo.Text))
             {
                 tbCorreo.ToolTip = "El correo electrónico no puede estar vacío";
@@ -43,7 +39,6 @@ namespace InfoRace
                 tbCorreo.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar el campo de contraseña
             if (string.IsNullOrWhiteSpace(pbContraseña.Password))
             {
                 pbContraseña.ToolTip = "La contraseña no puede estar vacía";
@@ -61,7 +56,6 @@ namespace InfoRace
                 pbContraseña.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar el campo de confirmar contraseña
             if (string.IsNullOrWhiteSpace(pbConfirmarContraseña.Password))
             {
                 pbConfirmarContraseña.ToolTip = "La confirmación de contraseña no puede estar vacía";
@@ -79,7 +73,6 @@ namespace InfoRace
                 pbConfirmarContraseña.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar el campo de teléfono
             if (string.IsNullOrWhiteSpace(tbTelefono.Text))
             {
                 tbTelefono.ToolTip = "El teléfono no puede estar vacío";
@@ -97,7 +90,6 @@ namespace InfoRace
                 tbTelefono.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar el campo de usuario
             if (string.IsNullOrWhiteSpace(tbUsuario.Text))
             {
                 tbUsuario.ToolTip = "El usuario no puede estar vacío";
@@ -109,7 +101,6 @@ namespace InfoRace
                 tbUsuario.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar si se aceptaron las condiciones
             if (!cbCondiciones.IsChecked == true)
             {
                 MessageBox.Show("Debes aceptar las condiciones del servicio y política de privacidad para continuar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -162,7 +153,6 @@ namespace InfoRace
         private bool CheckEmailAlreadyExist()
         {
             string email = tbCorreo.Text.Trim();
-
             var db = FirestoreHelper.Database;
             Google.Cloud.Firestore.DocumentReference docRef = db.Collection("UserData").Document(email);
             UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();

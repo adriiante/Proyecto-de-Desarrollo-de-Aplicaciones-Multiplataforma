@@ -71,12 +71,22 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ImageBrush x:Key="Login" ImageSource="pack://application:,,,/InfoRace;component/Images/Login.png"
+            Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
         <Style TargetType="TextBlock">
             <Setter Property="Grid.Row" Value="1"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Height" Value="25"/>
             <Setter Property="Width" Value="400"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Grid.Row" Value="1"/>
@@ -100,23 +110,27 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <!--Backgrounds-->
-        <Rectangle Grid.Row="0" Fill="#04101e" Name="row0"/>
-        <Rectangle Grid.Row="1" Fill="White" Name="row2"/>
-        <Rectangle Grid.Row="2" Fill="#04101e" Name="row3"/>
+        <Rectangle Grid.Row="0" Fill="#04101e"/>
+        <Rectangle Grid.Row="1" Fill="{StaticResource Login}" Visibility="Visible" Name="recInicio">
+            <Rectangle.Effect>
+                <BlurEffect Radius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="#04101e"/>
         <!--Logo-->
-        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" Grid.Row="0" Width="450"/>
+        <Image Source="pack://application:,,,/InfoRace;component/Images/logo.png" Height="70" 
+               Grid.Row="0" Width="450"/>
         <!--Mid-->
         <TextBlock Text="Usuario o correo electronico" Margin="0,0,0,300"/>
         <TextBox Name="tbCorreo" Margin="0,0,0,220"/>
         <TextBlock Text="Contraseña" Margin="0,0,0,150"/>
         <PasswordBox Name="pbContraseña" Margin="0,0,0,80"/>
-        <Button Name="btInicio" Content="Iniciar sesión" Click="btInicio_Click"
-                Margin="0,20,0,0" Height="40" Width="150" Grid.Row="1"/>
-        <TextBlock Text="¿Todavia no tienes una cuenta?" Margin="0,110,150,0" 
-                   FontWeight="Normal" Width="240" FontSize="17"/>
-        <TextBlock Name="tbCrearCuenta" Text="Crear cuenta" Margin="210,110,0,0" 
-                   FontWeight="Normal" TextDecorations="Underline" Foreground="Blue" 
-                   Cursor="Hand" MouseDown="tbCrearCuenta_MouseDown" Width="120"
-                   FontSize="17"/>
+        <Button Name="btInicio" Content="Iniciar sesión" Click="btInicio_Click" Margin="0,20,0,0" 
+                Height="40" Width="150" Grid.Row="1"/>
+        <TextBlock Text="¿Todavia no tienes una cuenta?" Margin="0,110,150,0" FontWeight="Normal" 
+                   Width="240" FontSize="17"/>
+        <TextBlock Name="tbCrearCuenta" Text="Crear cuenta" Margin="210,110,0,0" FontWeight="Normal"
+                   TextDecorations="Underline" Cursor="Hand" MouseDown="tbCrearCuenta_MouseDown" 
+                   Width="120" FontSize="17"/>
     </Grid>
 </Window>

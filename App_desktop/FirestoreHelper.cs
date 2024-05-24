@@ -21,7 +21,6 @@ namespace InfoRace
         } ";
 
         static string filepath = "";
-
         public static FirestoreDb? Database { get; private set; }
 
         public static void SetEnvironmentVariable()

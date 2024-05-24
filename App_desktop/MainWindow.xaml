@@ -141,12 +141,29 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="25"/>
         </Style>
-
         <Style TargetType="StackPanel">
             <Setter Property="Grid.Row" Value="2"/>
             <Setter Property="Width" Value="1100"/>
             <Setter Property="Height" Value="450"/>
         </Style>
+        <ImageBrush x:Key="Inicio" ImageSource="pack://application:,,,/InfoRace;component/Images/Inicio.png"
+            Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <ImageBrush x:Key="Help" ImageSource="pack://application:,,,/InfoRace;component/Images/Help.png"
+            Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="2" />
+                    <TranslateTransform X="-0" Y="-0" />
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
         <ImageBrush x:Key="Formula1" ImageSource="pack://application:,,,/InfoRace;component/Images/F1.png"
                     Viewport="0 0 1 0.5" ViewportUnits="RelativeToBoundingBox">
             <ImageBrush.RelativeTransform>
@@ -302,6 +319,16 @@
         <!--Backgrounds-->
         <Rectangle Grid.Row="0" Fill="#04101e" Name="row0"/>
         <Rectangle Grid.Row="1" Fill="#114177" Name="row1"/>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Inicio}" Visibility="Collapsed" Name="recInicio">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Fill="{StaticResource Help}" Visibility="Collapsed" Name="recHelp">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3"/>
+            </Rectangle.Effect>
+        </Rectangle>
         <Rectangle Grid.Row="2" Fill="{StaticResource Formula1}" Visibility="Collapsed" Name="recFormula1">
             <Rectangle.Effect>
                 <BlurEffect Radius="3"/>
@@ -450,20 +477,59 @@
         </StackPanel>
         <StackPanel Name="spFormula2Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btFormula2Page2" Click="btFormula2Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a la Formula 2!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La Fórmula 2 (F2) es una categoría de automovilismo que sirve como antesala a la Fórmula 1 (F1), la máxima competición de este deporte. En la F2, los coches son muy similares en diseño y tecnología, lo que significa que el enfoque está más en la habilidad del piloto que en las diferencias técnicas entre los vehículos. Los pilotos compiten en una serie de carreras alrededor del mundo, muchas de ellas en los mismos circuitos y fines de semana que las carreras de F1. La F2 es crucial para el desarrollo de futuros campeones, ya que les proporciona experiencia en competición de alto nivel y una plataforma para demostrar su talento a los equipos de F1."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="380" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Baréin, Sakhir." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de la Cornisa de Yeda, Yeda." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Albert Park, Melbourne." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Callejero de Bakú, Bakú." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Mónaco, Montecarlo." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, Montmeló." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Red Bull Ring, Spielberg." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Silverstone, Silverstone." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Hungaroring, Mogyoród." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Stavelot." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Zandvoort, Zandvoort." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo Nazionale Monza, Monza." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Yas Marina, Abu Dabi." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,425,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,425,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula2Page2" Click="btFormula2Page2_Click" Content="→" Margin="1070,425,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormula2Page2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btFormula2Page1" Click="btFormula2Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="500" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="El campeón de la Fórmula 2 en 2023 fue Théo Pourchaire. Este talentoso piloto francés, compitiendo para el equipo ART Grand Prix, demostró una consistencia y habilidad excepcionales a lo largo de la temporada. Pourchaire aseguró su título durante la última carrera de la temporada en el Circuito Yas Marina en Abu Dabi. Aunque en esa carrera finalizó en la quinta posición, su desempeño acumulado durante el año le permitió mantener una ventaja suficiente sobre su principal rival, Frederik Vesti, quien corría para el equipo PREMA Racing. El éxito de Pourchaire no solo fue un triunfo personal, sino también un logro significativo para su equipo, ART Grand Prix, que consiguió su primer título de equipos en la Fórmula 2. La temporada 2023 estuvo marcada por emocionantes batallas en la pista y una competencia feroz, pero la consistencia y las estratégicas inteligentes de Pourchaire le permitieron destacarse como el piloto más sobresaliente del año."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="300" TextAlignment="Center" Margin="550,0,0,50">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Theo.png" Height="400" Width="400"/>
+                </TextBlock>
+                <Button Name="btFormula2Page1" Click="btFormula2Page1_Click" Content="←" Margin="950,375,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,375,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,375,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormula3Page1" Visibility="Collapsed">
@@ -729,15 +795,10 @@
         <Grid Grid.Row="1" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <!-- Columna para el botón izquierdo -->
                 <ColumnDefinition Width="*"/>
-                <!-- Columna para el contenedor desplazable -->
                 <ColumnDefinition Width="Auto"/>
-                <!-- Columna para el botón derecho -->
             </Grid.ColumnDefinitions>
-            <!-- Botón de navegación izquierda -->
             <Button Name="btnLeft" Content="←" Click="btnLeft_Click" Width="40" HorizontalAlignment="Center" Grid.Column="0"/>
-            <!-- Contenedor desplazable -->
             <ScrollViewer Name="scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Column="1">
                 <Canvas Name="canvasContainer">
                     <Button Name="btFormula" Content="Formula" Click="btFormula_Click" Height="30" Width="130" Canvas.Left="50" Canvas.Top="0"/>
@@ -798,7 +859,6 @@
                     </Popup>
                 </Canvas>
             </ScrollViewer>
-            <!-- Botón de navegación derecha -->
             <Button Name="btnRight" Content="→" Click="btnRight_Click" Width="40" HorizontalAlignment="Center" Grid.Column="2"/>
         </Grid>
     </Grid>

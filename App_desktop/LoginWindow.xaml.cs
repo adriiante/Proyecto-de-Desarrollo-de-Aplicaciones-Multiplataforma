@@ -5,9 +5,6 @@ using System.Windows.Media;
 
 namespace InfoRace
 {
-    /// <summary>
-    /// Lógica de interacción para RegisterWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
         public LoginWindow()
@@ -20,15 +17,12 @@ namespace InfoRace
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
-
             this.Close();
         }
 
         private void btInicio_Click(object sender, RoutedEventArgs e)
         {
             bool canCreateAccount = true;
-
-            // Validar el campo de correo electrónico
             if (string.IsNullOrWhiteSpace(tbCorreo.Text))
             {
                 tbCorreo.ToolTip = "El correo electrónico no puede estar vacío";
@@ -46,7 +40,6 @@ namespace InfoRace
                 tbCorreo.ClearValue(Border.BorderBrushProperty);
             }
 
-            // Validar el campo de contraseña
             if (string.IsNullOrWhiteSpace(pbContraseña.Password))
             {
                 pbContraseña.ToolTip = "La contraseña no puede estar vacía";
@@ -77,7 +70,7 @@ namespace InfoRace
                 {
                     if (password == Security.Decrypt(data.Password))
                     {
-                        SessionManager.Login(data); // Establece la sesión
+                        SessionManager.Login(data);
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
                         this.Close();

@@ -35,6 +35,7 @@ namespace InfoRace
                 loginWindow.Show();
                 this.Close();
             }
+            recInicio.Visibility = Visibility.Visible;
             formula1Apis();
         }
 
@@ -45,32 +46,19 @@ namespace InfoRace
                 HttpResponseMessage responseDrivers = await httpClient.GetAsync("http://ergast.com/api/f1/current/driverStandings");
                 responseDrivers.EnsureSuccessStatusCode();
                 string responseBodyDrivers = await responseDrivers.Content.ReadAsStringAsync();
-
-                // Llama a la función ParseXML para procesar el contenido XML y obtener HTML formateado
                 string formattedDataDrivers = ParseXMLDrivers(responseBodyDrivers);
-
-                // Asigna el HTML formateado al control WebBrowser
                 Pilotos.NavigateToString(formattedDataDrivers);
 
                 HttpResponseMessage responseConstructor = await httpClient.GetAsync("http://ergast.com/api/f1/current/constructorStandings");
                 responseConstructor.EnsureSuccessStatusCode();
                 string responseBodyConstructor = await responseConstructor.Content.ReadAsStringAsync();
-
-                // Llama a la función ParseXML para procesar el contenido XML y obtener HTML formateado
                 string formattedDataConstructor = ParseXMLConstructors(responseBodyConstructor);
-
-                // Asigna el HTML formateado al control WebBrowser
                 Constructores.NavigateToString(formattedDataConstructor);
 
-                // Fetch the circuit data
                 HttpResponseMessage responseCircuits = await httpClient.GetAsync("http://ergast.com/api/f1/current");
                 responseCircuits.EnsureSuccessStatusCode();
                 string responseBodyCircuits = await responseCircuits.Content.ReadAsStringAsync();
-
-                // Parse and format the circuit data
                 string formattedDataCircuits = ParseXMLCircuits(responseBodyCircuits);
-
-                // Assign the formatted HTML to the WebBrowser control
                 Circuitos.NavigateToString(formattedDataCircuits);
             }
             catch (HttpRequestException ex)
@@ -81,63 +69,43 @@ namespace InfoRace
 
         public string ParseXMLDrivers(string xmlContent)
         {
-            // Crea un documento XDocument a partir del contenido XML proporcionado
             XDocument doc = XDocument.Parse(xmlContent);
-
-            // Obtiene el espacio de nombres predeterminado del XML (xmlns="...")
             XElement root = doc.Root;
             XNamespace ns = root.GetDefaultNamespace();
-
-            // Obtiene una lista de elementos DriverStanding
             IEnumerable<XElement> driverStandings = doc.Descendants(ns + "DriverStanding");
 
-            // Construye el HTML de salida
             string htmlOutput = "<html><head><meta charset='UTF-8'></head><body><table border='1'><tr><th>Posición</th><th>Puntos</th><th>Victorias</th><th>Piloto</th><th>Constructor</th></tr>";
 
-            // Itera sobre cada elemento DriverStanding y construye la tabla HTML
             foreach (var standing in driverStandings)
             {
-                // Obtiene los atributos relevantes del elemento DriverStanding
                 string position = standing.Attribute("position")?.Value;
                 string points = standing.Attribute("points")?.Value;
                 string wins = standing.Attribute("wins")?.Value;
 
-                // Obtiene los elementos Driver y Constructor dentro de DriverStanding
                 XElement driver = standing.Element(ns + "Driver");
                 XElement constructor = standing.Element(ns + "Constructor");
 
-                // Obtiene los detalles del conductor y del constructor
                 string driverName = $"{driver?.Element(ns + "GivenName")?.Value} {driver?.Element(ns + "FamilyName")?.Value}";
                 string constructorName = constructor?.Element(ns + "Name")?.Value;
 
-                // Construye una fila de la tabla HTML para cada DriverStanding
                 htmlOutput += $"<tr><td>{position}</td><td>{points}</td><td>{wins}</td><td>{driverName}</td><td>{constructorName}</td></tr>";
             }
 
             htmlOutput += "</table></body></html>";
-
             return htmlOutput;
         }
 
         public string ParseXMLConstructors(string xmlContent)
         {
-            // Create an XDocument from the provided XML content
             XDocument doc = XDocument.Parse(xmlContent);
-
-            // Get the default namespace from the XML (xmlns="...")
             XElement root = doc.Root;
             XNamespace ns = root.GetDefaultNamespace();
-
-            // Get a list of ConstructorStanding elements
             IEnumerable<XElement> constructorStandings = doc.Descendants(ns + "ConstructorStanding");
 
-            // Build the HTML output
             string htmlOutput = "<html><head><meta charset='UTF-8'></head><body><table border='1'><tr><th>Nombre</th><th>Posición</th><th>Puntos</th><th>Victorias</th></tr>";
 
-            // Iterate over each ConstructorStanding element and build the HTML table
             foreach (var standing in constructorStandings)
             {
-                // Get the relevant elements and attributes
                 string position = standing.Attribute("position")?.Value;
                 string points = standing.Attribute("points")?.Value;
                 string wins = standing.Attribute("wins")?.Value;
@@ -145,45 +113,32 @@ namespace InfoRace
                 XElement constructor = standing.Element(ns + "Constructor");
                 string name = constructor.Element(ns + "Name")?.Value;
 
-                // Build an HTML row for each ConstructorStanding
                 htmlOutput += $"<tr><td>{name}</td><td>{position}</td><td>{points}</td><td>{wins}</td></tr>";
             }
 
             htmlOutput += "</table></body></html>";
-
             return htmlOutput;
         }
 
         public string ParseXMLCircuits(string xmlContent)
         {
-            // Create an XDocument from the provided XML content
             XDocument doc = XDocument.Parse(xmlContent);
-
-            // Get the default namespace from the XML (xmlns="...")
             XElement root = doc.Root;
             XNamespace ns = root.GetDefaultNamespace();
-
-            // Get a list of Race elements
             IEnumerable<XElement> races = doc.Descendants(ns + "Race");
-
-            // Build the HTML output
             string htmlOutput = "<html><head><meta charset='UTF-8'></head><body><table border='1'><tr><th>Ronda</th><th>Nombre</th><th>Fecha</th><th>Hora</th><th>Localización</th></tr>";
 
-            // Iterate over each Race element and build the HTML table
             foreach (var race in races)
             {
-                // Get the relevant elements and attributes
                 string round = race.Attribute("round")?.Value;
                 string raceName = race.Element(ns + "RaceName")?.Value;
                 string date = race.Element(ns + "Date")?.Value;
                 string time = race.Element(ns + "Time")?.Value;
 
-                // Convert the time to Spain time (CET/CEST)
                 DateTime raceDateTimeUtc = DateTime.ParseExact(date + "T" + time, "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
                 TimeZoneInfo spainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
                 DateTime raceDateTimeSpain = TimeZoneInfo.ConvertTimeFromUtc(raceDateTimeUtc, spainTimeZone);
 
-                // Format the date and time for display
                 string dateSpain = raceDateTimeSpain.ToString("yyyy-MM-dd");
                 string timeSpain = raceDateTimeSpain.ToString("HH:mm");
 
@@ -191,12 +146,10 @@ namespace InfoRace
                 string circuitName = circuit.Element(ns + "CircuitName")?.Value;
                 string location = $"{circuit?.Element(ns + "Location")?.Element(ns + "Locality")?.Value}, {circuit?.Element(ns + "Location")?.Element(ns + "Country")?.Value}";
 
-                // Build an HTML row for each Race
                 htmlOutput += $"<tr><td>{round}</td><td>{raceName}</td><td>{dateSpain}</td><td>{timeSpain}</td><td>{circuitName} ({location})</td></tr>";
             }
 
             htmlOutput += "</table></body></html>";
-
             return htmlOutput;
         }
 
@@ -270,10 +223,7 @@ namespace InfoRace
 
         private void Perfil_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí puedes abrir la ventana del perfil
-            // Por ejemplo:
-            //PerfilWindow perfilWindow = new PerfilWindow();
-            //perfilWindow.ShowDialog();
+
         }
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -286,7 +236,6 @@ namespace InfoRace
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //Mostrar el menú contextual en la posición del ratón
             if (sender is Image image)
             {
                 if (image.ContextMenu != null)
@@ -310,54 +259,31 @@ namespace InfoRace
 
         private void btnLeft_Click(object sender, RoutedEventArgs e)
         {
-            // Calculamos el ancho total del contenido en el canvas
             double totalWidth = canvasContainer.Children.Cast<UIElement>().Max(element => Canvas.GetLeft(element) + element.RenderSize.Width);
-
-            // Calculamos el ancho visible del ScrollViewer
             double visibleWidth = scrollViewer.ActualWidth;
-
-            // Calculamos el margen izquierdo actual del canvas
             double currentLeftMargin = canvasContainer.Margin.Left;
-
-            // Calculamos el nuevo margen izquierdo considerando los límites
             double newLeftMargin = Math.Min(currentLeftMargin + 50, 0);
-
-            // Aplicamos los límites teniendo en cuenta el ancho total del contenido y el ancho visible del ScrollViewer
             if (totalWidth - Math.Abs(newLeftMargin) < visibleWidth)
             {
                 newLeftMargin = -(totalWidth - visibleWidth);
             }
-
-            // Aplicamos el nuevo margen izquierdo al canvas
             canvasContainer.Margin = new Thickness(newLeftMargin, 0, 0, 0);
         }
 
         private void btnRight_Click(object sender, RoutedEventArgs e)
         {
-            // Calculamos el ancho total del contenido en el canvas
             double totalWidth = canvasContainer.Children.Cast<UIElement>().Max(element => Canvas.GetLeft(element) + element.RenderSize.Width);
-
-            // Calculamos el ancho visible del ScrollViewer
             double visibleWidth = scrollViewer.ActualWidth;
-
-            // Calculamos el margen derecho actual del canvas
             double currentRightMargin = canvasContainer.Margin.Right;
-
-            // Calculamos el nuevo margen derecho considerando los límites
             double newRightMargin = Math.Max(currentRightMargin + 50, 0);
-
-            // Calculamos el margen izquierdo actual del canvas
             double currentLeftMargin = canvasContainer.Margin.Left;
-
-            // Calculamos el nuevo margen izquierdo considerando los límites
             double newLeftMargin = Math.Max(currentLeftMargin - 50, -(totalWidth - visibleWidth + 50));
-
-            // Aplicamos los nuevos márgenes al canvas
             canvasContainer.Margin = new Thickness(newLeftMargin, 0, newRightMargin, 0);
         }
 
-        private void btAboutUs_Click(object sender, RoutedEventArgs e)
+        private void HideAllSections()
         {
+            spInicio.Visibility = Visibility.Collapsed;
             spHelp.Visibility = Visibility.Collapsed;
             spFormula1Page1.Visibility = Visibility.Collapsed;
             spFormula1Page2.Visibility = Visibility.Collapsed;
@@ -385,13 +311,15 @@ namespace InfoRace
             spIMSAPage2.Visibility = Visibility.Collapsed;
             spKWCPage1.Visibility = Visibility.Collapsed;
             spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility= Visibility.Collapsed;
+            spETRCPage1.Visibility = Visibility.Collapsed;
             spETRCPage2.Visibility = Visibility.Collapsed;
             spFormulaDriftPage1.Visibility = Visibility.Collapsed;
             spFormulaDriftPage2.Visibility = Visibility.Collapsed;
             spD1GPPage1.Visibility = Visibility.Collapsed;
             spD1GPPage2.Visibility = Visibility.Collapsed;
 
+            recInicio.Visibility = Visibility.Collapsed;
+            recHelp.Visibility = Visibility.Collapsed;
             recFormula1.Visibility = Visibility.Collapsed;
             recFormula2.Visibility = Visibility.Collapsed;
             recFormula3.Visibility = Visibility.Collapsed;
@@ -408,940 +336,146 @@ namespace InfoRace
             recETRC.Visibility = Visibility.Collapsed;
             recFormulaDrift.Visibility = Visibility.Collapsed;
             recD1GP.Visibility = Visibility.Collapsed;
+        }
+
+        private void btAboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSections();
+            recInicio.Visibility = Visibility.Visible;
             spInicio.Visibility = Visibility.Visible;
         }
 
         private void btHelp_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
-
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
+            HideAllSections();
+            recHelp.Visibility = Visibility.Visible;
             spHelp.Visibility = Visibility.Visible;
         }
 
         private void btFormula1_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupFormula.IsOpen = !popupFormula.IsOpen;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recFormula1.Visibility = Visibility.Visible;
             spFormula1Page1.Visibility = Visibility.Visible;
         }
 
         private void btFormula2_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupFormula.IsOpen = !popupFormula.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recFormula2.Visibility = Visibility.Visible;
             spFormula2Page1.Visibility = Visibility.Visible;
         }
 
         private void btFormula3_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupFormula.IsOpen = !popupFormula.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recFormula3.Visibility = Visibility.Visible;
             spFormula3Page1.Visibility = Visibility.Visible;
         }
 
         private void btFormulaE_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupFormula.IsOpen = !popupFormula.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recFormulaE.Visibility = Visibility.Visible;
             spFormulaEPage1.Visibility = Visibility.Visible;
         }
 
         private void btGT3_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupSportsCars.IsOpen = !popupSportsCars.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recGT3.Visibility = Visibility.Visible;
             spGT3Page1.Visibility = Visibility.Visible;
         }
 
         private void btNascar_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupSportsCars.IsOpen = !popupSportsCars.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recNASCAR.Visibility = Visibility.Visible;
             spNascarPage1.Visibility = Visibility.Visible;
         }
 
         private void btMotoGP_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupMotos.IsOpen = !popupMotos.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recMotoGP.Visibility = Visibility.Visible;
             spMotoGPPage1.Visibility = Visibility.Visible;
         }
 
         private void btMoto2_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupMotos.IsOpen = !popupMotos.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recMoto2.Visibility = Visibility.Visible;
             spMoto2Page1.Visibility = Visibility.Visible;
         }
 
         private void btMoto3_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupMotos.IsOpen = !popupMotos.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recMoto3.Visibility = Visibility.Visible;
             spMoto3Page1.Visibility = Visibility.Visible;
         }
 
         private void btWRC_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupRally.IsOpen = !popupRally.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recWRC.Visibility = Visibility.Visible;
             spWRCPage1.Visibility = Visibility.Visible;
         }
 
         private void btWEC_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupResistencia.IsOpen = !popupResistencia.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recWEC.Visibility = Visibility.Visible;
             spWECPage1.Visibility = Visibility.Visible;
         }
 
         private void btIMSA_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupResistencia.IsOpen = !popupResistencia.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recIMSA.Visibility = Visibility.Visible;
             spIMSAPage1.Visibility = Visibility.Visible;
         }
 
         private void btKWC_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupKarting.IsOpen = !popupKarting.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recKWC.Visibility = Visibility.Visible;
             spKWCPage1.Visibility = Visibility.Visible;
         }
 
         private void btETRC_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupCamiones.IsOpen = !popupCamiones.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recETRC.Visibility = Visibility.Visible;
             spETRCPage1.Visibility = Visibility.Visible;
         }
 
         private void btFormulaDrift_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage1.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupDrifting.IsOpen = !popupDrifting.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recD1GP.Visibility = Visibility.Collapsed;
             recFormulaDrift.Visibility = Visibility.Visible;
             spFormulaDriftPage1.Visibility = Visibility.Visible;
         }
 
         private void btD1GP_Click(object sender, RoutedEventArgs e)
         {
-            spInicio.Visibility = Visibility.Collapsed;
-            spHelp.Visibility = Visibility.Collapsed;
-            spFormula1Page1.Visibility = Visibility.Collapsed;
-            spFormula1Page2.Visibility = Visibility.Collapsed;
-            spFormula2Page1.Visibility = Visibility.Collapsed;
-            spFormula2Page2.Visibility = Visibility.Collapsed;
-            spFormula3Page1.Visibility = Visibility.Collapsed;
-            spFormula3Page2.Visibility = Visibility.Collapsed;
-            spFormulaEPage1.Visibility = Visibility.Collapsed;
-            spFormulaEPage2.Visibility = Visibility.Collapsed;
-            spGT3Page1.Visibility = Visibility.Collapsed;
-            spGT3Page2.Visibility = Visibility.Collapsed;
-            spNascarPage1.Visibility = Visibility.Collapsed;
-            spNascarPage2.Visibility = Visibility.Collapsed;
-            spMotoGPPage1.Visibility = Visibility.Collapsed;
-            spMotoGPPage2.Visibility = Visibility.Collapsed;
-            spMoto2Page1.Visibility = Visibility.Collapsed;
-            spMoto2Page2.Visibility = Visibility.Collapsed;
-            spMoto3Page1.Visibility = Visibility.Collapsed;
-            spMoto3Page2.Visibility = Visibility.Collapsed;
-            spWRCPage1.Visibility = Visibility.Collapsed;
-            spWRCPage2.Visibility = Visibility.Collapsed;
-            spWECPage1.Visibility = Visibility.Collapsed;
-            spWECPage2.Visibility = Visibility.Collapsed;
-            spIMSAPage1.Visibility = Visibility.Collapsed;
-            spIMSAPage2.Visibility = Visibility.Collapsed;
-            spKWCPage1.Visibility = Visibility.Collapsed;
-            spKWCPage2.Visibility = Visibility.Collapsed;
-            spETRCPage1.Visibility = Visibility.Collapsed;
-            spETRCPage2.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage1.Visibility = Visibility.Collapsed;
-            spFormulaDriftPage2.Visibility = Visibility.Collapsed;
-            spD1GPPage2.Visibility = Visibility.Collapsed;
+            HideAllSections();
             popupDrifting.IsOpen = !popupDrifting.IsOpen;
-            recFormula1.Visibility = Visibility.Collapsed;
-            recFormula2.Visibility = Visibility.Collapsed;
-            recFormula3.Visibility = Visibility.Collapsed;
-            recFormulaE.Visibility = Visibility.Collapsed;
-            recGT3.Visibility = Visibility.Collapsed;
-            recNASCAR.Visibility = Visibility.Collapsed;
-            recMotoGP.Visibility = Visibility.Collapsed;
-            recMoto2.Visibility = Visibility.Collapsed;
-            recMoto3.Visibility = Visibility.Collapsed;
-            recWRC.Visibility = Visibility.Collapsed;
-            recWEC.Visibility = Visibility.Collapsed;
-            recIMSA.Visibility = Visibility.Collapsed;
-            recKWC.Visibility = Visibility.Collapsed;
-            recETRC.Visibility = Visibility.Collapsed;
-            recFormulaDrift.Visibility = Visibility.Collapsed;
             recD1GP.Visibility = Visibility.Visible;
             spD1GPPage1.Visibility = Visibility.Visible;
         }
@@ -1577,6 +711,5 @@ namespace InfoRace
             spD1GPPage2.Visibility = Visibility.Visible;
             spD1GPPage1.Visibility = Visibility.Collapsed;
         }
-
     }
 }
