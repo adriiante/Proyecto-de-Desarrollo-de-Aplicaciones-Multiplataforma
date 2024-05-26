@@ -460,8 +460,8 @@
                 <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50">
                     <WebBrowser Name="Constructores" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="310" Width="330"/>
                 </TextBlock>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
                 <Button Name="btFormula1Page2" Click="btFormula1Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
@@ -470,8 +470,8 @@
                 <TextBlock Text="Circuitos" Width="800" Height="500" TextAlignment="Center">
                     <WebBrowser Name="Circuitos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="360" Width="740"/>
                 </TextBlock>
-                <Button Name="btFormula1Page1" Click="btFormula1Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula1Page1" Click="btFormula1Page1_Click" Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
                 <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
@@ -534,128 +534,391 @@
         </StackPanel>
         <StackPanel Name="spFormula3Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btFormula3Page2" Click="btFormula3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="250" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a la Formula 3!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La Fórmula 3 es una categoría fundamental en el mundo del automovilismo, ofreciendo a los jóvenes pilotos una plataforma para desarrollar sus habilidades, ganar experiencia y demostrar su talento en un entorno altamente competitivo. Su importancia en la carrera de un piloto y su capacidad para producir talentos que eventualmente brillan en la Fórmula 1 la hacen una parte integral del deporte motor."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="330" TextAlignment="Justify" Margin="550,25,0,0" Padding="30">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Baréin (Sakhir, Baréin)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Albert Park (Melbourne, Australia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Enzo e Dino Ferrari (Imola, Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Mónaco (Monte Carlo, Mónaco)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Catalunya (Barcelona, España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Red Bull Ring (Spielberg, Austria)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Silverstone (Silverstone, Reino Unido)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Hungaroring (Budapest, Hungría)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps (Spa, Bélgica)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo Nazionale di Monza (Monza, Italia)." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula3Page2" Click="btFormula3Page2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormula3Page2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btFormula3Page1" Click="btFormula3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="250" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Gabriel Bortoleto ha demostrado ser un piloto talentoso y prometedor, logrando destacarse en una de las categorías más competitivas del automovilismo junior. Su consistencia, habilidad y mentalidad fuerte le han permitido alcanzar el éxito temprano, y su progresión hacia la Fórmula 2 en 2024 será seguida de cerca por muchos en la comunidad del automovilismo ."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="270" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/GabrielBortoleto.png" Height="400" Width="400"/>
+                </TextBlock>
+                <Button Name="btFormula3Page1" Click="btFormula3Page1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormulaEPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btFormulaEPage2" Click="btFormulaEPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a la Formula E!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La Fórmula E es una categoría de automovilismo de monoplazas eléctricos. Es un campeonato internacional que fue fundado en 2014 con el objetivo de promover la innovación en tecnología de vehículos eléctricos y concienciar sobre la importancia de la sostenibilidad en el deporte del motor. Los autos de la Fórmula E son impulsados ​​únicamente por motores eléctricos y compiten en circuitos urbanos en ciudades de todo el mundo. Esta serie ha ganado popularidad rápidamente debido a su enfoque en la tecnología verde y su capacidad para atraer a fabricantes de automóviles de renombre que compiten por la victoria en las carreras."/>
+                </TextBlock>
+                <TextBlock Width="280" Height="340" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Ciudad de México, México." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Diriyah, Arabia Saudita." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Hyderabad, India." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• São Paulo, Brasil." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Tokio, Japón." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Misano, Italia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Monte Carlo, Mónaco." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Berlín, Alemania." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Shanghai, China." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Portland, Estados Unidos." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Londres, Gran Bretaña." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormulaEPage2" Click="btFormulaEPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormulaEPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btFormulaEPage1" Click="btFormulaEPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="220" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Jake Dennis se coronó campeón del mundo de Fórmula E en 2023 conduciendo para el equipo Porsche 99X Electric. Durante la temporada, Dennis logró cuatro victorias que lo llevaron a obtener el título. Su destacada actuación en las carreras le permitió asegurar el campeonato en una temporada emocionante y altamente competitiva de la Fórmula E."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="300" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/JakeDennis.png" Height="400" Width="400"/>
+                </TextBlock>
+                <Button Name="btFormulaEPage1" Click="btFormulaEPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spGT3Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btGT3Page2" Click="btGT3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="350" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a la GT3!"/>
+                    <LineBreak/>
+                    <TextBlock Text="Las carreras GT3 representan la cúspide del automovilismo deportivo de gran turismo, donde se enfrentan vehículos de alta especificación modificados para competir en circuitos de clase mundial. Los equipos se embarcan en intensas batallas, aprovechando al máximo el rendimiento optimizado de sus coches GT3, que se someten a rigurosas regulaciones técnicas para garantizar la paridad y la seguridad. Estrategias meticulosamente elaboradas, que incluyen gestión de neumáticos y combustible, junto con habilidades de conducción de élite, son imperativas para dominar las curvas y las rectas de los trazados más exigentes del calendario internacional."/>
+                </TextBlock>
+                <TextBlock Width="360" Height="240" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Paul Ricard, Francia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Nazionale Monza, Italia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Bélgica." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Zandvoort, Países Bajos." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, España." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btGT3Page2" Click="btGT3Page2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spGT3Page2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btGT3Page1" Click="btGT3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="450" Height="260" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Raffaele Marciello fue el campeón de la categoría GT3 en el Fanatec GT World Challenge Europe Powered by AWS. Compitiendo junto a Timur Boguslavskiy y Jules Gounon, lograron el título de pilotos en el campeonato de resistencia. El equipo campeón fue Akkodis ASP Team, utilizando un Mercedes-AMG GT3. Este fue un logro destacado en el mundo del automovilismo deportivo para Marciello y su equipo."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="300" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Marciello.png" Height="500" Width="500"/>
+                </TextBlock>
+                <Button Name="btGT3Page1" Click="btGT3Page1_Click" Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spNascarPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btNascarPage2" Click="btNascarPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="350" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a la NASCAR!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La NASCAR (National Association for Stock Car Auto Racing) es una de las principales organizaciones de carreras de automóviles en los Estados Unidos. Fundada en 1948, la NASCAR es conocida principalmente por sus series de carreras de automóviles de tipo stock car, que implican vehículos de producción en masa con modificaciones específicas para carreras en óvalos, circuitos mixtos y pistas de carretera. Su serie más conocida y prestigiosa es la NASCAR Cup Series, seguida por la NASCAR Xfinity Series y la NASCAR Camping World Truck Series. La NASCAR es reconocida por su base de seguidores apasionados y su estilo de competición único que incluye drafting, estrategias de equipo y carreras llenas de acción en pistas diversas en todo Estados Unidos."/>
+                </TextBlock>
+                <TextBlock Width="490" Height="360" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Daytona International Speedway (Daytona Beach, Florida)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Atlanta Motor Speedway (Hampton, Georgia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Las Vegas Motor Speedway (Las Vegas, Nevada)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Phoenix Raceway (Avondale, Arizona)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Bristol Motor Speedway (Bristol, Tennesse)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de las Américas (Austin, Texas)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Richmond Raceway (Richmond, Virginia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Martinsville Speedway (Richmond, Virginia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Texas Motor Speedway (Fort Worth, Texas)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Charlotte Motor Speedway (Concordia, Carolina del Norte)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Nashville Superspeedway (Líbano, Tennessee)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de carreras de Indianápolis (Indiana)." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btNascarPage2" Click="btNascarPage2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spNascarPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btNascarPage1" Click="btNascarPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="380" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="En la temporada 2023 de la NASCAR Cup, Ryan Blaney se coronó campeón en la final celebrada en Phoenix. En una carrera tensa, Blaney logró mantenerse por delante de sus rivales Kyle Larson y William Byron, incluso después de una bandera amarilla por un incidente de Kyle Busch. Blaney, piloto del equipo Team Penske y conduciendo un Ford, consiguió su segundo título consecutivo para el equipo y el cuarto en general. Ross Chastain ganó la carrera, mientras que Larson y Byron terminaron en tercer y cuarto lugar respectivamente. Christopher Bell, otro contendiente al título, tuvo que abandonar por problemas de frenos. Kevin Harvick, en su última carrera antes de retirarse, terminó en séptimo lugar. Daniel Suárez cerró la temporada en el puesto 19 de la tabla general."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="300" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/RyanBlaney.png" Height="500"/>
+                </TextBlock>
+                <Button Name="btNascarPage1" Click="btNascarPage1_Click" Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMotoGPPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btMotoGPPage2" Click="btMotoGPPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a Moto GP!"/>
+                    <LineBreak/>
+                    <TextBlock Text="MotoGP es la máxima categoría del Campeonato Mundial de Motociclismo, regulado por la FIM. En estas carreras de élite, los pilotos compiten en circuitos globales con motos de alta tecnología, diseñadas para alcanzar velocidades extremadamente altas y ofrecer un rendimiento óptimo en términos de potencia, aerodinámica y tecnología de suspensión. Legendarios competidores como Valentino Rossi y Marc Márquez han protagonizado emocionantes batallas por la supremacía en la categoría, convirtiendo a MotoGP en uno de los eventos más emocionantes y seguidos en el mundo del deporte de motor."/>
+                </TextBlock>
+                <TextBlock Width="370" Height="450" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Jerez - Ángel Nieto (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Le Mans (Francia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Mugello (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Cataluña (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• TT Circuit Assen (Países Bajos)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Brno (República Checa)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Silverstone Circuit (Reino Unido)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Misano World Circuit Marco Simoncelli (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• MotorLand Aragón (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Twin Ring Motegi (Japón)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Chang International Circuit (Tailandia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Phillip Island Grand Prix Circuit (Australia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sepang International Circuit (Malasia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de las Americas (Estados Unidos)." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMotoGPPage2" Click="btMotoGPPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMotoGPPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btMotoGPPage1" Click="btMotoGPPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="280" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Francesco Bagnaia se consagró como campeón del mundo. El italiano, compitiendo para el equipo oficial Ducati, mostró un rendimiento excepcional a lo largo del año, asegurando su primer título en la categoría reina del motociclismo. El italiano logró varias victorias y podios clave a lo largo de la temporada, lo que le permitió mantenerse en la cima de la clasificación general. Su determinación y habilidad para manejar la presión lo llevaron a ganar el campeonato de manera convincente al final de la temporada."/>
+                </TextBlock>
+                <TextBlock Width="450" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/FrancescoBagnaia.png"/>
+                </TextBlock>
+                <Button Name="btMotoGPPage1" Click="btMotoGPPage1_Click" Content="←" Margin="950,423,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,423,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,423,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto2Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btMoto2Page2" Click="btMoto2Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a Moto 2!"/>
+                    <LineBreak/>
+                    <TextBlock Text="Moto2 es una categoría del Campeonato del Mundo de Motociclismo, bajo la supervisión de la Federación Internacional de Motociclismo (FIM). Se sitúa como la antesala de la categoría principal, MotoGP. En Moto2, los pilotos compiten utilizando motocicletas de 600cc de cuatro tiempos de motor único, todas provistas por un único fabricante de motores. Es una plataforma de desarrollo para jóvenes talentos y pilotos con experiencia que buscan ascender a MotoGP. Las carreras de Moto2 suelen ser altamente competitivas, con emocionantes batallas en pista y adelantamientos frecuentes."/>
+                </TextBlock>
+                <TextBlock Width="420" Height="470" TextAlignment="Justify" Margin="500,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Losail (Catar)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Internacional do Algarve (Portugal)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Termas de Río Hondo (Argentina)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de las Américas (Estados Unidos)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Jerez (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Bugatti Circuito de Le Mans (Francia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo del Mugello (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sokol International Racetrack (Rusia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• TT Circuito de Assen (Países Bajos)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Silverstone (Reino Unido)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Motorland Aragón (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Misano Marco Simoncelli (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Buddh International Circuit (India)." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto2Page2" Click="btMoto2Page2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto2Page2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btMoto2Page1" Click="btMoto2Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="400" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Pedro Acosta, con su victoria en el campeonato de Moto2, se ha consolidado como una de las figuras emergentes más destacadas en el mundo del motociclismo. Su título refleja no solo su habilidad excepcional en la pista, sino también su determinación y dedicación para alcanzar el éxito en un deporte altamente competitivo. Desde sus primeras carreras hasta su consagración como campeón del mundo, Acosta ha cautivado a los aficionados con su estilo de conducción agresivo y su capacidad para superar desafíos. Este logro no solo marca un hito en su carrera, sino que también augura un futuro prometedor en el deporte para este joven talento. Su victoria en el campeonato de Moto2 lo coloca en una posición privilegiada para seguir dejando su huella en el mundo del motociclismo y competir en los más altos niveles de la categoría."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="300" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/PedroAcosta.png"/>
+                </TextBlock>
+                <Button Name="btMoto2Page1" Click="btMoto2Page1_Click" Content="←" Margin="950,422,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,422,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,422,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto3Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btMoto3Page2" Click="btMoto3Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="330" TextAlignment="Justify" Margin="0,0,500,0">
+                    <Run Text="¡Bienvenido a Moto 3!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La Moto3 es una categoría de carreras de motociclismo que forma parte del Campeonato del Mundo de Motociclismo, organizado por la Federación Internacional de Motociclismo (FIM). Es la clase más baja en términos de cilindrada dentro del campeonato, caracterizada por el uso de motocicletas de 250cc de motor mono cilíndrico de cuatro tiempos. Esta categoría se estableció en 2012 como reemplazo de la clase de 125cc, con el objetivo de reducir los costos y fomentar una competencia más equilibrada. Las motos utilizadas en la Moto3 son máquinas más pequeñas y ligeras en comparación con las categorías superiores, lo que las hace ágiles y emocionantes de pilotar."/>
+                </TextBlock>
+                <TextBlock Width="420" Height="470" TextAlignment="Justify" Margin="500,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Losail (Catar)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Internacional do Algarve (Portugal)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Termas de Río Hondo (Argentina)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de las Américas (Estados Unidos)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Jerez (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Bugatti Circuito de Le Mans (Francia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo del Mugello (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sokol International Racetrack (Rusia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• TT Circuito de Assen (Países Bajos)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Silverstone (Reino Unido)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Motorland Aragón (España)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Misano Marco Simoncelli (Italia)." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Buddh International Circuit (India)." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto3Page2" Click="btMoto3Page2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto3Page2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btMoto3Page1" Click="btMoto3Page1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="300" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Jaume Masiá se coronó campeón del mundo de Moto3 en 2023, consolidando su destacada trayectoria en el mundo del motociclismo. Su título es el resultado de su habilidad excepcional en la pista, así como de su determinación y dedicación para alcanzar el éxito en una competición tan exigente. Masiá, con su estilo de conducción agresivo y su capacidad para superar desafíos, cautivó a los aficionados durante toda la temporada. Este logro marca un hito importante en su carrera y lo posiciona como una de las estrellas emergentes en el deporte de las dos ruedas."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="390" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Juame.png"/>
+                </TextBlock>
+                <Button Name="btMoto3Page1" Click="btMoto3Page1_Click" Content="←" Margin="950,422,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,422,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,422,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spWRCPage1" Visibility="Collapsed">
@@ -820,9 +1083,9 @@
                     <Button Name="btMotos" Content="Motos" Click="btMoto_Click" Height="30" Width="130" Canvas.Left="450" Canvas.Top="0"/>
                     <Popup Name="popupMotos" Placement="Bottom" PlacementTarget="{Binding ElementName=btMotos}" StaysOpen="False">
                         <StackPanel Width="120" Height="110" Background="#04101e">
-                            <Button Name="btMotoGP" Content="MotoGP" Click="btMotoGP_Click" Width="110" Margin="3"/>
-                            <Button Name="btMoto2" Content="Moto2" Click="btMoto2_Click" Width="110" Margin="3"/>
-                            <Button Name="btMoto3" Content="Moto3" Click="btMoto3_Click" Width="110" Margin="3"/>
+                            <Button Name="btMotoGP" Content="Moto GP" Click="btMotoGP_Click" Width="110" Margin="3"/>
+                            <Button Name="btMoto2" Content="Moto 2" Click="btMoto2_Click" Width="110" Margin="3"/>
+                            <Button Name="btMoto3" Content="Moto 3" Click="btMoto3_Click" Width="110" Margin="3"/>
                         </StackPanel>
                     </Popup>
                     <Button Name="btRally" Content="Rally" Click="btRally_Click" Height="30" Width="130" Canvas.Left="650" Canvas.Top="0"/>
