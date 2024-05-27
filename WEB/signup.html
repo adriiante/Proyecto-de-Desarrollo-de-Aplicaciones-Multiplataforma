@@ -60,32 +60,42 @@
       <li class="option"><a class="link" href="discord.com">Discord</a></li>
     </ul>
   </footer>
-  <script src="firebase.js"></script> <!-- Asegúrate de tener un archivo llamado firebase.js con la configuración de Firebase -->
+  <script src="firebase.js"></script>
   <script>
-    // Función para enviar datos a Firestore
     function enviarDatos() {
-      // Obtén los valores de los campos de entrada
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const username = document.getElementById('username').value;
-      const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+  const username = document.getElementById('username').value;
+  const phone = document.getElementById('phone').value;
 
-      // Agrega los datos a Firestore
-      db.collection("usuarios").add({
-        email: email,
-        password: password,
-        username: username,
-        phone: phone
-      })
-      .then((docRef) => {
-        console.log("Documento agregado con ID: ", docRef.id);
-        // Redirige a otra página después de agregar los datos
-        window.location.href = "login.html";
-      })
-      .catch((error) => {
-        console.error("Error al agregar el documento: ", error);
-      });
+  if (password !== confirmPassword) {
+    alert("Las contraseñas no coinciden");
+    return;
+  }
+
+  const saltRounds = 10;
+  bcrypt.hash(password, saltRounds, function(err, hashedPassword) {
+    if (err) {
+      console.error("Error al encriptar la contraseña: ", err);
+      return;
     }
+
+    db.collection("usuarios").add({
+      email: email,
+      password: hashedPassword,
+      username: username,
+      phone: phone
+    })
+    .then((docRef) => {
+      console.log("Documento agregado con ID: ", docRef.id);
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      console.error("Error al agregar el documento: ", error);
+    });
+  });
+}
   </script>
 </body>
 </html>

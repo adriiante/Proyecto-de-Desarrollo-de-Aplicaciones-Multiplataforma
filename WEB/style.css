@@ -7,7 +7,81 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: "logo.png";
+  position: relative;
+  z-index: 0;
+}
+
+#index::before {
+  content: "";
+  background-image: url("formula.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+#download::before {
+  content: "";
+  background-image: url("alpine.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+#registro::before {
+  content: "";
+  background-image: url("senna.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+#about::before {
+  content: "";
+  background-image: url("renault.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+
+#loooogin::before {
+
+  content: "";
+  background-image: url("bmw.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(4px);
+  z-index: -1;
+
 }
 
 /* Estilos del encabezado */
@@ -42,11 +116,11 @@ body {
   margin: 0 10px;
 }
 
-.option-left{
+.option-left {
   margin-right: 150px;
 }
 
-.option-right{
+.option-right {
   margin-left: 150px;
 }
 
@@ -66,36 +140,92 @@ body {
   padding: 5px 10px;
 }
 
-/* Estilos del contenido principal */
 #mid {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centra los cuadrados verticalmente */
+  justify-content: center;
   padding: 20px;
+}
+
+
+.registration-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000, 
+     1px  1px 0 #000;
+
+}
+
+.registration-form {
+  width: 50%;
+  height: 500px;
+  margin: 0 auto;
+  color: white;
+  text-shadow: 
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000, 
+     1px  1px 0 #000;
+}
+
+.form-group {
+  line-height: 30px;
+}
+
+.form-label {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+.form-input {
+  width: calc(100% - 40px);
+  vertical-align: middle;
+}
+
+input[type="checkbox"] {
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.whatis, .aboutus, .why{
+
+color: white;
+
+text-shadow: 
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000, 
+     1px  1px 0 #000;
+
 }
 
 .welcome {
   background-color: #0f3968;
   color: white;
-  margin: 20px 0; /* Ajuste del espacio entre los cuadrados */
-  padding: 30px; /* Ajuste de la altura del cuadrado */
+  margin: 20px 0;
+  padding: 30px;
   width: 85%;
   border-radius: 10px;
-  height: 250px; /* Ajuste de la altura */
-  transition: transform 0.3s, background-color 0.3s; /* Transición suave */
+  height: 250px;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .welcome:first-child {
   width: 80%;
-  height: 200px; /* Ajuste de la altura del primer cuadrado */
+  height: 200px;
 }
 
-/* Efectos al pasar el ratón sobre los cuadrados */
 .welcome:hover {
-  transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
-  background-color: #093a5e; /* Cambia el color de fondo */
+  transform: scale(1.05);
+  background-color: #093a5e;
 }
 
 /* Estilos del pie de página */
@@ -151,5 +281,3 @@ button {
 button:hover {
   background-color: #0f3968; /* Cambia el color al pasar el ratón sobre el botón */
 }
-
-
