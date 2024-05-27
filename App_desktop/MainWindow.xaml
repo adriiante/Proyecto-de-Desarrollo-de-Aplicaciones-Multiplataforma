@@ -77,19 +77,20 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="Padding" Value="20"/>
+            <Setter Property="Opacity" Value="0.9"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.9" Duration="0:0:0.3"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>
                     <Trigger.ExitActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.9" Duration="0:0:0.3"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.ExitActions>
@@ -482,35 +483,37 @@
                     <LineBreak/>
                     <TextBlock Text="La Fórmula 2 (F2) es una categoría de automovilismo que sirve como antesala a la Fórmula 1 (F1), la máxima competición de este deporte. En la F2, los coches son muy similares en diseño y tecnología, lo que significa que el enfoque está más en la habilidad del piloto que en las diferencias técnicas entre los vehículos. Los pilotos compiten en una serie de carreras alrededor del mundo, muchas de ellas en los mismos circuitos y fines de semana que las carreras de F1. La F2 es crucial para el desarrollo de futuros campeones, ya que les proporciona experiencia en competición de alto nivel y una plataforma para demostrar su talento a los equipos de F1."/>
                 </TextBlock>
-                <TextBlock Width="400" Height="380" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                <TextBlock Width="450" Height="390" TextAlignment="Justify" Margin="500,0,0,0" Padding="25">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Internacional de Baréin, Sakhir." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Baréin, Sakhir. (29/02 - 02/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de la Cornisa de Yeda, Yeda." Padding="0"/>
+                    <TextBlock Text="• Circuito de la Cornisa de Yeda, Yeda. (07/03 - 09/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Albert Park, Melbourne." Padding="0"/>
+                    <TextBlock Text="• Circuito de Albert Park, Melbourne. (22/03 - 24/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Callejero de Bakú, Bakú." Padding="0"/>
+                    <TextBlock Text="• Circuito de Imola, Italia. (17/05 - 19/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Mónaco, Montecarlo." Padding="0"/>
+                    <TextBlock Text="• Circuito de Mónaco, Montecarlo. (23/05 - 26/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Barcelona-Cataluña, Montmeló." Padding="0"/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, Montmeló. (21/06 - 23/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Red Bull Ring, Spielberg." Padding="0"/>
+                    <TextBlock Text="• Red Bull Ring, Spielberg. (28/06 - 30/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Silverstone, Silverstone." Padding="0"/>
+                    <TextBlock Text="• Circuito de Silverstone, Silverstone. (05/07 - 07/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Hungaroring, Mogyoród." Padding="0"/>
+                    <TextBlock Text="• Hungaroring, Hungría. (19/07 - 21/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Spa-Francorchamps, Stavelot." Padding="0"/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Bélgica. (26/07 - 28/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Zandvoort, Zandvoort." Padding="0"/>
+                    <TextBlock Text="• Autodromo Nazionale Monza, Italia. (30/08 - 01/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autodromo Nazionale Monza, Monza." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Bakú, Azerbaiyán. (13/09 - 15/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Yas Marina, Abu Dabi." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Losail, Catar. (29/11 - 01/12)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Yas Marina, Abu Dabi. (06/12 - 08/12)" Padding="0"/>
                 </TextBlock>
                 <Button Content="←" Margin="950,425,0,0" Width="22" Height="25"/>
                 <TextBlock Text="1 / 2" Margin="1010,425,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -539,29 +542,29 @@
                     <LineBreak/>
                     <TextBlock Text="La Fórmula 3 es una categoría fundamental en el mundo del automovilismo, ofreciendo a los jóvenes pilotos una plataforma para desarrollar sus habilidades, ganar experiencia y demostrar su talento en un entorno altamente competitivo. Su importancia en la carrera de un piloto y su capacidad para producir talentos que eventualmente brillan en la Fórmula 1 la hacen una parte integral del deporte motor."/>
                 </TextBlock>
-                <TextBlock Width="400" Height="330" TextAlignment="Justify" Margin="550,25,0,0" Padding="30">
+                <TextBlock Width="460" Height="320" TextAlignment="Justify" Margin="550,0,0,0" Padding="30">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Internacional de Baréin (Sakhir, Baréin)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Baréin, Sakhir. (29/02 - 02/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Albert Park (Melbourne, Australia)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Albert Park, Melbourne. (22/03 - 24/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Enzo e Dino Ferrari (Imola, Italia)." Padding="0"/>
+                    <TextBlock Text="• Autódromo Enzo e Dino Ferrari, Imola. (17/05 - 19/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Mónaco (Monte Carlo, Mónaco)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Mónaco, Montecarlo. (23/05 - 26/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Barcelona-Catalunya (Barcelona, España)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, Montmeló. (21/06 - 23/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Red Bull Ring (Spielberg, Austria)." Padding="0"/>
+                    <TextBlock Text="• Red Bull Ring, Spielberg. (28/06 - 30/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Silverstone (Silverstone, Reino Unido)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Silverstone, Silverstone. (05/07 - 07/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Hungaroring (Budapest, Hungría)." Padding="0"/>
+                    <TextBlock Text="• Hungaroring, Hungría. (19/07 - 21/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Spa-Francorchamps (Spa, Bélgica)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Stavelot. (26/07 - 28/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autodromo Nazionale di Monza (Monza, Italia)." Padding="0"/>
+                    <TextBlock Text="• Autodromo Nazionale di Monza, Italia. (30/08 - 01/09)" Padding="0"/>
                 </TextBlock>
                 <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -573,7 +576,7 @@
                 <TextBlock Width="500" Height="250" TextAlignment="Justify" Margin="0,0,500,0" >
                     <Run Text="Actual campeón"/>
                     <LineBreak/>
-                    <TextBlock Text="Gabriel Bortoleto ha demostrado ser un piloto talentoso y prometedor, logrando destacarse en una de las categorías más competitivas del automovilismo junior. Su consistencia, habilidad y mentalidad fuerte le han permitido alcanzar el éxito temprano, y su progresión hacia la Fórmula 2 en 2024 será seguida de cerca por muchos en la comunidad del automovilismo ."/>
+                    <TextBlock Text="Gabriel Bortoleto ha demostrado ser un piloto talentoso y prometedor, logrando destacarse en una de las categorías más competitivas del automovilismo junior. Su consistencia, habilidad y mentalidad fuerte le han permitido alcanzar el éxito temprano, y su progresión hacia la Fórmula 2 en 2024 será seguida de cerca por muchos en la comunidad del automovilismo."/>
                 </TextBlock>
                 <TextBlock Width="400" Height="270" TextAlignment="Center" Margin="550,0,0,0">
                     <Image Source="pack://application:,,,/InfoRace;component/Images/GabrielBortoleto.png" Height="400" Width="400"/>
@@ -590,31 +593,37 @@
                     <LineBreak/>
                     <TextBlock Text="La Fórmula E es una categoría de automovilismo de monoplazas eléctricos. Es un campeonato internacional que fue fundado en 2014 con el objetivo de promover la innovación en tecnología de vehículos eléctricos y concienciar sobre la importancia de la sostenibilidad en el deporte del motor. Los autos de la Fórmula E son impulsados ​​únicamente por motores eléctricos y compiten en circuitos urbanos en ciudades de todo el mundo. Esta serie ha ganado popularidad rápidamente debido a su enfoque en la tecnología verde y su capacidad para atraer a fabricantes de automóviles de renombre que compiten por la victoria en las carreras."/>
                 </TextBlock>
-                <TextBlock Width="280" Height="340" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                <TextBlock Width="500" Height="400" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Ciudad de México, México." Padding="0"/>
+                    <TextBlock Text="• Autódromo Hermanos Rodríguez, México. (13/01)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Diriyah, Arabia Saudita." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Diriyah, Arabia Saudita. (26/01 - 27/01)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Hyderabad, India." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Hyderabad, India. (10/02)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• São Paulo, Brasil." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Ciudad del Cabo, Sudáfrica. (24/02)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Tokio, Japón." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de São Paulo, Brasil. (16/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Misano, Italia." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Tokio, Japón. (30/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Monte Carlo, Mónaco." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Roma, Italia. (13/04 - 14/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Berlín, Alemania." Padding="0"/>
+                    <TextBlock Text="• Circuito de Mónaco, Mónaco. (11/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Shanghai, China." Padding="0"/>
+                    <TextBlock Text="• Aeropuerto de Tempelhof, Alemania. (25/05 - 26/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Portland, Estados Unidos." Padding="0"/>
+                    <TextBlock Text="• Circuito Callejero de Yakarta, Indonesia. (08/06 - 09/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Londres, Gran Bretaña." Padding="0"/>
+                    <TextBlock Text="• Portland International Raceway, Estados Unidos. (29/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• ExCeL London, Reino Unido. (20/07 - 21/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Shanghai, China. (27/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Misano World Circuit Marco Simoncelli, Italia. (17/08 - 18/08)" Padding="0"/>
                 </TextBlock>
                 <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -638,24 +647,34 @@
         </StackPanel>
         <StackPanel Name="spGT3Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Width="500" Height="350" TextAlignment="Justify" Margin="0,0,500,0">
+                <TextBlock Width="500" Height="350" TextAlignment="Justify" Margin="0,0,550,0">
                     <Run Text="¡Bienvenido a la GT3!"/>
                     <LineBreak/>
                     <TextBlock Text="Las carreras GT3 representan la cúspide del automovilismo deportivo de gran turismo, donde se enfrentan vehículos de alta especificación modificados para competir en circuitos de clase mundial. Los equipos se embarcan en intensas batallas, aprovechando al máximo el rendimiento optimizado de sus coches GT3, que se someten a rigurosas regulaciones técnicas para garantizar la paridad y la seguridad. Estrategias meticulosamente elaboradas, que incluyen gestión de neumáticos y combustible, junto con habilidades de conducción de élite, son imperativas para dominar las curvas y las rectas de los trazados más exigentes del calendario internacional."/>
                 </TextBlock>
-                <TextBlock Width="360" Height="240" TextAlignment="Justify" Margin="550,25,0,0" Padding="40">
+                <TextBlock Width="500" Height="330" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Paul Ricard, Francia." Padding="0"/>
+                    <TextBlock Text="• Circuito de Paul Ricard, Francia. (05/04 - 07/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Nazionale Monza, Italia." Padding="0"/>
+                    <TextBlock Text="• Brands Hatch, Reino Unido. (04/05 - 05/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Spa-Francorchamps, Bélgica." Padding="0"/>
+                    <TextBlock Text="• Misano, Italia. (17/05 - 19/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Zandvoort, Países Bajos." Padding="0"/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Bélgica. (27/06 - 30/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Barcelona-Cataluña, España." Padding="0"/>
+                    <TextBlock Text="• Hockenheim, Alemania. (19/07 - 21/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Nürburgring, Alemania. (27/07 - 28/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Magny-Cours, Francia. (23/08 - 25/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Monza, Italia. (21/09 - 22/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, España. (11/10 - 13/10)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de la Cornisa de Yeda, Arabia Saudita. (21/11 - 23/11)" Padding="0"/>
                 </TextBlock>
                 <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
                 <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -739,41 +758,39 @@
                     <LineBreak/>
                     <TextBlock Text="MotoGP es la máxima categoría del Campeonato Mundial de Motociclismo, regulado por la FIM. En estas carreras de élite, los pilotos compiten en circuitos globales con motos de alta tecnología, diseñadas para alcanzar velocidades extremadamente altas y ofrecer un rendimiento óptimo en términos de potencia, aerodinámica y tecnología de suspensión. Legendarios competidores como Valentino Rossi y Marc Márquez han protagonizado emocionantes batallas por la supremacía en la categoría, convirtiendo a MotoGP en uno de los eventos más emocionantes y seguidos en el mundo del deporte de motor."/>
                 </TextBlock>
-                <TextBlock Width="370" Height="450" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                <TextBlock Width="450" Height="400" TextAlignment="Justify" Margin="550,0,0,0" Padding="20">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Jerez - Ángel Nieto (España)." Padding="0"/>
+                    <TextBlock Text="• Lusail International Circuit, Qatar. (10/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Le Mans (Francia)." Padding="0"/>
+                    <TextBlock Text="• Autódromo Internacional do Algarve, Portugal. (24/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Mugello (Italia)." Padding="0"/>
+                    <TextBlock Text="• Termas de Río Hondo, Argentina. (07/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Cataluña (España)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Jerez-Ángel Nieto, España. (28/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• TT Circuit Assen (Países Bajos)." Padding="0"/>
+                    <TextBlock Text="• Le Mans, Francia. (12/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, España. (26/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Brno (República Checa)." Padding="0"/>
+                    <TextBlock Text="• Autodromo Internazionale del Mugello, Italia. (02/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <TextBlock Text="• Sokol International Racetrack, Kazajistán. (16/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Silverstone Circuit (Reino Unido)." Padding="0"/>
+                    <TextBlock Text="• TT Circuit Assen, Países Bajos. (30/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Misano World Circuit Marco Simoncelli (Italia)." Padding="0"/>
+                    <TextBlock Text="• Sachsenring, Alemania. (07/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• MotorLand Aragón (España)." Padding="0"/>
+                    <TextBlock Text="• Red Bull Ring, Austria. (18/08)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Twin Ring Motegi (Japón)." Padding="0"/>
+                    <TextBlock Text="• MotorLand Aragón, España. (01/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Chang International Circuit (Tailandia)." Padding="0"/>
+                    <TextBlock Text="• Pertamina Mandalika International Circuit, Indonesia. (29/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Phillip Island Grand Prix Circuit (Australia)." Padding="0"/>
+                    <TextBlock Text="• Mobility Resort Motegi, Japón. (06/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sepang International Circuit (Malasia)." Padding="0"/>
-                    <LineBreak/>
-                    <TextBlock Text="• Circuito de las Americas (Estados Unidos)." Padding="0"/>
+                    <TextBlock Text="• Circuito Ricardo Tormo, España. (17/11)" Padding="0"/>
                 </TextBlock>
                 <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -790,57 +807,55 @@
                 <TextBlock Width="450" Height="350" TextAlignment="Center" Margin="550,0,0,0">
                     <Image Source="pack://application:,,,/InfoRace;component/Images/FrancescoBagnaia.png"/>
                 </TextBlock>
-                <Button Name="btMotoGPPage1" Click="btMotoGPPage1_Click" Content="←" Margin="950,423,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1010,423,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,423,0,0" Width="22" Height="25"/>
+                <Button Name="btMotoGPPage1" Click="btMotoGPPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto2Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,500,0">
+                <TextBlock Width="450" Height="340" TextAlignment="Justify" Margin="0,0,570,0">
                     <Run Text="¡Bienvenido a Moto 2!"/>
                     <LineBreak/>
                     <TextBlock Text="Moto2 es una categoría del Campeonato del Mundo de Motociclismo, bajo la supervisión de la Federación Internacional de Motociclismo (FIM). Se sitúa como la antesala de la categoría principal, MotoGP. En Moto2, los pilotos compiten utilizando motocicletas de 600cc de cuatro tiempos de motor único, todas provistas por un único fabricante de motores. Es una plataforma de desarrollo para jóvenes talentos y pilotos con experiencia que buscan ascender a MotoGP. Las carreras de Moto2 suelen ser altamente competitivas, con emocionantes batallas en pista y adelantamientos frecuentes."/>
                 </TextBlock>
-                <TextBlock Width="420" Height="470" TextAlignment="Justify" Margin="500,0,0,0" Padding="40">
+                <TextBlock Width="530" Height="400" TextAlignment="Justify" Margin="500,0,0,0" Padding="25">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Internacional de Losail (Catar)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Baréin, Sakhir. (01/03 - 03/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Internacional do Algarve (Portugal)." Padding="0"/>
+                    <TextBlock Text="• Autódromo Internacional del Algarve, Portimão. (15/03 - 17/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Termas de Río Hondo (Argentina)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Jerez - Ángel Nieto, España. (26/04 - 28/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de las Américas (Estados Unidos)." Padding="0"/>
+                    <TextBlock Text="• Le Mans, Francia. (10/05 - 12/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Jerez (España)." Padding="0"/>
+                    <TextBlock Text="• Mugello, Italia. (31/05 - 02/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Bugatti Circuito de Le Mans (Francia)." Padding="0"/>
+                    <TextBlock Text="• Silverstone, Reino Unido. (02/08 - 04/08)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Barcelona-Cataluña (España)." Padding="0"/>
+                    <TextBlock Text="• Red Bull Ring, Austria. (16/08 - 18/08)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autodromo del Mugello (Italia)." Padding="0"/>
+                    <TextBlock Text="• MotorLand Aragón, España. (30/08 - 01/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sokol International Racetrack (Rusia)." Padding="0"/>
+                    <TextBlock Text="• Misano World Circuit Marco Simoncelli, San Marino. (06/09 - 08/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• TT Circuito de Assen (Países Bajos)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional Pertamina Mandalika, Indonesia. (27/09 - 29/07)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <TextBlock Text="• Mobility Resort Motegi, Japón. (04/10 - 06/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Silverstone (Reino Unido)." Padding="0"/>
+                    <TextBlock Text="• Phillip Island, Australia. (18/10 - 20/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional Chang, Tailandia. (25/10 - 27/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Motorland Aragón (España)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional Sepang, Malasia. (01/11 - 03/11)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Misano Marco Simoncelli (Italia)." Padding="0"/>
-                    <LineBreak/>
-                    <TextBlock Text="• Buddh International Circuit (India)." Padding="0"/>
+                    <TextBlock Text="• Circuito Ricardo Tormo, España. (15/11 - 17/11)" Padding="0"/>
                 </TextBlock>
-                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btMoto2Page2" Click="btMoto2Page2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
+                <Button Content="←" Margin="950,422,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,422,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto2Page2" Click="btMoto2Page2_Click" Content="→" Margin="1070,422,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto2Page2" Visibility="Collapsed">
@@ -860,50 +875,48 @@
         </StackPanel>
         <StackPanel Name="spMoto3Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Width="500" Height="330" TextAlignment="Justify" Margin="0,0,500,0">
+                <TextBlock Width="500" Height="330" TextAlignment="Justify" Margin="0,0,550,0">
                     <Run Text="¡Bienvenido a Moto 3!"/>
                     <LineBreak/>
                     <TextBlock Text="La Moto3 es una categoría de carreras de motociclismo que forma parte del Campeonato del Mundo de Motociclismo, organizado por la Federación Internacional de Motociclismo (FIM). Es la clase más baja en términos de cilindrada dentro del campeonato, caracterizada por el uso de motocicletas de 250cc de motor mono cilíndrico de cuatro tiempos. Esta categoría se estableció en 2012 como reemplazo de la clase de 125cc, con el objetivo de reducir los costos y fomentar una competencia más equilibrada. Las motos utilizadas en la Moto3 son máquinas más pequeñas y ligeras en comparación con las categorías superiores, lo que las hace ágiles y emocionantes de pilotar."/>
                 </TextBlock>
-                <TextBlock Width="420" Height="470" TextAlignment="Justify" Margin="500,0,0,0" Padding="40">
+                <TextBlock Width="470" Height="400" TextAlignment="Justify" Margin="550,0,0,0" Padding="20">
                     <Run Text="Circuitos"/>
                     <LineBreak/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito Internacional de Losail (Catar)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Lusail, Qatar. (08/03 - 10/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Internacional do Algarve (Portugal)." Padding="0"/>
+                    <TextBlock Text="• Autódromo Internacional del Algarve, Portugal. (22/03 - 24/03)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autódromo Termas de Río Hondo (Argentina)." Padding="0"/>
+                    <TextBlock Text="• Circuito de las Américas, Estados Unidos. (12/04 - 14/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de las Américas (Estados Unidos)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Jerez-Ángel Nieto, España. (26/04 - 28/04)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Jerez (España)." Padding="0"/>
+                    <TextBlock Text="• Circuito Bugatti de Le Mans, Francia. (10/05 - 12/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Bugatti Circuito de Le Mans (Francia)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Barcelona-Cataluña, España. (24/05 - 26/05)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Barcelona-Cataluña (España)." Padding="0"/>
+                    <TextBlock Text="• Autodromo Internazionale del Mugello, Italia. (31/05 - 02/06)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Autodromo del Mugello (Italia)." Padding="0"/>
+                    <TextBlock Text="• Circuito de Silverstone, Reino Unido. (02/08 - 04/08)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sokol International Racetrack (Rusia)." Padding="0"/>
+                    <TextBlock Text="• Motorland Aragón, España. (30/08 - 01/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• TT Circuito de Assen (Países Bajos)." Padding="0"/>
+                    <TextBlock Text="• Misano World Circuit Marco Simoncelli, Italia. (06/09 - 08/09)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Sachsenring (Alemania)." Padding="0"/>
+                    <TextBlock Text="• Twin Ring Motegi, Japón. (04/10 - 06/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Silverstone (Reino Unido)." Padding="0"/>
+                    <TextBlock Text="• Phillip Island, Australia. (18/10 - 20/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Red Bull Ring (Austria)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional de Chang, Tailandia. (25/10 - 27/10)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Motorland Aragón (España)." Padding="0"/>
+                    <TextBlock Text="• Circuito Internacional Sepang, Malasia. (01/11 - 03/11)" Padding="0"/>
                     <LineBreak/>
-                    <TextBlock Text="• Circuito de Misano Marco Simoncelli (Italia)." Padding="0"/>
-                    <LineBreak/>
-                    <TextBlock Text="• Buddh International Circuit (India)." Padding="0"/>
+                    <TextBlock Text="• Circuito Ricardo Tormo, España. (15/11 - 17/11)" Padding="0"/>
                 </TextBlock>
-                <Button Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btMoto3Page2" Click="btMoto3Page2_Click" Content="→" Margin="1070,400,0,0" Width="22" Height="25"/>
+                <Button Content="←" Margin="950,422,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,422,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btMoto3Page2" Click="btMoto3Page2_Click" Content="→" Margin="1070,422,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spMoto3Page2" Visibility="Collapsed">
@@ -923,128 +936,343 @@
         </StackPanel>
         <StackPanel Name="spWRCPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btWRCPage2" Click="btWRCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="350" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la WRC!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La WRC, o World Rally Championship (Campeonato Mundial de Rally), es una competición internacional de rally organizada por la Fédération Internationale de l'Automobile (FIA). Es uno de los campeonatos más prestigiosos y reconocidos en el mundo del automovilismo deportivo. En la WRC, los equipos compiten en una serie de rallys que se llevan a cabo en diferentes superficies y condiciones, como tierra, asfalto, nieve y hielo, en varios países de todo el mundo. Los rallys están compuestos por etapas especiales cronometradas que se realizan en caminos cerrados al tráfico público, con vehículos que compiten uno tras otro en contra el reloj. La WRC cuenta con pilotos y equipos de renombre mundial que compiten por el título de Campeón del Mundo de Rally."/>
+                </TextBlock>
+                <TextBlock Width="430" Height="360" TextAlignment="Justify" Margin="550,0,0,0" Padding="20">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rallye Monte-Carlo, Mónaco. (25/01 - 28/01)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Sweden, Umeå. (15/02 - 18/02)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Safari Rally Kenya, Nairobi. (28/03 - 31/03)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Croatia, Zagreb. (18/04 - 21/04)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Vodafone Rally de Portugal, Matosinhos. (09/05 - 12/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Italia Sardegna, Alghero. (30/05 - 02/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Poland, Mikolajki. (27/06 - 30/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Tet Rally Latvia, Liepāja. (18/07 - 21/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Secto Rally Finland, Jyväskylä. (01/08 - 04/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Acropolis Rally Greece, Atenas. (05/09 - 08/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Chile, Concepción. (26/09 - 29/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Central European Rally, Passau. (31/10 - 03/11)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Rally Japan, Nagoya. (21/111 - 24/11)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btWRCPage2" Click="btWRCPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spWRCPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btWRCPage1" Click="btWRCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="400" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="El actual campeón del World Rally Championship (WRC) es Kalle Rovanperä, quien logró el título en el año 2023. Rovanperä, a la edad de 23 años, se convirtió en una leyenda al ganar el campeonato, siendo el campeón más joven en la historia del WRC. Su ascenso meteórico en el mundo del rally comenzó a una temprana edad, mostrando habilidades excepcionales desde su adolescencia. Proveniente de una familia con un historial en el automovilismo, Rovanperä ha demostrado una destreza y consistencia impresionantes en el volante de su Toyota Yaris, dominando las competiciones con un estilo de conducción preciso y agresivo. Su victoria en el campeonato refleja su dedicación, talento y determinación para alcanzar la grandeza en el mundo del rally, estableciéndose como una figura destacada y una fuerza imparable en el deporte del automovilismo."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Kalle.png"/>
+                </TextBlock>
+                <Button Name="btWRCPage1" Click="btWRCPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spWECPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btWECPage2" Click="btWECPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="320" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la WEC!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La World Endurance Championship (WEC) es una serie de carreras de resistencia organizada por el Automobile Club de l'Ouest (ACO) y la Federación Internacional del Automóvil (FIA). En el WEC, los equipos compiten en carreras de larga duración que van desde 6 horas hasta 24 horas, destacando eventos como las 24 Horas de Le Mans. Se incluyen varias clases de vehículos, como Prototipos LMP1, LMP2 y diferentes clases de GT. El objetivo es poner a prueba la resistencia de pilotos, equipos y vehículos en condiciones extremas, fomentando la innovación tecnológica y estrategias en el automovilismo deportivo."/>
+                </TextBlock>
+                <TextBlock Width="510" Height="280" TextAlignment="Justify" Margin="550,0,0,0" Padding="20">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Lusail, Qatar - Qatar 1812km. (02/03)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo Enzo e Dino Ferrari, Italia - 6 Horas de Imola. (21/04)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de Spa-Francorchamps, Bélgica - 6 Horas de Spa-Francorchamps. (11/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de la Sarthe, Francia - 24 Horas de Mans. (15/06 - 16/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autódromo José Carlos Pace, Brasil - 6 Horas de São Paulo. (14/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito de las Américas, Texas - Lone Star Le Mans. (01/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Fuji, Japón - 6 Hours of Fuji. (15/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Baréin, Baréin - 8 Horas de Bahrain. (02/11)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btWECPage2" Click="btWECPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spWECPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btWECPage1" Click="btWECPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="380" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="El equipo Toyota GAZOO Racing, conformado por Sébastien Buemi, Brendon Hartley y Ryo Hirakawa, se proclamó campeón del Campeonato Mundial de Resistencia (WEC) en la temporada 2023. La última carrera de la temporada, las 8 Horas de Bahréin, confirmó su victoria y aseguró su título intercontinental. La competencia marcó también el fin de una era, ya que los GTE dejarán paso a los nuevos GT3 a partir de 2024, mientras que los LMP2 solo estarán presentes en las 24 Horas de Le Mans. El equipo Toyota GAZOO Racing logró la victoria en las 8 Horas de Bahréin con el prototipo Toyota GR010 Hybrid LMH, pilotado por Buemi, Hartley y Hirakawa. A pesar de un incidente en la primera curva que afectó al otro prototipo de Toyota, el equipo logró recuperarse y mantener una sólida ventaja para asegurar la victoria y el título del WEC."/>
+                </TextBlock>
+                <TextBlock Width="400" Height="270" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/WECCampeon.png"/>
+                </TextBlock>
+                <Button Name="btWECPage1" Click="btWECPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spIMSAPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btIMSAPage2" Click="btIMSAPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="280" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la IMSA!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La IMSA (International Motor Sports Association) es una organización estadounidense que supervisa y organiza diversas competiciones de automovilismo de alto nivel en Norteamérica. Fundada en 1969 por Bill France Sr., IMSA se destaca por sus carreras de resistencia y deportes de motor. Entre sus campeonatos más destacados se encuentra el WeatherTech SportsCar Championship, que incluye eventos emblemáticos como las 24 Horas de Daytona, las 12 Horas de Sebring y Petit Le Mans."/>
+                </TextBlock>
+                <TextBlock Width="430" Height="320" TextAlignment="Justify" Margin="550,0,0,0" Padding="20">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Daytona International Speedway, Florida. (27/01 - 28/01)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sebring International Raceway, Florida. (16/03)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Long Beach Street Circuit, California. (20/04)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• WeatherTech Raceway Laguna Seca. (12/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Detroit Street Circuit, Michigan. (01/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Watkins Glen International, Nueva York. (23/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Canadian Tire Motorsport Park, Canadá. (14/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Road America, Wisconsin. (04/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Virginia International Raceway, Virginia. (25/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Indianapolis Motor Speedway, Indiana. (22/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Michelin Raceway Road Atlanta, Georgia. (12/10)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btIMSAPage2" Click="btIMSAPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spIMSAPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btIMSAPage1" Click="btIMSAPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="280" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="En la temporada 2023 de la IMSA WeatherTech SportsCar Championship, Cadillac y Whelen Engineering se alzaron como los campeones de la categoría estelar de la competición. La lucha por el título se intensificó en la última hora de la carrera de resistencia de Petit Le Mans, donde Derani y Filipe Albuquerque estaban en una batalla cerrada por la segunda posición. Sin embargo, un incidente entre Derani y Albuquerque dejó a este último fuera de carrera, asegurando así el título para Cadillac."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/IMSACampeon.png"/>
+                </TextBlock>
+                <Button Name="btIMSAPage1" Click="btIMSAPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spKWCPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btKWCPage2" Click="btKWCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="260" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la KWC!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La KWC (Karting World Championship) es un evento anual que reúne a los mejores pilotos de karting de todo el mundo para competir por el título de campeón mundial. Es un evento de alto perfil en el mundo del karting, donde los competidores participan en carreras emocionantes y altamente competitivas en pistas de karting de renombre internacional. La KWC a menudo atrae a jóvenes talentos del automovilismo que buscan destacarse en el mundo del deporte del motor."/>
+                </TextBlock>
+                <TextBlock Width="410" Height="280" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Kartódromo Internacional Granja Viana, Brasil." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Internacional de Nápoles, Italia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Adria Karting Raceway, Italia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Kartódromo Internacional do Algarve, Portugal." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• PF International Kart Circuit, Reino Unido." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Kartódromo de Viana, Portugal." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Kartódromo La Conca, Italia." Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Karting Genk - Home of Champions, Bélgica." Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btKWCPage2" Click="btKWCPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spKWCPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btKWCPage1" Click="btKWCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="280" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Jon del Valle, piloto español, logró imponerse en las finales mundiales del Kart World Championship 2023 (KWC) por segundo año consecutivo. El evento se llevó a cabo en el circuito indoor Worldkarts de Kortrijken, Bélgica. En esta edición participaron 130 competidores de diferentes lugares del mundo, quienes compitieron en mangas clasificatorias para pasar a las semifinales, donde Del Valle se destacó como el único español en clasificar para la final, luego de imponerse en su semifinal."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/JonValle.png"/>
+                </TextBlock>
+                <Button Name="btKWCPage1" Click="btKWCPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spETRCPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btETRCPage2" Click="btETRCPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="400" Height="350" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la ETRC!"/>
+                    <LineBreak/>
+                    <TextBlock Text="ETRC (European Truck Racing Championship) es una serie de carreras organizada por la FIA, donde compiten camiones de gran tamaño en circuitos por toda Europa. La competición es conocida por su espectacularidad y la destreza que se requiere para manejar estos enormes vehículos en las pistas. Es una mezcla única de velocidad, habilidad y resistencia tanto para los conductores como para los camiones. Además de las carreras, estos eventos suelen tener una gran cantidad de actividades para los fans, creando una experiencia completa."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="280" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Misano World Circuit Marco Simoncelli, Italia. (25/05 - 26/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo Slovakia Ring, Eslovaquia. (08/06 - 09/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Zolder, Bélgica. (22/06 - 23/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Nürburgring, Alemania. (13/07 - 14/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autodromo Most, República Checa. (31/08 - 01/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Tor Poznań, Polonia. (14/09 - 15/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Bugatti, Francia. (28/09 - 29/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito del Jarama, España. (05/10 - 06/10)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btETRCPage2" Click="btETRCPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spETRCPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btETRCPage1" Click="btETRCPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="450" Height="380" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Norbert Kiss ha tenido una temporada excepcional en 2023, dominando las carreras con su impresionante habilidad y consistencia. Kiss, quien compite para el equipo Révész Truck Racing, ha sido una fuerza dominante en el ETRC. Su capacidad para manejar los camiones con precisión y velocidad le ha permitido asegurar múltiples victorias y podios a lo largo de la temporada. Kiss es conocido por su estilo de conducción agresivo pero controlado, lo que le ha permitido superar a sus rivales en varias pistas. Además de su destreza al volante, su equipo ha jugado un papel crucial en la preparación y mantenimiento de su camión, asegurando que siempre esté en las mejores condiciones para competir​."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/kiss.png"/>
+                </TextBlock>
+                <Button Name="btETRCPage1" Click="btETRCPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormulaDriftPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btFormulaDriftPage2" Click="btFormulaDriftPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="500" Height="300" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la Formula Drift!"/>
+                    <LineBreak/>
+                    <TextBlock Text="Formula Drift es una serie de drifting que se lleva a cabo principalmente en Estados Unidos. Esta competición consiste en que los pilotos realicen derrapes controlados a alta velocidad en un formato de eliminatorias. Es famosa por la espectacularidad de las maniobras y el nivel de precisión y control que los conductores deben tener. Los eventos atraen a grandes multitudes y son conocidos por su atmósfera vibrante y emocionante. El drifting se evalúa en función de varios criterios, incluyendo el ángulo, la velocidad y el estilo del derrape​."/>
+                </TextBlock>
+                <TextBlock Width="470" Height="270" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Long Beach Street, California. (05/04 - 06/04)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Road Atlanta, Georgia. (10/05 - 11/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Orlando Speed World, Florida. (07/06 - 08/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Englishtown Raceway Park, Nueva Jersey. (19/07 - 20/07)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Evergreen Speedway, Washington. (16/08 - 17/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• World Wide Technology Raceway, Illinois. (13/09 - 14/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Irwindale Speedway, California. (18/10 - 19/10)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormulaDriftPage2" Click="btFormulaDriftPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spFormulaDriftPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btFormulaDriftPage1" Click="btFormulaDriftPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="450" Height="260" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Fredric Aasbø es uno de los drifters más destacados en la historia de Formula Drift. En 2023, Aasbø demostró su habilidad y consistencia al ganar el campeonato. Es conocido por su precisión en las maniobras y su capacidad para mantener el control del vehículo en situaciones extremas. Compitiendo para el equipo Papadakis Racing, Aasbø ha sido un competidor feroz y respetado en la serie​."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Fredric.png"/>
+                </TextBlock>
+                <Button Name="btFormulaDriftPage1" Click="btFormulaDriftPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spD1GPPage1" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btD1GPPage2" Click="btD1GPPage2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="450" Height="310" TextAlignment="Justify" Margin="0,0,550,0">
+                    <Run Text="¡Bienvenido a la D1 GP!"/>
+                    <LineBreak/>
+                    <TextBlock Text="El D1 Grand Prix es una serie de drifting profesional que se originó en Japón. Similar a Formula Drift, pero con un enfoque en la cultura y el estilo japonés de drifting, esta serie es conocida por sus eventos en circuitos icónicos japoneses. Los pilotos deben demostrar un control excepcional del vehículo mientras realizan derrapes prolongados y precisos. La serie ha influenciado significativamente la cultura del drifting a nivel mundial y es vista como una de las competiciones más prestigiosas en el ámbito del drifting."/>
+                </TextBlock>
+                <TextBlock Width="510" Height="280" TextAlignment="Justify" Margin="550,0,0,0" Padding="40">
+                    <Run Text="Circuitos"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <TextBlock Text="• Circuito Tsukuba, Ibaraki - Japón. (23/03 - 24/03)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Ebisu Circuit, Fukushima, Japón. (13/04 - 14/04)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Suzuka Twin Circuit, Mie, Japón. (25/05 - 26/05)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Autopolis, Ōita, Japón. (29/06 - 30/06)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Okayama International Circuit, Okayama, Japón. (03/08 - 04/08)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Sportsland SUGO, Miyagi, Japón. (14/09 - 15/09)" Padding="0"/>
+                    <LineBreak/>
+                    <TextBlock Text="• Odaiba Tokyo Street Course, Tokyo, Japón. (26/10 - 27/10)" Padding="0"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btD1GPPage2" Click="btD1GPPage2_Click" Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <StackPanel Name="spD1GPPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0"/>
-                <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50"/>
-                <Button Name="btD1GPPage1" Click="btD1GPPage1_Click" Content="←" Margin="960,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1020,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <TextBlock Width="450" Height="300" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Masashi Yokoi es un drifter japonés muy talentoso que ha ganado el campeonato del D1 Grand Prix en 2023. Yokoi es conocido por su agresivo estilo de conducción y su capacidad para realizar maniobras complejas con gran destreza. Su desempeño en la temporada ha sido impresionante, destacándose en varios eventos y superando a algunos de los mejores drifters del mundo. Yokoi ha demostrado una vez más por qué es considerado uno de los mejores en la disciplina del drifting​."/>
+                </TextBlock>
+                <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Masashi.png"/>
+                </TextBlock>
+                <Button Name="btD1GPPage1" Click="btD1GPPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Content="→" Margin="1070,420,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
         <!--Footer-->

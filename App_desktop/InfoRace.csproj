@@ -32,19 +32,25 @@
     <None Remove="Images\formula.png" />
     <None Remove="Images\FormulaDrift.png" />
     <None Remove="Images\FrancescoBagnaia.png" />
+    <None Remove="Images\Fredric.png" />
     <None Remove="Images\GabrielBortoleto.png" />
     <None Remove="Images\GT3.png" />
     <None Remove="Images\Help.png" />
     <None Remove="Images\IMSA.png" />
+    <None Remove="Images\IMSACampeon.png" />
     <None Remove="Images\InfoRace.png" />
     <None Remove="Images\infoRaceazul.png" />
     <None Remove="Images\Inicio.png" />
     <None Remove="Images\JakeDennis.png" />
+    <None Remove="Images\JonValle.png" />
     <None Remove="Images\Juame.png" />
+    <None Remove="Images\Kalle.png" />
+    <None Remove="Images\Kiss.png" />
     <None Remove="Images\KWC.png" />
     <None Remove="Images\Login.png" />
     <None Remove="Images\logo.png" />
     <None Remove="Images\Marciello.png" />
+    <None Remove="Images\Masashi.png" />
     <None Remove="Images\Moto2.png" />
     <None Remove="Images\Moto3.png" />
     <None Remove="Images\MotoGP.png" />
@@ -55,6 +61,7 @@
     <None Remove="Images\RyanBlaney.png" />
     <None Remove="Images\Theo.png" />
     <None Remove="Images\WEC.png" />
+    <None Remove="Images\WECCampeon.png" />
     <None Remove="Images\WRC.png" />
     <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
@@ -74,19 +81,25 @@
     <Resource Include="Images\formula.png" />
     <Resource Include="Images\FormulaDrift.png" />
     <Resource Include="Images\FrancescoBagnaia.png" />
+    <Resource Include="Images\Fredric.png" />
     <Resource Include="Images\GabrielBortoleto.png" />
     <Resource Include="Images\GT3.png" />
     <Resource Include="Images\Help.png" />
     <Resource Include="Images\IMSA.png" />
+    <Resource Include="Images\IMSACampeon.png" />
     <Resource Include="Images\InfoRace.png" />
     <Resource Include="Images\infoRaceazul.png" />
     <Resource Include="Images\Inicio.png" />
     <Resource Include="Images\JakeDennis.png" />
+    <Resource Include="Images\JonValle.png" />
     <Resource Include="Images\Juame.png" />
+    <Resource Include="Images\Kalle.png" />
+    <Resource Include="Images\Kiss.png" />
     <Resource Include="Images\KWC.png" />
     <Resource Include="Images\Login.png" />
     <Resource Include="Images\logo.png" />
     <Resource Include="Images\Marciello.png" />
+    <Resource Include="Images\Masashi.png" />
     <Resource Include="Images\Moto2.png" />
     <Resource Include="Images\Moto3.png" />
     <Resource Include="Images\MotoGP.png" />
@@ -97,6 +110,7 @@
     <Resource Include="Images\RyanBlaney.png" />
     <Resource Include="Images\Theo.png" />
     <Resource Include="Images\WEC.png" />
+    <Resource Include="Images\WECCampeon.png" />
     <Resource Include="Images\WRC.png" />
     <Resource Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
