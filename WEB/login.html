@@ -64,6 +64,7 @@
       appId: "1:258719866165:web:9e785e8a66559b78f1407c"
     };
     firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
     const db = firebase.firestore();
 
     // Función para iniciar sesión
@@ -128,5 +129,6 @@
       });
     }
   </script>
+  <script src="app.js"></script>
 </body>
 </html>
