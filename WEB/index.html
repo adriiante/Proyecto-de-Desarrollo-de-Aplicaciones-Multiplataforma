@@ -12,7 +12,13 @@
         <li class="option"><a class="link" href="index.html">Inicio</a></li>
         <li class="option"><a class="link" href="tienda.html">Tienda</a></li>
         <li class="option"><a class="link" href="download.html">Descargar</a></li>
-        <li><a href="login.html"><img id="imguser" src="login.png" alt="Logo de InfoRace"/></a></li>
+        <li id="login-register-buttons">
+          <button id="login-button" class="menu-button" onclick="location.href='login.html'">Iniciar Sesión</button>
+          <button id="register-button" class="menu-button" onclick="location.href='registro.html'">Registrarse</button>
+        </li>
+        <li id="logout-button" style="display:none;">
+          <button class="menu-button" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </li>
       </ul>
     </header>
 
@@ -20,13 +26,14 @@
       <div class="welcome">
         <h1>¡Bienvenido a la página web de Inforace!</h1>
         <p>
-          InfoRace es una aplicación móvil y de escritorio diseñada para gestionar y administrar
-          eventos de automovilismo de forma que los usuarios puedan acceder fácilmente a
-          información detallada sobre la categoría que deseen. Así mismo la información que
-          recibe el usuario sobre el tema de automovilismo y la categoría que desee esta de
-          forma centralizada y sencilla. Aquí encontraras todo lo necesario
-          para poder seguir todas tus categorías de automovilismo. Disponemos de
-          un apartado de descargas en el que podras descargarte nuestras
+          InfoRace es una aplicación móvil y de escritorio diseñada para
+          gestionar y administrar eventos de automovilismo de forma que los
+          usuarios puedan acceder fácilmente a información detallada sobre la
+          categoría que deseen. Así mismo la información que recibe el usuario
+          sobre el tema de automovilismo y la categoría que desee esta de forma
+          centralizada y sencilla. Aquí encontraras todo lo necesario para poder
+          seguir todas tus categorías de automovilismo. Disponemos de un
+          apartado de descargas en el que podras descargarte nuestras
           aplicaciones tanto de escritorio como de móvil, ¡no te lo pierdas!.
           Tambíen puedes registrarte o iniciar sesión desde aquí mismo,
           disponemos de un catalogo de diferentes articulos en nuestra tienda,
@@ -59,5 +66,25 @@
       </ul>
     </footer>
 
+    <script>
+      window.onload = function() {
+        const userSession = sessionStorage.getItem("session");
+        const loginRegisterButtons = document.getElementById("login-register-buttons");
+        const logoutButton = document.getElementById("logout-button");
+
+        if (userSession) {
+          loginRegisterButtons.style.display = "none";
+          logoutButton.style.display = "block";
+        } else {
+          loginRegisterButtons.style.display = "block";
+          logoutButton.style.display = "none";
+        }
+      };
+
+      function cerrarSesion() {
+        sessionStorage.removeItem("session");
+        location.reload();
+      }
+    </script>
   </body>
 </html>

@@ -1,93 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>InfoRace - Tienda</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="background">
-  <header id="top">
-    <ul class="menu_horizontal">
-      <li><img id="imglogo" src="logo.png" alt="Logo de InfoRace" /></li>
-      <li class="option"><a class="link" href="index.html">Inicio</a></li>
-      <li class="option"><a class="link" href="tienda.html">Tienda</a></li>
-      <li class="option"><a class="link" href="download.html">Descargar</a></li>
-      <li><a href="login.html"><img id="imguser" src="login.png" alt="Logo de InfoRace"/></a></li>
-      <li class="option" id="carrito"><a class="link" href="#" onclick="toggleCart()">Carrito (<span id="cart-count">0</span>)</a></li>
-    </ul>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>InfoRace - Tienda</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      if (!sessionStorage.getItem("session")) {
+        window.location.href = "login.html";
+      }
+    </script>
+  </head>
+  <body class="background">
+    <header id="top">
+      <ul class="menu_horizontal">
+        <li><img id="imglogo" src="logo.png" alt="Logo de InfoRace" /></li>
+        <li class="option"><a class="link" href="index.html">Inicio</a></li>
+        <li class="option"><a class="link" href="tienda.html">Tienda</a></li>
+        <li class="option"><a class="link" href="download.html">Descargar</a></li>
+        <li class="option"><a class="link" href="#" onclick="toggleCart()">Carrito (<span id="cart-count">0</span>)</a></li>
+        <li><img id="imglogo" src="carrito.png" alt="Carrito de InfoRace"/></li>
+        <li id="login-register-buttons">
+          <button id="login-button" class="menu-button" onclick="location.href='login.html'">Iniciar Sesión</button>
+          <button id="register-button" class="menu-button" onclick="location.href='registro.html'">Registrarse</button>
+        </li>
+        <li id="logout-button" style="display:none;">
+          <button class="menu-button" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </li>
+      </ul>
+    </header>
 
-  <div id="mid">
-    <section class="productos">
-      <div class="producto">
-        <img src="camisetaLogoNegro.png" alt="Camiseta Inforace logo negro" />
-        <h2>Camiseta Inforace logo negro</h2>
-        <p>Camiseta blanca con logo de Inforace de color negro.</p>
-        <span class="precio">$10.00</span>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="camisetaLogoIMSA.png" alt="Camiseta Inforace logo IMSA" />
-        <h2>Camiseta Inforace logo IMSA</h2>
-        <p>Camiseta blanca con logo de Inforace con colores IMSA.</p>
-        <span class="precio">$15.00</span>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="gorraInforaceNegra.png" alt="Gorra Inforace logo blanco" />
-        <h2>Gorra Inforace logo blanco</h2>
-        <p>Gorra negra con logo de Inforace de color blanco.</p>
-        <span class="precio">$15.00</span>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="tazaInforaceNegra.png" alt="Taza Inforace logo blanco" />
-        <h2>Taza Inforace logo blanco</h2>
-        <p>Taza negra con logo de Inforace de color blanco.</p>
-        <span class="precio">$15.00</span>
-        <button>Añadir al carrito</button>
-      </div>
-    </section>
-  </div>
-
-  <div id="cart-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="toggleCart()">&times;</span>
-      <h2>Carrito de Compras</h2>
-      <div id="cart-items"></div>
-      <button onclick="checkout()">Seguir Compra</button>
+    <div id="mid">
+      <section class="productos">
+        <div class="producto">
+          <img src="camisetaLogoNegro.png" alt="Camiseta Inforace logo negro" />
+          <h2>Camiseta Inforace logo negro</h2>
+          <p>Camiseta blanca con logo de Inforace de color negro.</p>
+          <span class="precio">$10.00</span>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="camisetaLogoIMSA.png" alt="Camiseta Inforace logo IMSA" />
+          <h2>Camiseta Inforace logo IMSA</h2>
+          <p>Camiseta blanca con logo de Inforace con colores IMSA.</p>
+          <span class="precio">$15.00</span>
+          <button>Añadir al carrito</button>
+        </div>
+        
+        <div class="producto">
+          <img src="gorraInforaceNegra.png" alt="Gorra Inforace logo blanco" />
+          <h2>Gorra Inforace logo blanco</h2>
+          <p>Gorra negra con logo de Inforace de color blanco.</p>
+          <span class="precio">$15.00</span>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="tazaInforaceNegra.png" alt="Taza Inforace logo blanco" />
+          <h2>Taza Inforace logo blanco</h2>
+          <p>Taza negra con logo de Inforace de color blanco.</p>
+          <span class="precio">$15.00</span>
+          <button>Añadir al carrito</button>
+        </div>
+      </section>
     </div>
-  </div>
 
-  <div id="checkout-form" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="toggleCheckout()">&times;</span>
-      <h2>Checkout</h2>
-      <form id="payment-form">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" required>
-        <label for="surname">Apellido:</label>
-        <input type="text" id="surname" required>
-        <label for="address">Dirección:</label>
-        <input type="text" id="address" required>
-        <button type="submit">Pagar</button>
-      </form>
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="cart-header" class="cart-row">
+          <span class="cart-column">Producto</span>
+          <span class="cart-column">Precio</span>
+          <span class="cart-column">Cantidad</span>
+          <span class="cart-column">Total</span>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+        <button onclick="checkout()">Seguir Compra</button>
+        <button onclick="clearCart()">Limpiar Carrito</button>
+      </div>
     </div>
-  </div>
 
-  <footer id="bottom">
-    <ul class="menu_horizontal">
-      <li class="option"><a class="link" href="https://www.instagram.com/inforaceinfo/" target="_blank">Instagram</a></li>
-      <li class="option"><a class="link" href="https://twitter.com/inforaceinfo" target="_blank">Twitter</a></li>
-      <li class="option"><a class="link" href="https://www.facebook.com/profile.php?id=61559147424922" target="_blank">Facebook</a></li>
-      <li class="option"><a class="link" href="index.html">Sobre nosotros</a></li>
-      <li class="option"><a class="link" href="about.html">Ayuda</a></li>
-    </ul>
-  </footer>
+    <div id="checkout-form" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleCheckout()">&times;</span>
+        <h2>Confirmar pago</h2>
+        <form id="payment-form">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" required />
+          <br>
+          <br>
+          <label for="surname">Apellido:</label>
+          <input type="text" id="surname" required />
+          <br>
+          <br>
+          <label for="address">Dirección:</label>
+          <input type="text" id="address" required />
+          <br>
+          <br>
+          <button type="submit">Pagar</button>
+        </form>
+      </div>
+    </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-  <script src="app.js"></script>
-</body>
+    <footer id="bottom">
+      <ul class="menu_horizontal">
+        <li class="option"><a class="link" href="https://www.instagram.com/inforaceinfo/" target="_blank">Instagram</a></li>
+        <li class="option"><a class="link" href="https://twitter.com/inforaceinfo" target="_blank">Twitter</a></li>
+        <li class="option"><a class="link" href="https://www.facebook.com/profile.php?id=61559147424922" target="_blank">Facebook</a></li>
+        <li class="option"><a class="link" href="index.html">Sobre nosotros</a></li>
+        <li class="option"><a class="link" href="about.html">Ayuda</a></li>
+      </ul>
+    </footer>
+
+    <script>
+      window.onload = function() {
+        const userSession = sessionStorage.getItem("session");
+        const loginRegisterButtons = document.getElementById("login-register-buttons");
+        const logoutButton = document.getElementById("logout-button");
+
+        if (userSession) {
+          loginRegisterButtons.style.display = "none";
+          logoutButton.style.display = "block";
+        } else {
+          loginRegisterButtons.style.display = "block";
+          logoutButton.style.display = "none";
+        }
+      };
+
+      function cerrarSesion() {
+        sessionStorage.removeItem("session");
+        location.reload();
+      }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

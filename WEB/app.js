@@ -1,16 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cartCountElement = document.getElementById('cart-count');
   const cartItemsElement = document.getElementById('cart-items');
+  const cartTotalPriceElement = document.getElementById('cart-total-price');
   let cart = [];
 
   function updateCart() {
-    cartCountElement.textContent = cart.length;
+    cartCountElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartItemsElement.innerHTML = '';
+    let total = 0;
     cart.forEach(item => {
       const div = document.createElement('div');
-      div.textContent = `${item.name} - $${item.price}`;
+      div.className = 'cart-row';
+      div.innerHTML = `
+        <span class="cart-column">${item.name}</span>
+        <span class="cart-column">$${item.price.toFixed(2)}</span>
+        <span class="cart-column">${item.quantity}</span>
+        <span class="cart-column">$${(item.price * item.quantity).toFixed(2)}</span>
+      `;
       cartItemsElement.appendChild(div);
+      total += item.price * item.quantity;
     });
+    cartTotalPriceElement.textContent = `$${total.toFixed(2)}`;
   }
 
   document.querySelectorAll('.producto button').forEach(button => {
@@ -18,7 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const producto = button.closest('.producto');
       const name = producto.querySelector('h2').textContent;
       const price = parseFloat(producto.querySelector('.precio').textContent.replace('$', ''));
-      cart.push({ name, price });
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
       updateCart();
     });
   });
@@ -36,6 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.checkout = () => {
     toggleCart();
     toggleCheckout();
+  };
+
+  window.clearCart = () => {
+    cart = [];
+    updateCart();
   };
 
   document.getElementById('payment-form').addEventListener('submit', (e) => {
