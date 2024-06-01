@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InfoRace</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="background" id="about">
+    <header id="top">
+      <ul class="menu_horizontal">
+        <li><img id="imglogo" src="../src/img/logo.png" alt="Logo de InfoRace" /></li>
+        <li class="option"><a class="link" href="index.html">Inicio</a></li>
+        <li class="option"><a class="link" href="tienda.html">Tienda</a></li>
+        <li class="option"><a class="link" href="download.html">Descargar</a></li>
+        <li id="login-register-buttons" class="menu">
+          <button class="menu-button" onclick="location.href='login.html'">Iniciar Sesión</button>
+          <button class="menu-button" onclick="location.href='registro.html'">Registrarse</button>
+        </li>
+        <li id="logout-button" class="menu-logout">
+          <button class="menu-button" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </li>
+      </ul>
+    </header>
+
+    <div id="mid" >
+      <div class="welcome">
+        <h1>Preguntas frecuentes</h1>
+        <ul>
+          <li>¿Tengo que pagar por utilizar algún servicio?</li>
+          <p>No, puedes utilizar todas las funcionalidades de la aplicación totalmente gratis.</p>
+          <li>¿Tengo que tener varias cuentas para cada aplicación?</li>
+          <p>No, con la misma cuenta puedes iniciar sesión en la página web y en las aplicaciones de escritorio y móvil.</p>
+          <li>¿Qué necesito para usar las aplicaciones?</li>
+          <p>Los requisitos para cada aplicación estan indidcados en la página de descargas, pero lo básico para usar la aplicación móvil es necesario tener un dispositivo Android y para la de escritorio un sistema operativo Windows.</p>
+          <li>¿Cuales son los métodos de pago en la tienda online?</li>
+          <p>En la tienda online el único método de pago disponible es mediante Paypal.</p>
+        </ul>
+      </div>
+    </div>
+
+    <footer id="bottom">
+      <ul class="menu_horizontal">
+        <li class="option"><a class="link" href="https://www.instagram.com/inforaceinfo/" target="_blank">Instagram</a></li>
+        <li class="option"><a class="link" href="https://twitter.com/inforaceinfo" target="_blank">Twitter</a></li>
+        <li class="option"><a class="link" href="https://www.facebook.com/profile.php?id=61559147424922" target="_blank">Facebook</a></li>
+        <li class="option"><a class="link" href="index.html">Sobre nosotros</a></li>
+        <li class="option"><a class="link" href="about.html">Ayuda</a></li>
+      </ul>
+    </footer>
+
+    <script>
+      window.onload = function() {
+        const userSession = sessionStorage.getItem("session");
+        const loginRegisterButtons = document.getElementById("login-register-buttons");
+        const logoutButton = document.getElementById("logout-button");
+
+        if (userSession) {
+          loginRegisterButtons.style.display = "none";
+          logoutButton.style.display = "block";
+        } else {
+          loginRegisterButtons.style.display = "block";
+          logoutButton.style.display = "none";
+        }
+      };
+      function cerrarSesion() {
+        sessionStorage.removeItem("session");
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
