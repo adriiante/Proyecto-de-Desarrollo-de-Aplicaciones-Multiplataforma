@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.inforace">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.InfoRace"
+        android:usesCleartextTraffic="true">
+
+        <!-- Declaración de actividades -->
+        <activity android:name=".LoginActivity" android:label="Login Activity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:exported="true" />
+        <activity android:name=".F1Activity" android:label="F1 Activity" android:exported="true"/>
+        <activity android:name=".F2Activity" android:label="F2 Activity" android:exported="true"/>
+        <activity android:name=".F3Activity" android:label="F3 Activity" android:exported="true"/>
+        <activity android:name=".FEActivity" android:label="FE Activity" android:exported="true"/>
+        <activity android:name=".AyudaActivity" android:label="About Us Activity" android:exported="true"/>
+        <activity android:name=".CActivity" android:label="C Activity" android:exported="true"/>
+        <activity android:name=".DActivity" android:label="D Activity" android:exported="true"/>
+        <activity android:name=".KActivity" android:label="K Activity" android:exported="true"/>
+        <activity android:name=".D1GPActivity" android:label="D1 GP Activity" android:exported="true"/>
+        <activity android:name=".MotoGPActivity" android:label="MotoGP Activity" android:exported="true"/>
+        <activity android:name=".Moto2Activity" android:label="Moto2 Activity" android:exported="true"/>
+        <activity android:name=".Moto3Activity" android:label="Moto3 Activity" android:exported="true"/>
+        <activity android:name=".WRCActivity" android:label="WRC Activity" android:exported="true"/>
+        <activity android:name=".RXActivity" android:label="RX Activity" android:exported="true"/>
+        <activity android:name=".WECActivity" android:label="WEC Activity" android:exported="true"/>
+        <activity android:name=".IMSAActivity" android:label="IMSA Activity" android:exported="true"/>
+        <activity android:name=".GT3Activity" android:label="GT3 Activity" android:exported="true"/>
+        <activity android:name=".NASCARActivity" android:label="NASCAR Activity" android:exported="true"/>
+
+        <!-- Firebase meta-data -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <meta-data
+            android:name="com.google.firebase.analytics.collection_enabled"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.firebase.firebase_analytics_collection_deactivated"
+            android:value="false" />
+        <meta-data
+            android:name="com.google.firebase.remoteconfig_default"
+            android:resource="@xml/remote_config_defaults" />
+
+    </application>
+</manifest>

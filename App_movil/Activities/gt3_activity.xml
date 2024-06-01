@@ -1,0 +1,235 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".GT3Activity">
+
+    <!-- Fondo de imagen -->
+    <ImageView
+        android:id="@+id/imageViewBackgroundGT3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gt3" />
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarGT3"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="#00071D"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Contenedor principal HorizontalScrollView -->
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="234dp"
+        android:layout_height="87dp"
+        android:src="@drawable/nforace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/toolbarGT3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownId" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarGT3">
+
+        <!-- LinearLayout principal -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Sección de Bienvenida y Campeón Actual -->
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <!-- Descripción del GT3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#003f7a"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:alpha="0.8">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="Bienvenido a GT3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GT3 es una categoría de automovilismo para coches deportivos de gran turismo. Es conocida por la participación de fabricantes de coches de lujo y por carreras emocionantes en circuitos famosos alrededor del mundo."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <!-- Campeón GT3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#003f7a"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Campeón Actual"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:alpha="0.8"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Akkodis ASP Team ha sido coronado campeón del GT World Challenge Europe en 2023, demostrando un rendimiento excepcional y una gran habilidad en la competición de gran turismo."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="345dp"
+                        android:layout_height="242dp"
+                        android:alpha="2"
+                        app:srcCompat="@drawable/gtwc" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Título del Calendario y calendario programático -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#003f7a"
+                    android:padding="16dp"
+                    android:text="Calendario 2024"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:alpha="0.8"/>
+
+                <ScrollView
+                    android:alpha="0.8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1000dp"
+                    android:background="#003f7a"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/calendarLayoutGT3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Eventos del calendario -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="07/04 - 09/04: Monza"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="05/05 - 07/05: Magny-Cours"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="19/05 - 21/05: Paul Ricard"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="02/06 - 04/06: Zandvoort"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="23/06 - 25/06: Misano"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="07/07 - 09/07: Spa-Francorchamps"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="01/09 - 03/09: Hockenheim"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="08/09 - 10/09: Barcelona"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

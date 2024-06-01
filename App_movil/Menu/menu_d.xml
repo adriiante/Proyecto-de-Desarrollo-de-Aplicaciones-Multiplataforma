@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/drifting_formula_drift"
+        android:title="Formula Drift" />
+    <item
+        android:id="@+id/drifting_d1_gp"
+        android:title="D1 GP" />
+
+</menu>

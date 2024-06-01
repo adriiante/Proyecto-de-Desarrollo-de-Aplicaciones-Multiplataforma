@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/formula_1"
+        android:title="Formula 1" />
+    <item
+        android:id="@+id/formula_2"
+        android:title="Formula 2" />
+    <item
+        android:id="@+id/formula_3"
+        android:title="Formula 3" />
+    <item
+        android:id="@+id/formula_e"
+        android:title="Formula E" />
+</menu>
