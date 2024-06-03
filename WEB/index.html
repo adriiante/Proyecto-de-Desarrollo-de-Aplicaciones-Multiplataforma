@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InfoRace</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="src/img/logo_ico.png" type="image/png">
+    <link rel="stylesheet" href="styles/style.css"/>
+  </head>
+  <body class="background" id="index">
+    <header id="top">
+      <ul class="menu_horizontal">
+        <li><img id="imglogo" src="src/img/logo.png" alt="Logo de InfoRace" /></li>
+        <li class="option"><a class="link" href="index.html">Inicio</a></li>
+        <li class="option"><a class="link" href="tienda.html">Tienda</a></li>
+        <li class="option"><a class="link" href="download.html">Descargar</a></li>
+        <li id="login-register-buttons" class="menu">
+          <button class="menu-button" onclick="location.href='login.html'">Iniciar Sesión</button>
+          <button class="menu-button" onclick="location.href='registro.html'">Registrarse</button>
+        </li>
+        <li id="logout-button" class="menu-logout">
+          <button class="menu-button" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </li>
+      </ul>
+    </header>
+
+    <div id="mid">
+      <div class="welcome">
+        <h1>¡Bienvenido a la página web de Inforace!</h1>
+        <p>
+          InfoRace es una aplicación móvil y de escritorio diseñada para
+          gestionar y administrar eventos de automovilismo de forma que los
+          usuarios puedan acceder fácilmente a información detallada sobre la
+          categoría que deseen. Así mismo la información que recibe el usuario
+          sobre el tema de automovilismo y la categoría que desee esta de forma
+          centralizada y sencilla. Aquí encontraras todo lo necesario para poder
+          seguir todas tus categorías de automovilismo. Disponemos de un
+          apartado de descargas en el que podras descargarte nuestras
+          aplicaciones tanto de escritorio como de móvil, ¡no te lo pierdas!.
+          Tambíen puedes registrarte o iniciar sesión desde aquí mismo,
+          disponemos de un catalogo de diferentes articulos en nuestra tienda,
+          ¡echales un vistazo!.
+        </p>
+      </div>
+      <div class="welcome">
+        <h1>¿Cómo moverme por la web?</h1>
+        <p>
+          Dentro de la página web dispones de un menu horizontal en la parte
+          superior para ayudarte a moverte por las diferentes secciones de la
+          web, la opción de tienda te ddirigira a la tienda online por si
+          ddeseas comprar algún producto de Inforace y en el apartado descargas
+          podrás descarte el instalador de nuestra aplicación de móvil como de
+          escritorio. Puedes iniciar sesión o registrarte a traves del icono de
+          usuario en la parte superior. Por ultimo dispones de un menu
+          horizontal en la parte inferior con el que tendras acceso a nuestras
+          diferentes redes y más información sobre Inforace.
+        </p>
+      </div>
+    </div>
+
+    <footer id="bottom">
+      <ul class="menu_horizontal">
+        <li class="option"><a class="link" href="https://www.instagram.com/inforaceinfo/" target="_blank">Instagram</a></li>
+        <li class="option"><a class="link" href="https://twitter.com/inforaceinfo" target="_blank">Twitter</a></li>
+        <li class="option"><a class="link" href="https://www.facebook.com/profile.php?id=61559147424922" target="_blank">Facebook</a></li>
+        <li class="option"><a class="link" href="index.html">Sobre nosotros</a></li>
+        <li class="option"><a class="link" href="about.html">Ayuda</a></li>
+      </ul>
+    </footer>
+
+    <script>
+      window.onload = function() {
+        const userSession = sessionStorage.getItem("session");
+        const loginRegisterButtons = document.getElementById("login-register-buttons");
+        const logoutButton = document.getElementById("logout-button");
+
+        if (userSession) {
+          loginRegisterButtons.style.display = "none";
+          logoutButton.style.display = "block";
+        } else {
+          loginRegisterButtons.style.display = "block";
+          logoutButton.style.display = "none";
+        }
+      };
+      function cerrarSesion() {
+        sessionStorage.removeItem("session");
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

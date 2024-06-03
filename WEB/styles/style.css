@@ -9,30 +9,28 @@ body {
 }
 
 /* Fondos de páginas*/
-.background::before {
-  content: "";
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  filter: blur(8px);
-  z-index: -1;
+.background{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
-#index::before {
+#index {
   background-image: url("../src/img/formula.jpg");
 }
-#download::before {
+#download {
   background-image: url("../src/img/alpine.jpeg");
 }
-#registro::before {
+#registro {
   background-image: url("../src/img/senna.jpg");
 }
-#about::before {
+#about {
   background-image: url("../src/img/renault.jpg");
 }
-#login::before {
+#login {
   background-image: url("../src/img/bmw.jpg");
+}
+#shop {
+  background-image: url("../src/img/formula.jpeg");
 }
 
 /* Estilos del encabezado y tamaño del logo*/
@@ -211,6 +209,7 @@ input[type="checkbox"] {
   width: 200px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #FFFFFF;
 }
 .producto img {
   width: 100%;
