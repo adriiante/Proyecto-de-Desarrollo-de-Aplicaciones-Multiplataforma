@@ -118,6 +118,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Botón Linktree (boton_f4)
+        Button botonF5 = findViewById(R.id.boton_f5);
+        botonF5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Abrir enlace en navegador
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://52.7.131.87/"));
+                startActivity(browserIntent);
+            }
+        });
+
         // ImageView para el menú de registro
         ImageView imageView4 = findViewById(R.id.imageView4);
         imageView4.setOnClickListener(new View.OnClickListener() {
@@ -171,9 +182,6 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     } else if (item.getItemId() == R.id.rally_wrc) {
                         startActivity(new Intent(MainActivity.this, WRCActivity.class));
-                        return true;
-                    } else if (item.getItemId() == R.id.rally_x) {
-                        startActivity(new Intent(MainActivity.this, RXActivity.class));
                         return true;
                     } else if (item.getItemId() == R.id.wec) {
                         startActivity(new Intent(MainActivity.this, WECActivity.class));

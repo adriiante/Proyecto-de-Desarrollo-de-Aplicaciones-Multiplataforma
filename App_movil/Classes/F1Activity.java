@@ -66,56 +66,60 @@ public class F1Activity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d("F1Activity", "Respuesta de la API: " + result);
-                // Parsear la respuesta XML y mostrar los datos en el WebView
-                String parsedData = parseDriverStandingsXML(result);
-                WebView apiResponseWebView = findViewById(R.id.pilotsApiResponseWebView);
-                apiResponseWebView.getSettings().setJavaScriptEnabled(true);
-                apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                try {
+                    String parsedData = parseDriverStandingsXML(result);
+                    WebView apiResponseWebView = findViewById(R.id.pilotsApiResponseWebView);
+                    apiResponseWebView.getSettings().setJavaScriptEnabled(true);
+                    apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                } catch (Exception e) {
+                    Log.e("F1Activity", "Error al parsear los datos del piloto", e);
+                }
             } else {
                 Log.e("F1Activity", "La respuesta de la API es nula");
             }
         }
 
-        private String parseDriverStandingsXML(String xml) {
-            try {
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                XmlPullParser parser = factory.newPullParser();
-                parser.setInput(new StringReader(xml));
-                List<String> driverStandings = new ArrayList<>();
-                int eventType = parser.getEventType();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG && parser.getName().equals("DriverStanding")) {
-                        String driverInfo = "";
-                        String position = parser.getAttributeValue(null, "position");
-                        String points = parser.getAttributeValue(null, "points"); // Obtener los puntos
-                        String wins = parser.getAttributeValue(null, "wins"); // Obtener las victorias
-                        eventType = parser.next();
-                        while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("DriverStanding"))) {
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("GivenName")) {
-                                driverInfo += parser.nextText() + " ";
-                            }
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("FamilyName")) {
-                                driverInfo += parser.nextText();
-                            }
-                            eventType = parser.next();
+        private String parseDriverStandingsXML(String xml) throws XmlPullParserException, IOException {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = factory.newPullParser();
+            parser.setInput(new StringReader(xml));
+
+            List<String[]> driverStandings = new ArrayList<>();
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG && parser.getName().equals("DriverStanding")) {
+                    String position = parser.getAttributeValue(null, "position");
+                    String points = parser.getAttributeValue(null, "points");
+                    String wins = parser.getAttributeValue(null, "wins");
+                    String givenName = "";
+                    String familyName = "";
+                    while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("DriverStanding"))) {
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("GivenName")) {
+                            givenName = parser.nextText();
                         }
-                        driverInfo += " - " + points + " puntos - " + wins + " victorias esta temporada";
-                        String formattedInfo = String.format("%-3s", position) + "&nbsp;&nbsp;&nbsp;&nbsp;" + driverInfo;
-                        driverStandings.add(formattedInfo);
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("FamilyName")) {
+                            familyName = parser.nextText();
+                        }
+                        eventType = parser.next();
                     }
-                    eventType = parser.next();
+                    driverStandings.add(new String[]{position, givenName + " " + familyName, points, wins});
                 }
-                StringBuilder formattedData = new StringBuilder();
-                formattedData.append("<html><body>");
-                for (String driver : driverStandings) {
-                    formattedData.append("<div style='margin-left:10px; margin-bottom: -12px'>").append(driver).append("</div><br>");
-                }
-                formattedData.append("</body></html>");
-                return formattedData.toString();
-            } catch (XmlPullParserException | IOException e) {
-                Log.e("F1Activity", "Error al parsear XML", e);
-                return "Error al parsear XML";
+                eventType = parser.next();
             }
+
+            StringBuilder formattedData = new StringBuilder();
+            formattedData.append("<html><body><table border='1' style='border-collapse: collapse;'>");
+            formattedData.append("<tr><th>Posición</th><th>Piloto</th><th>Puntos</th><th>Victorias</th></tr>");
+            for (String[] driver : driverStandings) {
+                formattedData.append("<tr>");
+                formattedData.append("<td>").append(driver[0]).append("</td>");
+                formattedData.append("<td>").append(driver[1]).append("</td>");
+                formattedData.append("<td>").append(driver[2]).append("</td>");
+                formattedData.append("<td>").append(driver[3]).append("</td>");
+                formattedData.append("</tr>");
+            }
+            formattedData.append("</table></body></html>");
+            return formattedData.toString();
         }
     }
 
@@ -123,7 +127,7 @@ public class F1Activity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String apiUrl = "https://ergast.com/api/f1/current/constructorstandings";
+            String apiUrl = "https://ergast.com/api/f1/current/constructorStandings";
 
             try {
                 URL url = new URL(apiUrl);
@@ -149,58 +153,55 @@ public class F1Activity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d("F1Activity", "Respuesta de la API: " + result);
-                // Parsear la respuesta XML y mostrar los datos en el WebView
-                String parsedData = parseConstructorStandingsXML(result);
-                WebView apiResponseWebView = findViewById(R.id.constructorsApiResponseWebView);
-                apiResponseWebView.getSettings().setJavaScriptEnabled(true);
-                apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                try {
+                    String parsedData = parseConstructorStandingsXML(result);
+                    WebView apiResponseWebView = findViewById(R.id.constructorApiResponseWebView);
+                    apiResponseWebView.getSettings().setJavaScriptEnabled(true);
+                    apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                } catch (Exception e) {
+                    Log.e("F1Activity", "Error al parsear los datos del constructor", e);
+                }
             } else {
                 Log.e("F1Activity", "La respuesta de la API es nula");
             }
         }
 
-        private String parseConstructorStandingsXML(String xml) {
-            try {
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                XmlPullParser parser = factory.newPullParser();
-                parser.setInput(new StringReader(xml));
+        private String parseConstructorStandingsXML(String xml) throws XmlPullParserException, IOException {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = factory.newPullParser();
+            parser.setInput(new StringReader(xml));
 
-                List<String> constructorStandings = new ArrayList<>();
-                int eventType = parser.getEventType();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG && parser.getName().equals("ConstructorStanding")) {
-                        String constructorName = "";
-                        String points = parser.getAttributeValue(null, "points"); // Obtener directamente los puntos del atributo
-                        String position = parser.getAttributeValue(null, "position");
-                        eventType = parser.next();
-                        while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("ConstructorStanding"))) {
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Name")) {
-                                constructorName = parser.nextText();
-                            }
-                            eventType = parser.next();
+            List<String[]> constructorStandings = new ArrayList<>();
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG && parser.getName().equals("ConstructorStanding")) {
+                    String position = parser.getAttributeValue(null, "position");
+                    String points = parser.getAttributeValue(null, "points");
+                    String constructorName = "";
+                    while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("ConstructorStanding"))) {
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Name")) {
+                            constructorName = parser.nextText();
                         }
-                        String constructorInfo = String.format("%-3s", position)
-                                + "&nbsp;&nbsp;&nbsp;&nbsp;"
-                                + constructorName
-                                + " - " + points; // Añadir los puntos
-                        constructorStandings.add(constructorInfo);
+                        eventType = parser.next();
                     }
-                    eventType = parser.next();
+                    constructorStandings.add(new String[]{position, constructorName, points});
                 }
-
-                StringBuilder formattedData = new StringBuilder();
-                formattedData.append("<html><body>");
-                for (String constructor : constructorStandings) {
-                    formattedData.append("<div style='margin-left:10px; margin-bottom: -12px'>").append(constructor).append("</div><br>");
-                }
-                formattedData.append("</body></html>");
-                return formattedData.toString();
-            } catch (XmlPullParserException | IOException e) {
-                Log.e("F1Activity", "Error al parsear XML", e);
-                return "Error al parsear XML";
+                eventType = parser.next();
             }
-        }
 
+            StringBuilder formattedData = new StringBuilder();
+            formattedData.append("<html><body><table border='1' style='border-collapse: collapse;'>");
+            formattedData.append("<tr><th>Posición</th><th>Constructor</th><th>Puntos</th></tr>");
+            for (String[] constructor : constructorStandings) {
+                formattedData.append("<tr>");
+                formattedData.append("<td>").append(constructor[0]).append("</td>");
+                formattedData.append("<td>").append(constructor[1]).append("</td>");
+                formattedData.append("<td>").append(constructor[2]).append("</td>");
+                formattedData.append("</tr>");
+            }
+            formattedData.append("</table></body></html>");
+            return formattedData.toString();
+        }
     }
 
     private class FetchSchedule extends AsyncTask<Void, Void, String> {
@@ -224,96 +225,85 @@ public class F1Activity extends AppCompatActivity {
                 bufferedReader.close();
                 return stringBuilder.toString();
             } catch (IOException e) {
-                Log.e("F1Activity", "Error al obtener datos de la API", e);
+                Log.e("F1Activity", "Error al obtener los datos de la API", e);
                 return null;
             }
-        }
-
-        @Override
+        }    @Override
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d("F1Activity", "Respuesta de la API: " + result);
-                // Parsear la respuesta XML y mostrar los datos en el WebView
-                String parsedData = parseScheduleXML(result);
-                WebView apiResponseWebView = findViewById(R.id.scheduleApiResponseWebView);
-                apiResponseWebView.getSettings().setJavaScriptEnabled(true);
-                apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                try {
+                    String parsedData = parseScheduleXML(result);
+                    WebView apiResponseWebView = findViewById(R.id.scheduleApiResponseWebView);
+                    apiResponseWebView.getSettings().setJavaScriptEnabled(true);
+                    apiResponseWebView.loadData(parsedData, "text/html; charset=utf-8", "UTF-8");
+                } catch (Exception e) {
+                    Log.e("F1Activity", "Error al parsear los datos del horario de carreras", e);
+                }
             } else {
                 Log.e("F1Activity", "La respuesta de la API es nula");
             }
         }
 
-        private String parseScheduleXML(String xml) {
-            // Método para parsear el XML del horario de carreras
+        private String parseScheduleXML(String xml) throws XmlPullParserException, IOException {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = factory.newPullParser();
+            parser.setInput(new StringReader(xml));
 
-            try {
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                XmlPullParser parser = factory.newPullParser();
-                parser.setInput(new StringReader(xml));
-
-                List<String> scheduleList = new ArrayList<>();
-                int eventType = parser.getEventType();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Race")) {
-                        String raceInfo = "";
-                        String raceName = "";
-                        String date = "";
-                        String time = "";
-                        eventType = parser.next();
-                        while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("Race"))) {
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("RaceName")) {
-                                raceName = parser.nextText();
-                            }
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Date")) {
-                                date = parser.nextText();
-                            }
-                            if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Time")) {
-                                time = parser.nextText();
-                            }
-                            eventType = parser.next();
-                        }
-                        // Convertir la hora UTC a la hora de Madrid
-                        String madridTime = convertUTCToMadridTime(date, time);
-                        raceInfo = raceName + " - El día " + date.substring(5) + " - " + madridTime;
-                        scheduleList.add(raceInfo);
-                    }
+            List<String[]> scheduleList = new ArrayList<>();
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Race")) {
+                    String raceName = "";
+                    String date = "";
+                    String time = "";
                     eventType = parser.next();
+                    while (!(eventType == XmlPullParser.END_TAG && parser.getName().equals("Race"))) {
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("RaceName")) {
+                            raceName = parser.nextText();
+                        }
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Date")) {
+                            date = parser.nextText();
+                        }
+                        if (eventType == XmlPullParser.START_TAG && parser.getName().equals("Time")) {
+                            time = parser.nextText();
+                        }
+                        eventType = parser.next();
+                    }
+                    String madridTime = convertUTCToMadridTime(date, time);
+                    scheduleList.add(new String[]{raceName, date, madridTime});
                 }
-
-                StringBuilder formattedData = new StringBuilder();
-                formattedData.append("<html><body>");
-                for (String race : scheduleList) {
-                    formattedData.append("<div style='margin-left:10px; margin-bottom: -12px'>").append(race).append("</div><br>");
-                }
-                formattedData.append("</body></html>");
-                return formattedData.toString();
-            } catch (XmlPullParserException | IOException e) {
-                Log.e("F1Activity", "Error al parsear el XML del horario de carreras", e);
-                return "Error al parsear el XML del horario de carreras";
+                eventType = parser.next();
             }
+
+            StringBuilder formattedData = new StringBuilder();
+            formattedData.append("<html><body><table border='1' style='border-collapse: collapse;'>");
+            formattedData.append("<tr><th>Carrera</th><th>Fecha</th><th>Hora (Madrid)</th></tr>");
+            for (String[] race : scheduleList) {
+                formattedData.append("<tr>");
+                formattedData.append("<td>").append(race[0]).append("</td>");
+                formattedData.append("<td>").append(race[1]).append("</td>");
+                formattedData.append("<td>").append(race[2]).append("</td>");
+                formattedData.append("</tr>");
+            }
+            formattedData.append("</table></body></html>");
+            return formattedData.toString();
         }
-
-
 
         private String convertUTCToMadridTime(String date, String time) {
+            SimpleDateFormat utcFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            utcFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+            SimpleDateFormat madridFormat = new SimpleDateFormat("HH:mm");
+            madridFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+
             try {
-                SimpleDateFormat inputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                SimpleDateFormat outputDateFormat = new SimpleDateFormat("dd/MM");
-
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-                Date utcDate = sdf.parse(date + "T" + time);
-
-                sdf.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
-                String formattedDate = outputDateFormat.format(utcDate);
-                String formattedTime = new SimpleDateFormat("HH:mm").format(utcDate);
-                return formattedDate.substring(5) + " a las " + formattedTime;
+                Date utcDate = utcFormat.parse(date + "T" + time + "Z");
+                return madridFormat.format(utcDate);
             } catch (ParseException e) {
-                Log.e("F1Activity", "Error al convertir la hora UTC a la hora de Madrid", e);
-                return "Error al convertir la hora UTC a la hora de Madrid";
+                Log.e("F1Activity", "Error al convertir hora de UTC a Madrid", e);
+                return time;
             }
         }
-
-
     }
 }
