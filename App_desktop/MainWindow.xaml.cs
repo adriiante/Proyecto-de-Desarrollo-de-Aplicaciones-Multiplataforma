@@ -211,7 +211,7 @@ namespace InfoRace
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "cmd",
-                    Arguments = $"/c start https://WEB/",
+                    Arguments = $"/c start http://52.7.131.87/",
                     CreateNoWindow = true
                 });
             }
@@ -247,16 +247,6 @@ namespace InfoRace
             }
         }
 
-        private void formula1Notifications_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void formula1Notifications_Unchecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnLeft_Click(object sender, RoutedEventArgs e)
         {
             double totalWidth = canvasContainer.Children.Cast<UIElement>().Max(element => Canvas.GetLeft(element) + element.RenderSize.Width);
@@ -287,6 +277,7 @@ namespace InfoRace
             spHelp.Visibility = Visibility.Collapsed;
             spFormula1Page1.Visibility = Visibility.Collapsed;
             spFormula1Page2.Visibility = Visibility.Collapsed;
+            spFormula1Page3.Visibility = Visibility.Collapsed;
             spFormula2Page1.Visibility = Visibility.Collapsed;
             spFormula2Page2.Visibility = Visibility.Collapsed;
             spFormula3Page1.Visibility = Visibility.Collapsed;
@@ -489,12 +480,28 @@ namespace InfoRace
         {
             spFormula1Page1.Visibility = Visibility.Visible;
             spFormula1Page2.Visibility = Visibility.Collapsed;
+            spFormula1Page3.Visibility = Visibility.Collapsed;
         }
 
         private void btFormula1Page2_Click(object sender, RoutedEventArgs e)
         {
             spFormula1Page2.Visibility = Visibility.Visible;
             spFormula1Page1.Visibility = Visibility.Collapsed;
+            spFormula1Page3.Visibility = Visibility.Collapsed;
+        }
+
+        private void btFormula1Page2_reverse_Click(object sender, RoutedEventArgs e)
+        {
+            spFormula1Page2.Visibility = Visibility.Visible;
+            spFormula1Page1.Visibility = Visibility.Collapsed;
+            spFormula1Page3.Visibility = Visibility.Collapsed;
+        }
+
+        private void btFormula1Page3_Click(object sender, RoutedEventArgs e)
+        {
+            spFormula1Page3.Visibility = Visibility.Visible;
+            spFormula1Page1.Visibility = Visibility.Collapsed;
+            spFormula1Page2.Visibility = Visibility.Collapsed;
         }
 
         private void btFormula2Page1_Click(object sender, RoutedEventArgs e)
@@ -711,5 +718,6 @@ namespace InfoRace
             spD1GPPage2.Visibility = Visibility.Visible;
             spD1GPPage1.Visibility = Visibility.Collapsed;
         }
+
     }
 }

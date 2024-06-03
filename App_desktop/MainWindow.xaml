@@ -417,7 +417,6 @@
                Margin="1000,0,0,0" Style="{StaticResource ImageButtonStyle}" MouseLeftButtonDown="Image_MouseLeftButtonDown">
             <Image.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Perfil" Click="Perfil_Click"/>
                     <MenuItem Header="Cerrar Sesión" Click="CerrarSesion_Click"/>
                 </ContextMenu>
             </Image.ContextMenu>
@@ -436,7 +435,7 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Name="spHelp" Visibility="Collapsed">
-            <TextBlock Height="400" Width="900" Margin="0,25,0,0">
+            <TextBlock Height="300" Width="700" Margin="0,55,0,0">
                 <Run Text="Preguntas frecuentes"/>
                 <LineBreak/>
                 <LineBreak/>
@@ -455,24 +454,44 @@
         </StackPanel>
         <StackPanel Name="spFormula1Page1" Visibility="Collapsed">
             <Grid Grid.Row="2">
+                <TextBlock Width="550" Height="180" TextAlignment="Justify" Margin="0,0,500,0" >
+                    <Run Text="Actual campeeón"/>
+                    <LineBreak/>
+                    <TextBlock Text="Max Verstappen fue el Campeón Mundial de Fórmula 1 en 2023. Este título marcó su tercer campeonato consecutivo, consolidándose como uno de los pilotos más dominantes de la era moderna."/>
+                </TextBlock>
+                <TextBlock Width="550" Height="220" TextAlignment="Justify" Margin="0,0,500,450" >
+                    <Run Text="¡Bienvenido a la Formula 1!"/>
+                    <LineBreak/>
+                    <TextBlock Text="La Fórmula 1, conocida como F1, es la categoría más prestigiosa del automovilismo, organizada por la Federación Internacional del Automóvil (FIA). Iniciada en 1950, la F1 se compone de una serie de carreras, denominadas Grandes Premios, que se celebran en todo el mundo. Los monoplazas, extremadamente rápidos y avanzados tecnológicamente."/>
+                </TextBlock>
+                <TextBlock Width="450" Height="300" TextAlignment="Center" Margin="550,0,0,200">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/Max.png" Height="400" Width="400"/>
+                </TextBlock>
+                <Button Content="←" Margin="950,210,0,0" Width="22" Height="25"/>
+                <TextBlock Text="1 / 3" Margin="1010,210,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula1Page2" Click="btFormula1Page2_Click" Content="→" Margin="1070,210,0,0" Width="22" Height="25"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Name="spFormula1Page2" Visibility="Collapsed">
+            <Grid Grid.Row="2">
                 <TextBlock Text="Ranking Pilotos" Width="500" Height="500" TextAlignment="Center" Margin="0,0,500,0">
                      <WebBrowser Name="Pilotos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="370" Width="440"/>
                 </TextBlock>
                 <TextBlock Text="Constructores" Width="400" Height="400" TextAlignment="Center" Margin="550,0,0,50">
                     <WebBrowser Name="Constructores" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="310" Width="330"/>
                 </TextBlock>
-                <Button Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="1 / 2" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
-                <Button Name="btFormula1Page2" Click="btFormula1Page2_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
+                <Button Name="btFormula1Page1" Click="btFormula1Page1_Click" Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="2 / 3" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula1Page3" Click="btFormula1Page3_Click" Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
-        <StackPanel Name="spFormula1Page2" Visibility="Collapsed">
+        <StackPanel Name="spFormula1Page3" Visibility="Collapsed">
             <Grid Grid.Row="2">
                 <TextBlock Text="Circuitos" Width="800" Height="500" TextAlignment="Center">
                     <WebBrowser Name="Circuitos" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Height="360" Width="740"/>
                 </TextBlock>
-                <Button Name="btFormula1Page1" Click="btFormula1Page1_Click" Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
-                <TextBlock Text="2 / 2" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
+                <Button Name="btFormula1Page2_reverse" Click="btFormula1Page2_reverse_Click" Content="←" Margin="950,370,0,0" Width="22" Height="25"/>
+                <TextBlock Text="3 / 3" Margin="1010,370,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
                 <Button Content="→" Margin="1070,370,0,0" Width="22" Height="25"/>
             </Grid>
         </StackPanel>
@@ -686,10 +705,10 @@
                 <TextBlock Width="450" Height="260" TextAlignment="Justify" Margin="0,0,500,0" >
                     <Run Text="Actual campeón"/>
                     <LineBreak/>
-                    <TextBlock Text="Raffaele Marciello fue el campeón de la categoría GT3 en el Fanatec GT World Challenge Europe Powered by AWS. Compitiendo junto a Timur Boguslavskiy y Jules Gounon, lograron el título de pilotos en el campeonato de resistencia. El equipo campeón fue Akkodis ASP Team, utilizando un Mercedes-AMG GT3. Este fue un logro destacado en el mundo del automovilismo deportivo para Marciello y su equipo."/>
+                    <TextBlock Text="Akkodis ASP Team fue el equipo campeón de la categoría GT3 en el Fanatec GT World Challenge Europe Powered by AWS. Compitiendo junto a Timur Boguslavskiy y Jules Gounon, lograron el título de pilotos en el campeonato de resistencia. Utilizando un Mercedes-AMG GT3. Este fue un logro destacado en el mundo del automovilismo deportivo para Marciello y su equipo."/>
                 </TextBlock>
                 <TextBlock Width="500" Height="300" TextAlignment="Center" Margin="550,0,0,0">
-                    <Image Source="pack://application:,,,/InfoRace;component/Images/Marciello.png" Height="500" Width="500"/>
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/AkkodisASPTeam.png" Height="500" Width="500"/>
                 </TextBlock>
                 <Button Name="btGT3Page1" Click="btGT3Page1_Click" Content="←" Margin="950,400,0,0" Width="22" Height="25"/>
                 <TextBlock Text="2 / 2" Margin="1010,400,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -978,13 +997,13 @@
         </StackPanel>
         <StackPanel Name="spWRCPage2" Visibility="Collapsed">
             <Grid Grid.Row="2">
-                <TextBlock Width="500" Height="400" TextAlignment="Justify" Margin="0,0,500,0" >
+                <TextBlock Width="500" Height="330" TextAlignment="Justify" Margin="0,0,500,0" >
                     <Run Text="Actual campeón"/>
                     <LineBreak/>
-                    <TextBlock Text="El actual campeón del World Rally Championship (WRC) es Kalle Rovanperä, quien logró el título en el año 2023. Rovanperä, a la edad de 23 años, se convirtió en una leyenda al ganar el campeonato, siendo el campeón más joven en la historia del WRC. Su ascenso meteórico en el mundo del rally comenzó a una temprana edad, mostrando habilidades excepcionales desde su adolescencia. Proveniente de una familia con un historial en el automovilismo, Rovanperä ha demostrado una destreza y consistencia impresionantes en el volante de su Toyota Yaris, dominando las competiciones con un estilo de conducción preciso y agresivo. Su victoria en el campeonato refleja su dedicación, talento y determinación para alcanzar la grandeza en el mundo del rally, estableciéndose como una figura destacada y una fuerza imparable en el deporte del automovilismo."/>
+                    <TextBlock Text="El actual campeón del World Rally Championship (WRC) es el equipo Toyota Gazoo Racing, quien logró el título en el año 2023. Toyota Gazoo Racing, se convirtió en una leyenda al ganar el campeonato. Toyota Gazoo Racing ha demostrado una destreza y consistencia impresionantes en el volante de su Toyota Yaris, dominando las competiciones con un estilo de conducción preciso y agresivo. Su victoria en el campeonato refleja su dedicación, talento y determinación para alcanzar la grandeza en el mundo del rally, estableciéndose como una figura destacada y una fuerza imparable en el deporte del automovilismo."/>
                 </TextBlock>
-                <TextBlock Width="400" Height="350" TextAlignment="Center" Margin="550,0,0,0">
-                    <Image Source="pack://application:,,,/InfoRace;component/Images/Kalle.png"/>
+                <TextBlock Width="400" Height="280" TextAlignment="Center" Margin="550,0,0,0">
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/ToyotaGazooRacing.png"/>
                 </TextBlock>
                 <Button Name="btWRCPage1" Click="btWRCPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -1220,10 +1239,10 @@
                 <TextBlock Width="450" Height="260" TextAlignment="Justify" Margin="0,0,500,0" >
                     <Run Text="Actual campeón"/>
                     <LineBreak/>
-                    <TextBlock Text="Fredric Aasbø es uno de los drifters más destacados en la historia de Formula Drift. En 2023, Aasbø demostró su habilidad y consistencia al ganar el campeonato. Es conocido por su precisión en las maniobras y su capacidad para mantener el control del vehículo en situaciones extremas. Compitiendo para el equipo Papadakis Racing, Aasbø ha sido un competidor feroz y respetado en la serie​."/>
+                    <TextBlock Text="Chelsea DeNofa es uno de los drifters más destacados en la historia de Formula Drift. En 2023, Chelsea DeNofa demostró su habilidad y consistencia al ganar el campeonato. Es conocido por su precisión en las maniobras y su capacidad para mantener el control del vehículo en situaciones extremas. Chelsea DeNofa ha sido un competidor feroz y respetado en la serie​."/>
                 </TextBlock>
                 <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
-                    <Image Source="pack://application:,,,/InfoRace;component/Images/Fredric.png"/>
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/ChelseaDeNofa.png"/>
                 </TextBlock>
                 <Button Name="btFormulaDriftPage1" Click="btFormulaDriftPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
@@ -1265,10 +1284,10 @@
                 <TextBlock Width="450" Height="300" TextAlignment="Justify" Margin="0,0,500,0" >
                     <Run Text="Actual campeón"/>
                     <LineBreak/>
-                    <TextBlock Text="Masashi Yokoi es un drifter japonés muy talentoso que ha ganado el campeonato del D1 Grand Prix en 2023. Yokoi es conocido por su agresivo estilo de conducción y su capacidad para realizar maniobras complejas con gran destreza. Su desempeño en la temporada ha sido impresionante, destacándose en varios eventos y superando a algunos de los mejores drifters del mundo. Yokoi ha demostrado una vez más por qué es considerado uno de los mejores en la disciplina del drifting​."/>
+                    <TextBlock Text="Toyo Tires es el equipo campeón japonés talentoso que ha ganado el campeonato del D1 Grand Prix en 2023. Toyo Tires es conocido por su agresivo estilo de conducción y su capacidad para realizar maniobras complejas con gran destreza. Su desempeño en la temporada ha sido impresionante, destacándose en varios eventos y superando a algunos de los mejores equipos del mundo. Toyo Tires ha demostrado una vez más por qué es considerado uno de los mejores equipos en la disciplina del drifting​."/>
                 </TextBlock>
                 <TextBlock Width="500" Height="350" TextAlignment="Center" Margin="550,0,0,0">
-                    <Image Source="pack://application:,,,/InfoRace;component/Images/Masashi.png"/>
+                    <Image Source="pack://application:,,,/InfoRace;component/Images/ToyoTires.png"/>
                 </TextBlock>
                 <Button Name="btD1GPPage1" Click="btD1GPPage1_Click" Content="←" Margin="950,420,0,0" Width="22" Height="25"/>
                 <TextBlock Text="2 / 2" Margin="1010,420,0,0" Width="35" Height="20" Padding="0" Foreground="Black" Background="White" FontSize="15"/>
