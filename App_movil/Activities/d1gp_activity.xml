@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Fondo de imagen -->
+    <ImageView
+        android:id="@+id/d1gp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/d1gp" />
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="#00071D"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Contenedor principal HorizontalScrollView -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="234dp"
+        android:layout_height="87dp"
+        android:src="@drawable/nforace"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownId" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <!-- LinearLayout principal -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Sección de Bienvenida y Campeón Actual -->
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical"
+                android:layout_marginEnd="90dp">
+
+                <!-- Descripción de D1 Cup -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#003f7a"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:alpha="0.8">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="Bienvenido a D1 Cup"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="D1 Cup es una emocionante competencia de drifting que atrae a los mejores pilotos de todo el mundo para demostrar su habilidad y estilo en las pistas."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <!-- Campeón D1 Cup -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#DD003f7a"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Campeón Actual"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:alpha="0.8"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Toyo Tires es el equipo japonés campeón actual, conocido por su técnica impecable y su capacidad para controlar el coche en situaciones extremas."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="345dp"
+                        android:layout_height="242dp"
+                        android:alpha="2"
+                        app:srcCompat="@drawable/tt" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Título del Calendario y calendario programático -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#003f7a"
+                    android:padding="16dp"
+                    android:text="Calendario 2024"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:alpha="0.8"/>
+
+                <ScrollView
+                    android:alpha="0.8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1000dp"
+                    android:background="#003f7a"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/calendarLayoutD1Cup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="17/03 - Round 1: Suzuka Twin Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="07/04 - Round 2: Fuji Speedway, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="21/04 - Round 3: Okayama International Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="05/05 - Round 4: Ebisu Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="19/05 - Round 5: Suzuka Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="02/06 - Round 6: Fuji Speedway, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="16/06 - Round 7: Okayama International Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="30/06 - Round 8: Ebisu Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="14/07 - Round 9: Suzuka Twin Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="28/07 - Round 10: Fuji Speedway, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="11/08 - Round 11: Okayama International Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#003f7a"
+                            android:padding="6dp"
+                            android:text="25/08 - Round 12: Ebisu Circuit, Japan"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
